@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="swt-debug">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/swt-debug.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/swt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jxbrowser-6.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jxbrowser-win-6.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
