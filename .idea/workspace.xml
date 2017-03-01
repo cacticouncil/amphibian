@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abfe3a21-dff9-4fba-ade1-71e3ad0780a7" name="Default" comment="" />
+    <list default="true" id="abfe3a21-dff9-4fba-ade1-71e3ad0780a7" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JxBrowser/lib/jxbrowser-6.12.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JxBrowser/lib/jxbrowser-linux32-6.12.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JxBrowser/lib/jxbrowser-linux64-6.12.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JxBrowser/lib/jxbrowser-mac-6.12.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JxBrowser/lib/jxbrowser-win-6.12.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JxBrowser/license.jar" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jxbrowser_6_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/license.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/droplet_intelliJ.iml" afterPath="$PROJECT_DIR$/droplet_intelliJ.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DropletEditor.java" afterPath="$PROJECT_DIR$/src/DropletEditor.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DropletToggle.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DropletToggle.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DropletToggle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+            <state relative-caret-position="476">
+              <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DropletEditor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DropletEditor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DropletEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+            <state relative-caret-position="442">
+              <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1582#1583#0" expanded="true" />
@@ -75,7 +87,6 @@
                 <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
                 <element signature="e#2414#2423#0" expanded="false" />
                 <element signature="e#2538#2547#0" expanded="false" />
-                <element signature="method#dispose#0;class#DropletEditor#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -167,10 +178,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="settings.github" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/JxBrowser/license.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/JxBrowser/lib/jxbrowser-win-6.12.jar!/" />
   </component>
   <component name="RunManager" selected="Plugin.Plugin">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -293,14 +304,14 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Floobits" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -392,29 +403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DropletEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1582#1583#0" expanded="true" />
-            <element signature="e#1616#1617#0" expanded="true" />
-            <element signature="e#1700#1701#0" expanded="true" />
-            <element signature="e#1734#1735#0" expanded="true" />
-            <element signature="e#1741#1749#0" expanded="false" />
-            <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#1954#1955#0" expanded="true" />
-            <element signature="e#1982#1983#0" expanded="true" />
-            <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#2414#2423#0" expanded="false" />
-            <element signature="e#2538#2547#0" expanded="false" />
-            <element signature="method#dispose#0;class#DropletEditor#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DropletEditorProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -433,10 +421,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DropletToggle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+        <state relative-caret-position="476">
+          <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/JxBrowser/lib/jxbrowser-6.12.jar!/com/teamdev/jxbrowser/chromium/internal/ipc/IPC.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="e#2576#2577#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/JxBrowser/lib/jxbrowser-6.12.jar!/com/teamdev/jxbrowser/chromium/BrowserContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="e#1880#1881#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DropletEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1582#1583#0" expanded="true" />
+            <element signature="e#1616#1617#0" expanded="true" />
+            <element signature="e#1700#1701#0" expanded="true" />
+            <element signature="e#1734#1735#0" expanded="true" />
+            <element signature="e#1741#1749#0" expanded="false" />
+            <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
+            <element signature="e#1954#1955#0" expanded="true" />
+            <element signature="e#1982#1983#0" expanded="true" />
+            <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
+            <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
+            <element signature="e#2414#2423#0" expanded="false" />
+            <element signature="e#2538#2547#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -493,7 +523,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>jxbrowser-6.12</last-edited>
+          <last-edited>license</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

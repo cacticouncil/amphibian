@@ -103,6 +103,6 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
 
     @Override
     public void dispose() {
-
+        browser.dispose();
     }
 }
