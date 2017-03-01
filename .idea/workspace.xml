@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abfe3a21-dff9-4fba-ade1-71e3ad0780a7" name="Default" comment="Has everything from testbed plugin implemented at this time. Basic browser now exists when enabled Browser initialization takes way too long, should only happen once when plugin is initialized?">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jxbrowser_6_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/license.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DropletEditor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DropletEditorProvider.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DropletToggle.java" />
+    <list default="true" id="abfe3a21-dff9-4fba-ade1-71e3ad0780a7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/droplet_intelliJ.iml" afterPath="$PROJECT_DIR$/droplet_intelliJ.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
