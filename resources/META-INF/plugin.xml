@@ -1,6 +1,6 @@
 <idea-plugin version="2">
-  <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
+  <id>com.cactiCouncil.DropletEditor.IntelliJ</id>
+  <name>Droplet Editor</name>
   <version>1.0</version>
   <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
 
@@ -26,10 +26,16 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
+    <fileEditorProvider implementation="DropletEditorProvider"/>
   </extensions>
 
   <actions>
     <!-- Add your actions here -->
+    <action id="ToggleDroplet" class="DropletToggle" text="Droplet"
+            description="Toggles whether the droplet editor is displayed for compatible files or not">
+      <add-to-group group-id="ViewMenu" anchor="before" relative-to-action="EditorToggleActions"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl B" second-keystroke="B"/>
+    </action>
   </actions>
 
 </idea-plugin>

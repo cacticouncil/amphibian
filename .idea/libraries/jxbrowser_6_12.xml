@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="jxbrowser-6.12">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/JxBrowser/lib/jxbrowser-6.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/JxBrowser/lib/jxbrowser-linux32-6.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/JxBrowser/lib/jxbrowser-linux64-6.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/JxBrowser/lib/jxbrowser-mac-6.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/JxBrowser/lib/jxbrowser-win-6.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/JxBrowser/license.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
