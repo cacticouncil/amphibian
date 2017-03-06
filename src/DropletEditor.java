@@ -11,7 +11,10 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Key;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.util.PathUtil;
 import com.teamdev.jxbrowser.chromium.BrowserPreferences;
+import com.teamdev.jxbrowser.chromium.BrowserType;
+import com.teamdev.jxbrowser.chromium.CookieStorage;
 import com.teamdev.jxbrowser.chromium.events.ConsoleEvent;
 import com.teamdev.jxbrowser.chromium.events.ConsoleListener;
 import org.jetbrains.annotations.NotNull;
@@ -20,6 +23,8 @@ import javax.swing.*;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
@@ -32,18 +37,20 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
     private BrowserView browserView;
     private VirtualFile file;
     private Project proj;
-    private static String portNum = "6728";
 
     DropletEditor(Project Proj, VirtualFile File){
-        BrowserPreferences.setChromiumSwitches("--remote-debugging-port=9222");
+        BrowserPreferences.setChromiumSwitches("--remote-debugging-port=9222", "--disable-web-security", "--allow-file-access-from-files");
+        browser = new Browser();
+        BrowserPreferences prefs = browser.getPreferences();
+        prefs.setLocalStorageEnabled(true);
+        prefs.setApplicationCacheEnabled(true);
+        browser.setPreferences(prefs);
         proj = Proj;
         file = File;
-        browser = new Browser();
         browserView = new BrowserView(browser);
         System.out.println(browser.getRemoteDebuggingURL());
-        //browser.loadHTML("<html><body><h1>Hello World!</h1></body></html>");
         browser.addConsoleListener(consoleEvent -> System.out.println("Message: " + consoleEvent.getMessage()));
-        browser.loadHTML(HTMLStorage.HTML);
+        browser.loadURL("E:\\FSP\\droplet_intelliJ\\out\\production\\droplet_intelliJ\\Droplet\\example\\example.html");
     }
 
     @NotNull
