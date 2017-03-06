@@ -11,11 +11,16 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Key;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.teamdev.jxbrowser.chromium.BrowserPreferences;
+import com.teamdev.jxbrowser.chromium.events.ConsoleEvent;
+import com.teamdev.jxbrowser.chromium.events.ConsoleListener;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
-import javax.swing.text.DefaultStyledDocument;
 import java.beans.PropertyChangeListener;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 /**
@@ -27,13 +32,18 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
     private BrowserView browserView;
     private VirtualFile file;
     private Project proj;
+    private static String portNum = "6728";
 
     DropletEditor(Project Proj, VirtualFile File){
+        BrowserPreferences.setChromiumSwitches("--remote-debugging-port=9222");
         proj = Proj;
         file = File;
         browser = new Browser();
         browserView = new BrowserView(browser);
-        browser.loadHTML("<html><body><h1>Hello World!</h1></body></html>");
+        System.out.println(browser.getRemoteDebuggingURL());
+        //browser.loadHTML("<html><body><h1>Hello World!</h1></body></html>");
+        browser.addConsoleListener(consoleEvent -> System.out.println("Message: " + consoleEvent.getMessage()));
+        browser.loadHTML(HTMLStorage.HTML);
     }
 
     @NotNull
@@ -71,12 +81,21 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
 
     @Override
     public void selectNotify() {
-
+        String code = FileDocumentManager.getInstance().getDocument(file).getText();
+        browser.executeJavaScript("this.editor.setValue(`" + code + "`)");
     }
 
     @Override
     public void deselectNotify() {
+        com.teamdev.jxbrowser.chromium.JSValue blah = browser.executeJavaScriptAndReturnValue("(function(){return this.editor.getValue()})();");
+        String code = FileDocumentManager.getInstance().getDocument(file).getText();
+        if(!blah.isNull()){
+            code = blah.getStringValue();
+        }
 
+        String finalCode = code;
+        Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(finalCode);
+        WriteCommandAction.runWriteCommandAction(proj, r);
     }
 
     @Override
