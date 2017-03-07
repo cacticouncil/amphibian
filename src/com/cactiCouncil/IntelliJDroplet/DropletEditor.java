@@ -1,31 +1,19 @@
+package com.cactiCouncil.IntelliJDroplet;
 import com.intellij.codeHighlighting.BackgroundEditorHighlighter;
-import com.intellij.openapi.application.Application;
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.command.WriteCommandAction;
-import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorLocation;
 import com.intellij.openapi.fileEditor.FileEditorState;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.Key;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.util.PathUtil;
 import com.teamdev.jxbrowser.chromium.BrowserPreferences;
-import com.teamdev.jxbrowser.chromium.BrowserType;
-import com.teamdev.jxbrowser.chromium.CookieStorage;
-import com.teamdev.jxbrowser.chromium.events.ConsoleEvent;
-import com.teamdev.jxbrowser.chromium.events.ConsoleListener;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import java.beans.PropertyChangeListener;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Locale;
-import java.util.ResourceBundle;
-
+import com.cactiCouncil.IntelliJDroplet.*;
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 /**

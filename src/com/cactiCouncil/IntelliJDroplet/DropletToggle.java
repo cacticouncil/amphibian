@@ -1,3 +1,4 @@
+package com.cactiCouncil.IntelliJDroplet;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.ToggleAction;
 import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx;

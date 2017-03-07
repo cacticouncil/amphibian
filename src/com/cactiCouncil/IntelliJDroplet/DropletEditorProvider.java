@@ -1,3 +1,4 @@
+package com.cactiCouncil.IntelliJDroplet;
 import com.intellij.openapi.fileEditor.FileEditorPolicy;
 import com.intellij.openapi.fileEditor.FileEditorProvider;
 import com.intellij.openapi.fileEditor.FileEditor;
