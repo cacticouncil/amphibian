@@ -38,7 +38,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
         browserView = new BrowserView(browser);
         System.out.println(browser.getRemoteDebuggingURL());
         browser.addConsoleListener(consoleEvent -> System.out.println("Message: " + consoleEvent.getMessage()));
-        browser.loadURL("E:\\FSP\\droplet_intelliJ\\out\\production\\droplet_intelliJ\\Droplet\\example\\example.html");
+        browser.loadURL(DropletAppComp.filePath + "example.html");
     }
 
     @NotNull

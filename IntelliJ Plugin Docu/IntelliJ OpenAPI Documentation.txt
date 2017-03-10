@@ -112,3 +112,19 @@ Document
 		
 	No other used functions at this time
 	
+ApplicationComponent (com.intellij.openapi.componenets.ApplicationComponent)
+	MUST BE IMPLEMENTED
+	Must be registered within plugin.xml within BOTH  <application-componenets> and  <component> tags
+	Tag looks like this <implementation-class>[Package reference to class]</implementation-class>
+
+	initComponent()
+		Called by IntelliJ during initialization (Not necessarily the first code called in the plugin though)
+		Runs code for Component/Plugin initialization
+		
+	disposeComponent()
+		Called by IntelliJ during shutdown of plugin
+		Runs code to cleanup Component/Plugin
+		
+	String getComponentName()
+		Called by IntelliJ at ???
+		String returned is name of component this initializes, I don't know if this affects anything
