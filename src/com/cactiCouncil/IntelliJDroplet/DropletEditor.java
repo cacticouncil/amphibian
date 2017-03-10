@@ -9,11 +9,14 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.teamdev.jxbrowser.chromium.BrowserPreferences;
+import com.teamdev.jxbrowser.chromium.JSValue;
+import com.teamdev.jxbrowser.chromium.events.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import java.beans.PropertyChangeListener;
-import com.cactiCouncil.IntelliJDroplet.*;
+import java.io.*;
+
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 /**
@@ -25,6 +28,9 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
     private BrowserView browserView;
     private VirtualFile file;
     private Project proj;
+    private boolean set = false;
+    private String Palette;
+    private boolean setPalette = false;
 
     DropletEditor(Project Proj, VirtualFile File){
         BrowserPreferences.setChromiumSwitches("--remote-debugging-port=9222", "--disable-web-security", "--allow-file-access-from-files");
@@ -39,6 +45,21 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
         System.out.println(browser.getRemoteDebuggingURL());
         browser.addConsoleListener(consoleEvent -> System.out.println("Message: " + consoleEvent.getMessage()));
         browser.loadURL(DropletAppComp.filePath + "example.html");
+
+        InputStream in = this.getClass().getResourceAsStream(DropletAppComp.relationMap.get(file.getExtension()) + "_palette.coffee");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+        StringBuilder palette = new StringBuilder();
+        try {
+            while(reader.ready()){
+                palette.append(reader.readLine());
+            }
+            reader.close();
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Palette = palette.toString();
+
     }
 
     @NotNull
@@ -76,21 +97,32 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
 
     @Override
     public void selectNotify() {
-        String code = FileDocumentManager.getInstance().getDocument(file).getText();
-        browser.executeJavaScript("this.editor.setValue(`" + code + "`)");
+        if(!browser.isLoading()){
+            if(!setPalette){
+                setPalette = true;
+                System.out.println("this.localStorage.setItem('config', \"" + Palette + "\"); update.click();");
+                browser.executeJavaScript(
+                        "this.localStorage.setItem('config', \"" + Palette + "\"); update.click();");
+            }
+            String code = FileDocumentManager.getInstance().getDocument(file).getText();
+            browser.executeJavaScript("this.editor.setValue(`" + code + "`)");
+            set = true;
+        }
     }
 
     @Override
     public void deselectNotify() {
-        com.teamdev.jxbrowser.chromium.JSValue blah = browser.executeJavaScriptAndReturnValue("(function(){return this.editor.getValue()})();");
-        String code = FileDocumentManager.getInstance().getDocument(file).getText();
-        if(!blah.isNull()){
-            code = blah.getStringValue();
-        }
+        if(set){
+            JSValue blah = browser.executeJavaScriptAndReturnValue("(function(){return this.editor.getValue()})();");
+            String code = FileDocumentManager.getInstance().getDocument(file).getText();
+            if(!blah.isNull()){
+                code = blah.getStringValue();
+            }
 
-        String finalCode = code;
-        Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(finalCode);
-        WriteCommandAction.runWriteCommandAction(proj, r);
+            String finalCode = code;
+            Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(finalCode);
+            WriteCommandAction.runWriteCommandAction(proj, r);
+        }
     }
 
     @Override

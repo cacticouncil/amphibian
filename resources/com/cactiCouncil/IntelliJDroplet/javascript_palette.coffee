@@ -11,8 +11,8 @@
         color: 'yellow',
         blocks: [
           { block: 'var x = 0;'},
-          { block: 'var things = new array("thing1", "thing2");'},
-          { block: 'var things = {var1: "thing1", var2: "thing2"};'},
+          { block: 'var things = new array(\\'thing1\\', \\'thing2\\');'},
+          { block: 'var things = {var1: \\'thing1\\', var2: \\'thing2\\'};'},
           { block: 'things[0]'},
           { block: 'things[0][0]'},
 
@@ -100,8 +100,8 @@
         color: 'blue',
         blocks: [
          { block: 'var ClassName = function(classVariable) {\\n\\tthis.classVariable = classVariable;\\n};'},
-         { block: 'var className1 = new ClassName("classVariable");'},
-         { block: '(ClassName.prototype).logSomething = function() {\\n\\tconsole.log("Something");\\n};'},
+         { block: 'var className1 = new ClassName(\\'classVariable\\');'},
+         { block: '(ClassName.prototype).logSomething = function() {\\n\\tconsole.log(\\'Something\\');\\n};'},
          { block: 'console.log(className1.classVariable);'},
 
         ]

@@ -3,6 +3,7 @@ import com.intellij.openapi.fileEditor.FileEditorPolicy;
 import com.intellij.openapi.fileEditor.FileEditorProvider;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 
@@ -13,7 +14,10 @@ import org.jetbrains.annotations.NotNull;
 public class DropletEditorProvider implements FileEditorProvider{
     @Override
     public boolean accept(@NotNull Project project, @NotNull VirtualFile file) {
-        return DropletToggle.ToggleState;
+        if(DropletAppComp.relationMap.containsKey(file.getExtension())){
+            return DropletToggle.ToggleState;
+        }
+        return false;
     }
 
     @NotNull

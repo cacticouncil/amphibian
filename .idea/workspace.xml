@@ -2,31 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abfe3a21-dff9-4fba-ade1-71e3ad0780a7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/css/droplet.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/dist/droplet-full.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/dist/droplet-full.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/dist/droplet.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/dist/worker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/example/example.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/example/example.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/example/lib/coffee-script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/example/lib/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/example/palette/c_c++_palette.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/example/palette/coffeescript_palette.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/example/palette/javascript_palette.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/example/palette/python_palette.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/vendor/ace/ace.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/vendor/ace/mode-c_cpp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/vendor/ace/mode-coffee.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/vendor/ace/mode-javascript.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/vendor/ace/mode-python.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/vendor/ace/theme-chrome.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/vendor/ace/worker-coffee.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Droplet/vendor/ace/worker-javascript.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/Manifest.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/Relations.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IntelliJ Plugin Docu/IntelliJ OpenAPI Documentation.txt" afterPath="$PROJECT_DIR$/IntelliJ Plugin Docu/IntelliJ OpenAPI Documentation.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/coffeescript_palette.coffee" afterPath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/coffeescript_palette.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/example.coffee" afterPath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/example.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/javascript_palette.coffee" afterPath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/javascript_palette.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/python_palette.coffee" afterPath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/python_palette.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletAppComp.java" afterPath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletAppComp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java" afterPath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditorProvider.java" afterPath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditorProvider.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,15 +31,45 @@
       <file leaf-file-name="DropletEditor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="100" column="28" lean-forward="true" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
               <folding>
-                <element signature="e#2137#2145#0" expanded="false" />
+                <element signature="e#2859#2867#0" expanded="false" />
                 <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
                 <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
                 <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-                <element signature="e#3594#3603#0" expanded="false" />
+                <element signature="e#4756#4765#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="coffeescript_palette.coffee" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/coffeescript_palette.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="86" column="17" lean-forward="true" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="python_palette.coffee" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/python_palette.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="90" column="42" lean-forward="false" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="javascript_palette.coffee" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/javascript_palette.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="102" column="74" lean-forward="true" selection-start-line="102" selection-start-column="74" selection-end-line="102" selection-end-column="74" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -61,21 +77,42 @@
       <file leaf-file-name="DropletEditorProvider.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditorProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="221">
+              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DropletAppComp.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DropletAppComp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletAppComp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="51" column="59" lean-forward="true" selection-start-line="51" selection-start-column="59" selection-end-line="51" selection-end-column="59" />
+            <state relative-caret-position="170">
+              <caret line="46" column="77" lean-forward="true" selection-start-line="46" selection-start-column="77" selection-end-line="47" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#copyFileFromResources#0;class#DropletAppComp#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Manifest.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/Manifest.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Relations.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/Relations.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,6 +126,12 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>(</find>
+      <find>&quot;</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -104,8 +147,15 @@
         <option value="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor/DropletEditor.java" />
         <option value="$PROJECT_DIR$/src/DropletEditorProvider.java" />
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
-        <option value="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java" />
+        <option value="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/Relations.txt" />
         <option value="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletAppComp.java" />
+        <option value="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/example.coffee" />
+        <option value="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditorProvider.java" />
+        <option value="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/Manifest.txt" />
+        <option value="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/python_palette.coffee" />
+        <option value="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java" />
+        <option value="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/coffeescript_palette.coffee" />
+        <option value="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/javascript_palette.coffee" />
       </list>
     </option>
   </component>
@@ -343,29 +393,29 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4027484" sideWeight="0.13958333" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17653278" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10989583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4027484" sideWeight="0.86041665" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42917547" sideWeight="0.86041665" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Floobits" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -402,7 +452,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -412,75 +462,11 @@
         <state relative-caret-position="289">
           <caret line="33" column="47" lean-forward="false" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
           <folding>
-            <element signature="e#2137#2145#0" expanded="false" />
+            <element signature="e#2859#2867#0" expanded="false" />
             <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#3594#3603#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditorProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletAppComp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="33" column="47" lean-forward="false" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
-          <folding>
-            <element signature="e#2137#2145#0" expanded="false" />
-            <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
-            <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#3594#3603#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditorProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletAppComp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="33" column="47" lean-forward="false" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
-          <folding>
-            <element signature="e#2137#2145#0" expanded="false" />
-            <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
-            <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#3594#3603#0" expanded="false" />
+            <element signature="e#4756#4765#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -499,6 +485,7 @@
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#copyFileFromResources#0;class#DropletAppComp#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -508,11 +495,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2137#2145#0" expanded="false" />
+            <element signature="e#2859#2867#0" expanded="false" />
             <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#3594#3603#0" expanded="false" />
+            <element signature="e#4756#4765#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -531,6 +518,7 @@
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#copyFileFromResources#0;class#DropletAppComp#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -540,11 +528,11 @@
         <state relative-caret-position="51">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="e#2137#2145#0" expanded="false" />
+            <element signature="e#2859#2867#0" expanded="false" />
             <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#3594#3603#0" expanded="false" />
+            <element signature="e#4756#4765#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -563,6 +551,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#copyFileFromResources#0;class#DropletAppComp#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -572,11 +561,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2137#2145#0" expanded="false" />
+            <element signature="e#2859#2867#0" expanded="false" />
             <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#3594#3603#0" expanded="false" />
+            <element signature="e#4756#4765#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -587,11 +576,11 @@
         <state relative-caret-position="476">
           <caret line="28" column="43" lean-forward="false" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
           <folding>
-            <element signature="e#2137#2145#0" expanded="false" />
+            <element signature="e#2859#2867#0" expanded="false" />
             <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#3594#3603#0" expanded="false" />
+            <element signature="e#4756#4765#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -602,11 +591,11 @@
         <state relative-caret-position="476">
           <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
           <folding>
-            <element signature="e#2137#2145#0" expanded="false" />
+            <element signature="e#2859#2867#0" expanded="false" />
             <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#3594#3603#0" expanded="false" />
+            <element signature="e#4756#4765#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -641,11 +630,11 @@
         <state relative-caret-position="612">
           <caret line="36" column="43" lean-forward="false" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
           <folding>
-            <element signature="e#2137#2145#0" expanded="false" />
+            <element signature="e#2859#2867#0" expanded="false" />
             <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#3594#3603#0" expanded="false" />
+            <element signature="e#4756#4765#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -680,11 +669,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2137#2145#0" expanded="false" />
+            <element signature="e#2859#2867#0" expanded="false" />
             <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
             <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#3594#3603#0" expanded="false" />
+            <element signature="e#4756#4765#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -764,14 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletToggle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="44" lean-forward="true" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -809,35 +790,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletToggle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <element signature="e#2137#2145#0" expanded="false" />
-            <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
-            <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
-            <element signature="e#3594#3603#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="544">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/example.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="65" column="65" lean-forward="true" selection-start-line="65" selection-start-column="65" selection-end-line="65" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/Manifest.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/Relations.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditorProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletAppComp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="51" column="59" lean-forward="true" selection-start-line="51" selection-start-column="59" selection-end-line="51" selection-end-column="59" />
+        <state relative-caret-position="170">
+          <caret line="46" column="77" lean-forward="true" selection-start-line="46" selection-start-column="77" selection-end-line="47" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#copyFileFromResources#0;class#DropletAppComp#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="100" column="28" lean-forward="true" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
+          <folding>
+            <element signature="e#2859#2867#0" expanded="false" />
+            <element signature="method#setState#0;class#DropletEditor#0" expanded="false" />
+            <element signature="method#addPropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
+            <element signature="method#removePropertyChangeListener#0;class#DropletEditor#0" expanded="false" />
+            <element signature="e#4756#4765#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/python_palette.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="90" column="42" lean-forward="false" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/coffeescript_palette.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="86" column="17" lean-forward="true" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/javascript_palette.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="102" column="74" lean-forward="true" selection-start-line="102" selection-start-column="74" selection-end-line="102" selection-end-column="74" />
+          <folding />
         </state>
       </provider>
     </entry>

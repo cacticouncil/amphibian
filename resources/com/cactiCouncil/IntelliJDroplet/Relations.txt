@@ -1,0 +1,4 @@
+js|javascript
+coffee|coffeescript
+py|python
+py3|python

@@ -74,7 +74,7 @@
         name: 'Functions',
         color: 'blue',
         blocks: [
-          { block: 'FunctionName = (args) -> a = "potato"'},
+          { block: 'FunctionName = (args) -> a = \\'potato\\''},
           { block: 'FunctionName(args)'},
 
 
