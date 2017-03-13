@@ -2,3 +2,6 @@ js|javascript
 coffee|coffeescript
 py|python
 py3|python
+c|c_cpp
+h|c_cpp
+cpp|c_cpp

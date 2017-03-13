@@ -8,12 +8,25 @@ import java.util.HashMap;
 
 /**
  * Created by exlted on 07-Mar-17.
+ * Sets up the plugin to be ready to be used later in the lifetime of IntelliJ
  */
 public class DropletAppComp implements ApplicationComponent {
 
+    /**
+     * Holds the filePath to be used by anything needing direct access to the Droplet website
+     */
     static String filePath;
+    /**
+     * Holds the relation map to be used for Droplet to both determine if a file should open a Droplet editor and what palette should be used for what file
+     */
     static HashMap<String, String> relationMap = new HashMap<>();
 
+    /**
+     * Copies a resource out of com.cactiCouncil.IntelliJDroplet package (might be able to change?) to external location
+     * @param copyFrom The name of the resource to be copied out, including the file extension
+     * @param copyTo The fully defined file path to copy the file out to
+     * @return whether the function succeeded or not
+     */
     private boolean copyFileFromResources(String copyFrom, String copyTo){
         InputStream in = this.getClass().getResourceAsStream(copyFrom);
         if(in == null) {
@@ -29,12 +42,12 @@ public class DropletAppComp implements ApplicationComponent {
         return true;
     }
 
+    /**
+     * Initializes the plugin by copying out the website from resources
+     * And by building the relationMap
+     */
     @Override
     public void initComponent() {
-        //Deal with Website construction here
-        /*
-            4. Build a preferences file that holds a boolean of whether it has been copied out, and a path to the place in the file structure where it is.
-         */
         Path blah = null;
         try {
             blah = Files.createTempDirectory("Droplet");
@@ -73,11 +86,17 @@ public class DropletAppComp implements ApplicationComponent {
         }
     }
 
+    /**
+     * Called by IntelliJ to clear up memory that needs to be disposed, currently no memory needs to be disposed
+     */
     @Override
     public void disposeComponent() {
-        //???
     }
 
+    /**
+     * Called by IntelliJ for unknown reasons
+     * @return the internal name of this plugin
+     */
     @NotNull
     @Override
     public String getComponentName() {

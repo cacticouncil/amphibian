@@ -10,13 +10,26 @@ import com.intellij.openapi.vfs.VirtualFile;
  */
 public class DropletToggle extends ToggleAction {
 
+    /**
+     * Stores whether or not Droplet is enabled
+     */
     static boolean ToggleState;
 
+    /**
+     * Called by IntelliJ to know whether the toggle is on or not
+     * @param e
+     * @return
+     */
     @Override
     public boolean isSelected(AnActionEvent e) {
         return ToggleState;
     }
 
+    /**
+     * Called by IntelliJ to update the current state of the toggle
+     * @param e
+     * @param state
+     */
     @Override
     public void setSelected(AnActionEvent e, boolean state) {
         ToggleState = state;

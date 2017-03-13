@@ -2,16 +2,14 @@
   <id>com.cactiCouncil.DropletEditor.IntelliJ</id>
   <name>Droplet Editor</name>
   <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="support@yourcompany.com" url="https://github.com/cacticouncil/droplet_intellij">CactiCouncil</vendor>
 
   <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      Allows for usage of the Droplet editor to edit code
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+      1.0 - Initial release, allows for stable usage with JavaScript, CoffeeScript and Python
     ]]>
   </change-notes>
 
@@ -20,9 +18,7 @@
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
-  <!-- uncomment to enable plugin in all products
   <depends>com.intellij.modules.lang</depends>
-  -->
 
     <application-components>
         <component>
