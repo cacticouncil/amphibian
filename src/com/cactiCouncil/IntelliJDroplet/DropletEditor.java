@@ -8,6 +8,8 @@ import com.intellij.openapi.fileEditor.FileEditorState;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.wm.impl.commands.InvokeLaterCmd;
+import com.sun.glass.ui.Application;
 import com.teamdev.jxbrowser.chromium.BrowserPreferences;
 import com.teamdev.jxbrowser.chromium.JSValue;
 import com.teamdev.jxbrowser.chromium.events.*;
@@ -74,7 +76,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
         browserView = new BrowserView(browser);
         System.out.println(browser.getRemoteDebuggingURL());
         browser.addConsoleListener(consoleEvent -> System.out.println("Message: " + consoleEvent.getMessage()));
-        browser.loadURL(DropletAppComp.filePath + "example.html");
+        browser.loadURL("file://" + DropletAppComp.filePath + "example.html");
 
         browser.addLoadListener(new LoadListener() {
             @Override
@@ -224,6 +226,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
             }
 
             String finalCode = code;
+            Application app = Application.GetApplication();
             Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(finalCode);
             WriteCommandAction.runWriteCommandAction(proj, r);
         }
