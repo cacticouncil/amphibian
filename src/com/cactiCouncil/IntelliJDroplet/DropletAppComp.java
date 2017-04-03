@@ -25,9 +25,10 @@ public class DropletAppComp implements ApplicationComponent {
      * Copies a resource out of com.cactiCouncil.IntelliJDroplet package (might be able to change?) to external location
      * @param copyFrom The name of the resource to be copied out, including the file extension
      * @param copyTo The fully defined file path to copy the file out to
+     * @param delete Determines whether the file gets deleted on exit or not
      * @return whether the function succeeded or not
      */
-    private boolean copyFileFromResources(String copyFrom, String copyTo){
+    private boolean copyFileFromResources(String copyFrom, String copyTo, boolean delete){
         InputStream in = this.getClass().getResourceAsStream(copyFrom);
         if(in == null) {
             return false;
@@ -35,6 +36,9 @@ public class DropletAppComp implements ApplicationComponent {
         Path blah = Paths.get(copyTo);
         try {
             Files.copy(in, blah, StandardCopyOption.REPLACE_EXISTING);
+            if(delete){
+                blah.toFile().deleteOnExit();
+            }
             in.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -62,7 +66,7 @@ public class DropletAppComp implements ApplicationComponent {
         try {
             while(reader.ready()){
                 String file = reader.readLine();
-                copyFileFromResources(file, filePath + file);
+                copyFileFromResources(file, filePath + file, true);
             }
             reader.close();
             in.close();
