@@ -22,18 +22,53 @@
             left: 0;
             overflow: hidden;
         }
-
+		
         #toggle {
             position: absolute;
             top: 0;
-            left: 0;
+            left: 160;
             right: 0;
             height: 25px;
             cursor: pointer;
             background-color: #DDD;
             text-align: center;
         }
+		
+		#updateSelection {
+			position: absolute;
+			top: 1;
+			left: 160;
+			height: 21px;
+			width: 160px;
+			cursor: pointer;
+			background-color: #DFD;
+			text-align: center;
+			border-radius: 25px;
+		}
 
+		#select{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 160px;
+			height: 25px;
+			border: none;
+			background-color: #DDD;
+		}
+		
+		#selectBox{
+			position: absolute;
+			top: 1;
+			left: 3;
+			width: 147px;
+			height: 21px;
+			border: none;
+			font-size: 16px;
+		}
+		
+		#selectOpt{
+			font-size: 16px;
+		}
     </style>
 </head>
 <body>
@@ -44,6 +79,17 @@
     <div id="toggle">
         Toggle
     </div>
+	<div id="updateSelection">
+		Update Palette
+	</div>
+	<div id="select">
+		<select id="selectBox">
+			<option id="selectOpt" value="example.coffee">Example</option>
+			<option id="selectOpt" value="javascript_palette.coffee">JavaScript</option>
+			<option id="selectOpt" value="python_palette.coffee">Python</option>
+			<option id="selectOpt" value="coffeescript_palette.coffee">CoffeeScript</option>
+		</select>
+	</div>
     <div id="droplet-editor-wrapper">
         <div id="droplet-editor">
         </div>
@@ -59,7 +105,7 @@
     <script src="droplet-full.js"></script>
 
     
-	
+	<script src="palette-changer.js"></script>
 	<script src="example.coffee" type="text/coffeescript"></script>
     <script src="//localhost:35729/livereload.js"></script>
 </body>

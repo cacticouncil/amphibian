@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="abfe3a21-dff9-4fba-ade1-71e3ad0780a7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/Relations.txt" afterPath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/Relations.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletAppComp.java" afterPath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletAppComp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/example.html" afterPath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/example.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,20 +19,20 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DropletEditor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DropletEditor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3315">
-              <caret line="226" column="0" lean-forward="false" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+            <state relative-caret-position="646">
+              <caret line="212" column="9" lean-forward="true" selection-start-line="212" selection-start-column="9" selection-end-line="212" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DropletAppComp.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DropletAppComp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletAppComp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="-17">
               <caret line="43" column="32" lean-forward="false" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
               <folding />
             </state>
@@ -111,9 +110,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -146,6 +144,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -281,7 +280,7 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -654,18 +653,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletAppComp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3315">
-          <caret line="226" column="0" lean-forward="false" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+        <state relative-caret-position="-17">
+          <caret line="43" column="32" lean-forward="false" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletAppComp.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="43" column="32" lean-forward="false" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+        <state relative-caret-position="646">
+          <caret line="212" column="9" lean-forward="true" selection-start-line="212" selection-start-column="9" selection-end-line="212" selection-end-column="9" />
           <folding />
         </state>
       </provider>
