@@ -12,55 +12,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/JxBrowser/license.jar!/" />
+          <root url="file://$MODULE_DIR$/JxBrowser/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/JxBrowser/lib/jxbrowser-6.12.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/JxBrowser/lib/jxbrowser-linux32-6.12.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/JxBrowser/lib/jxbrowser-linux64-6.12.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/JxBrowser/lib/jxbrowser-mac-6.12.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/JxBrowser/lib/jxbrowser-win-6.12.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/JxBrowser/lib" recursive="false" />
       </library>
     </orderEntry>
   </component>

@@ -8,7 +8,6 @@ import com.intellij.openapi.fileEditor.FileEditorState;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.wm.impl.commands.InvokeLaterCmd;
 import com.sun.glass.ui.Application;
 import com.teamdev.jxbrowser.chromium.BrowserPreferences;
 import com.teamdev.jxbrowser.chromium.JSValue;
@@ -59,6 +58,37 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
      */
     private String code;
 
+    private String Palettes = "coffeescript_palette.coffee|CoffeeScript\n" +
+                              "javascript_palette.coffee|JavaScript\n" +
+                              "python_palette.coffee|Python\n" +
+                              "c_c++_palette.coffee|C/C++\n";
+
+    String loadPalette(String loadFrom){
+        InputStream in = this.getClass().getResourceAsStream(loadFrom);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+        StringBuilder palette = new StringBuilder();
+        try {
+            while(reader.ready()){
+                palette.append(reader.readLine());
+            }
+            reader.close();
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return palette.toString();
+    }
+
+    void handleConsoleEvent(String message){
+        System.out.println("Message: " + message);
+        if(message.startsWith("UPDATE ")){
+            String important = message.split(" ")[1];
+            Palette = loadPalette(important);
+            browser.executeJavaScript(
+                    "this.localStorage.setItem('config', \"" + Palette + "\"); update.click();");
+        }
+    }
+
     /**
      * Called by DropletEditorProvider to create a new DropletEditor tab
      * @param Proj The Project this DropletEditor is connected to
@@ -75,7 +105,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
         file = File;
         browserView = new BrowserView(browser);
         System.out.println(browser.getRemoteDebuggingURL());
-        browser.addConsoleListener(consoleEvent -> System.out.println("Message: " + consoleEvent.getMessage()));
+        browser.addConsoleListener(consoleEvent -> handleConsoleEvent(consoleEvent.getMessage()));
         browser.loadURL("file://" + DropletAppComp.filePath + "example.html");
 
         browser.addLoadListener(new LoadListener() {
@@ -104,6 +134,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
                 if(!browser.isLoading()){
                     if(!setPalette){
                         setPalette = true;
+                        browser.executeJavaScript("setPalettes(" + Palettes + ")");
                         browser.executeJavaScript(
                                 "this.localStorage.setItem('config', \"" + Palette + "\"); update.click();");
                     }
