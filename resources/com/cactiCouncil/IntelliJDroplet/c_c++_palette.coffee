@@ -15,7 +15,7 @@
           { block: 'using namespace std;' },
           { block: '#include <vector>' },
           { block: '#include <string>' },
-          { block: '#include "myClass.h"' },
+          { block: '#include \\'myClass.h\\' },
         ]
       },
 

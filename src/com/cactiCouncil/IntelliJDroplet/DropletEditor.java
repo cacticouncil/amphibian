@@ -58,10 +58,9 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
      */
     private String code;
 
-    private String Palettes = "coffeescript_palette.coffee|CoffeeScript\n" +
-                              "javascript_palette.coffee|JavaScript\n" +
-                              "python_palette.coffee|Python\n" +
-                              "c_c++_palette.coffee|C/C++\n";
+    private String Palettes = "CoffeeScript|coffeescript_palette.coffee\\n" +
+                              "JavaScript|javascript_palette.coffee\\n" +
+                              "Python|python_palette.coffee";
 
     String loadPalette(String loadFrom){
         InputStream in = this.getClass().getResourceAsStream(loadFrom);
@@ -84,8 +83,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
         if(message.startsWith("UPDATE ")){
             String important = message.split(" ")[1];
             Palette = loadPalette(important);
-            browser.executeJavaScript(
-                    "this.localStorage.setItem('config', \"" + Palette + "\"); update.click();");
+            browser.executeJavaScript("this.localStorage.setItem('config', \"" + Palette + "\"); update.click();");
         }
     }
 
@@ -131,10 +129,10 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
 
             @Override
             public void onDocumentLoadedInFrame(FrameLoadEvent frameLoadEvent) {
+                browser.executeJavaScript("setPalettes('" + Palettes + "')");
                 if(!browser.isLoading()){
                     if(!setPalette){
                         setPalette = true;
-                        browser.executeJavaScript("setPalettes(" + Palettes + ")");
                         browser.executeJavaScript(
                                 "this.localStorage.setItem('config', \"" + Palette + "\"); update.click();");
                     }
