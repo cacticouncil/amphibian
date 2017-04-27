@@ -1,5 +1,11 @@
 package com.cactiCouncil.IntelliJDroplet;
 
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.roots.ProjectRootManager;
+import com.intellij.openapi.vfs.VirtualFile;
+
+import java.io.File;
+
 /**
  * Created by exlted on 26-Apr-17.
  */
@@ -10,6 +16,8 @@ public class PaletteListManager {
                                  "Python|python_palette.coffee";
 
     private String paletteList = basePaletteList;
+    private StringBuilder forNewList;
+    public  String paletteDirectory;
 
     private static PaletteListManager PLM = null;
 
@@ -17,10 +25,48 @@ public class PaletteListManager {
 
     }
 
-    void updatePaletteList(){
-        StringBuilder newPaletteList = new StringBuilder(basePaletteList);
+    private void traverse(File dir){
+        if(dir.isDirectory()){
+            String[] children = dir.list();
+            for (int i = 0; children != null && i < children.length; i++) {
+                traverse(new File(dir, children[i]));
+            }
+        }
+        if(dir.isFile()){
+            if(dir.getName().endsWith(".coffee")){
+                forNewList.append("\\n");
+                forNewList.append(dir.getName().replaceFirst(".coffee", ""));
+                forNewList.append('|');
+                forNewList.append("USR");
+                forNewList.append(dir.getName());
+            }
+        }
+    }
+
+    void updatePaletteList(Project proj){
+        String newPaletteList = basePaletteList;
+        forNewList = new StringBuilder("");
+        VirtualFile vFile = ProjectRootManager.getInstance(proj).getContentSourceRoots()[0];
+        vFile = vFile.getParent();
+        String fileLoc = vFile.toString();
+        fileLoc = fileLoc + '/' + "palettes";
+        fileLoc = fileLoc.replaceFirst("file://", "");
+        File toTraverse = new File(fileLoc);
+        toTraverse.mkdirs();
+        traverse(toTraverse);
+        paletteDirectory = toTraverse.getAbsolutePath() + '/';
+
+
         //Deal with filling out the new list here
-        paletteList = newPaletteList.toString();
+        //for each fileName in userPaletteFolder{
+        //  if(fileName.endsWith('.coffee') then
+        //      String fileStart = fileName.split('.')[0];
+        //      newPaletteList.append('\\n');
+        //      newPaletteList.append(fileStart);
+        //      newPaletteList.append('|');
+        //      newPaletteList.append(USR);
+        //      newPaletteList.append(fileName);
+        paletteList = newPaletteList + forNewList.toString();
     }
 
     String getPaletteList(){

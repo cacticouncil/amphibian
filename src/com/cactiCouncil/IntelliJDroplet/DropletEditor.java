@@ -6,6 +6,7 @@ import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorLocation;
 import com.intellij.openapi.fileEditor.FileEditorState;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.sun.glass.ui.Application;
@@ -61,9 +62,23 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
     PaletteListManager PLM = PaletteListManager.getPaletteListManager();
 
     String loadPalette(String loadFrom){
-        InputStream in = this.getClass().getResourceAsStream(loadFrom);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
         StringBuilder palette = new StringBuilder();
+        InputStream in;
+        BufferedReader reader;
+        if(loadFrom.startsWith("USR")){
+            loadFrom = loadFrom.replaceFirst("USR", "");
+            try {
+                in = new FileInputStream(PLM.paletteDirectory + loadFrom);
+                reader = new BufferedReader(new InputStreamReader(in));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        else{
+            in = this.getClass().getResourceAsStream(loadFrom);
+            reader = new BufferedReader(new InputStreamReader(in));
+        }
         try {
             while(reader.ready()){
                 palette.append(reader.readLine());
@@ -81,7 +96,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
         if(message.startsWith("UPDATE ")){
             String important = message.split(" ")[1];
             Palette = loadPalette(important);
-            PLM.updatePaletteList();
+            PLM.updatePaletteList(proj);
             browser.executeJavaScript("setPalettes('" + PLM.getPaletteList() + "')");
             browser.executeJavaScript("setSelectedPalette('" + important + "');");
             JSValue blah = browser.executeJavaScriptAndReturnValue("(function(){return this.editor.getValue()})();");
@@ -132,7 +147,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
 
             @Override
             public void onDocumentLoadedInFrame(FrameLoadEvent frameLoadEvent) {
-                PLM.updatePaletteList();
+                PLM.updatePaletteList(proj);
                 browser.executeJavaScript("setPalettes('" + PLM.getPaletteList() + "')");
                 if(!browser.isLoading()){
                     if(!setPalette){
@@ -150,21 +165,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
 
             }
         });
-
-        InputStream in = this.getClass().getResourceAsStream(DropletAppComp.relationMap.get(file.getExtension()) + "_palette.coffee");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-        StringBuilder palette = new StringBuilder();
-        try {
-            while(reader.ready()){
-                palette.append(reader.readLine());
-            }
-            reader.close();
-            in.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Palette = palette.toString();
-
+        Palette = loadPalette(DropletAppComp.relationMap.get(file.getExtension()) + "_palette.coffee");
     }
 
     /**
