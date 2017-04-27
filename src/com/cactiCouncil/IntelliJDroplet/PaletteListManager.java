@@ -49,12 +49,12 @@ public class PaletteListManager {
         VirtualFile vFile = ProjectRootManager.getInstance(proj).getContentSourceRoots()[0];
         vFile = vFile.getParent();
         String fileLoc = vFile.toString();
-        fileLoc = fileLoc + '/' + "palettes";
+        fileLoc = fileLoc + System.getProperty("file.separator") + "palettes";
         fileLoc = fileLoc.replaceFirst("file://", "");
         File toTraverse = new File(fileLoc);
         toTraverse.mkdirs();
         traverse(toTraverse);
-        paletteDirectory = toTraverse.getAbsolutePath() + '/';
+        paletteDirectory = toTraverse.getAbsolutePath() + System.getProperty("file.separator");
 
 
         //Deal with filling out the new list here
