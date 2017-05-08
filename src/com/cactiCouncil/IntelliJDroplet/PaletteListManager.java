@@ -49,8 +49,8 @@ public class PaletteListManager {
         VirtualFile vFile = ProjectRootManager.getInstance(proj).getContentSourceRoots()[0];
         vFile = vFile.getParent();
         String fileLoc = vFile.toString();
-        fileLoc = fileLoc + System.getProperty("file.separator") + "palettes";
         fileLoc = fileLoc.replaceFirst("file://", "");
+        fileLoc = fileLoc + System.getProperty("file.separator") + "palettes";
         File toTraverse = new File(fileLoc);
         toTraverse.mkdirs();
         traverse(toTraverse);

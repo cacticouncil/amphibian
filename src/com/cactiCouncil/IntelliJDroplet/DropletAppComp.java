@@ -1,4 +1,6 @@
 package com.cactiCouncil.IntelliJDroplet;
+import com.intellij.ide.fileTemplates.FileTemplate;
+import com.intellij.ide.fileTemplates.FileTemplateManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import org.jetbrains.annotations.NotNull;
 
@@ -52,6 +54,36 @@ public class DropletAppComp implements ApplicationComponent {
      */
     @Override
     public void initComponent() {
+        FileTemplate template = FileTemplateManager.getDefaultInstance().getTemplate("Droplet Palette");
+        if(template == null){
+            template = FileTemplateManager.getDefaultInstance().addTemplate("Droplet Palette", "coffee");
+            template.setText("//DELETE ALL COMMENTS BEFORE ATTEMPTING TO USE GENERATED PALETTES\n" +
+                    "({\n" +
+                    "//Currently Usable modes, 'javascript', 'coffee', 'python'\n" +
+                    "    mode: 'python',\n" +
+                    "    modeOptions: {\n" +
+                    "        functions: {},\n" +
+                    "        },\n" +
+                    "    palette: [\n" +
+                    "        {\n" +
+                    "            name: 'Group Name',\n" +
+                    "            color: 'orange', //Group Color\n" +
+                    "            blocks: [\n" +
+                    "                { block: '# Insert Code Here' },\n" +
+                    "            ]\n" +
+                    "        },\n" +
+                    "        {\n" +
+                    "            name: 'Group Name 2',\n" +
+                    "            color: 'green',\n" +
+                    "            blocks: [\n" +
+                    "                { block: '#More code can be here' },\n" +
+                    "                { block: '#You can have multiple blocks per group!' },\n" +
+                    "            ]\n" +
+                    "        }\n" +
+                    "    ]\n" +
+                    "  })");
+        }
+
         Path blah = null;
         try {
             blah = Files.createTempDirectory("Droplet");
