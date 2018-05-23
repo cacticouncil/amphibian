@@ -6,10 +6,8 @@ import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorLocation;
 import com.intellij.openapi.fileEditor.FileEditorState;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.sun.glass.ui.Application;
 import com.teamdev.jxbrowser.chromium.BrowserPreferences;
 import com.teamdev.jxbrowser.chromium.JSValue;
 import com.teamdev.jxbrowser.chromium.events.*;
@@ -260,7 +258,6 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor{
             }
 
             String finalCode = code;
-            Application app = Application.GetApplication();
             Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(finalCode);
             WriteCommandAction.runWriteCommandAction(proj, r);
         }

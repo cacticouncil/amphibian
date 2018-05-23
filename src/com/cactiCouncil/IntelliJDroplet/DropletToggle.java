@@ -13,7 +13,7 @@ public class DropletToggle extends ToggleAction {
     /**
      * Stores whether or not Droplet is enabled
      */
-    static boolean ToggleState;
+    static boolean ToggleState = true;
 
     /**
      * Called by IntelliJ to know whether the toggle is on or not

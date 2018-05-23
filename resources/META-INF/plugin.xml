@@ -34,8 +34,8 @@
   <actions>
     <!-- Add your actions here -->
     <action id="ToggleDroplet" class="com.cactiCouncil.IntelliJDroplet.DropletToggle" text="Droplet"
-            description="Toggles whether the droplet editor is displayed for compatible files or not">
-      <add-to-group group-id="ViewMenu" anchor="before" relative-to-action="EditorToggleActions"/>
+            description="Toggles whether the droplet editor is displayed for compatible files or not" icon="/icons/drop.png">
+      <add-to-group group-id="ToolbarMakeGroup" anchor="first"/>
       <keyboard-shortcut keymap="$default" first-keystroke="ctrl B" second-keystroke="B"/>
     </action>
   </actions>
