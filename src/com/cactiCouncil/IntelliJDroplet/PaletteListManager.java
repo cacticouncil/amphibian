@@ -13,7 +13,8 @@ public class PaletteListManager {
 
     private String basePaletteList = "CoffeeScript|coffeescript_palette.coffee\\n" +
                                  "JavaScript|javascript_palette.coffee\\n" +
-                                 "Python|python_palette.coffee";
+                                 "Python|python_palette.coffee\\n" +
+                                 "Java|java_palette.coffee";
 
     private String paletteList = basePaletteList;
     private StringBuilder forNewList;
