@@ -1,0 +1,19 @@
+  {
+    'mode': 'java',
+    'modeOptions':
+    {
+      functions: { },
+    },
+
+    'palette':
+    [
+      {
+        name: 'Variables',
+        color: 'yellow',
+        blocks:
+        [
+          { block: 'int x = 0;' },
+        ]
+      },
+    ]
+  }

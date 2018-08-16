@@ -2,7 +2,7 @@
   <id>com.cactiCouncil.DropletEditor.IntelliJ</id>
   <name>Droplet Editor</name>
   <version>2.0</version>
-  <vendor email="support@yourcompany.com" url="https://github.com/cacticouncil/droplet_intellij">CactiCouncil</vendor>
+  <vendor email="support@cacticouncil.org" url="https://github.com/cacticouncil/droplet_intellij">CactiCouncil</vendor>
 
   <description><![CDATA[
       Allows for usage of the Droplet editor to edit code
@@ -22,7 +22,7 @@
 
     <application-components>
         <component>
-            <implementation-class>com.cactiCouncil.IntelliJDroplet.DropletAppComp</implementation-class>
+            <implementation-class>com.cactiCouncil.IntelliJDroplet.DropletComponent</implementation-class>
         </component>
     </application-components>
 

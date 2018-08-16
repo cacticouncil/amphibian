@@ -2,7 +2,7 @@ document.getElementById('updateSelection').addEventListener('click', function(ev
 	var select = document.getElementById("selectBox");
 	console.log("UPDATE " + select.options[select.selectedIndex].value);
 	});
-	
+
 getPalettePosition = function(selectedPalette){
 	if(typeof selectedPalette === "string"){
 		var select = document.getElementById("selectBox");
@@ -15,7 +15,7 @@ getPalettePosition = function(selectedPalette){
 	}
 	return false;
 }
-	
+
 getPalettes = function(){
 	var select = document.getElementById("selectBox");
 	var outputString = "";

@@ -13,7 +13,7 @@ public class DropletToggle extends ToggleAction {
     /**
      * Stores whether or not Droplet is enabled
      */
-    static boolean ToggleState = true;
+    static boolean toggleState = true;
 
     /**
      * Called by IntelliJ to know whether the toggle is on or not
@@ -22,7 +22,7 @@ public class DropletToggle extends ToggleAction {
      */
     @Override
     public boolean isSelected(AnActionEvent e) {
-        return ToggleState;
+        return toggleState;
     }
 
     /**
@@ -32,7 +32,7 @@ public class DropletToggle extends ToggleAction {
      */
     @Override
     public void setSelected(AnActionEvent e, boolean state) {
-        ToggleState = state;
+        toggleState = state;
         //Refreshes all opened editor tabs to open or close Droplet Editors from those tabs
         FileEditorManagerEx manager = FileEditorManagerEx.getInstanceEx(e.getProject());
         VirtualFile[] files = manager.getOpenFiles();
@@ -40,7 +40,7 @@ public class DropletToggle extends ToggleAction {
         for (VirtualFile file : files) {
             manager.openFile(file, true);
         }
-        if(ToggleState){
+        if(toggleState){
             //Do Stuff?
         }
         else{

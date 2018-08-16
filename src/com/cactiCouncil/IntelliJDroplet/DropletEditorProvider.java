@@ -3,13 +3,12 @@ import com.intellij.openapi.fileEditor.FileEditorPolicy;
 import com.intellij.openapi.fileEditor.FileEditorProvider;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by exlted on 01-Mar-17.
- * Provides the DropletEditor when DropletToggle.ToggleState is true
+ * Provides the DropletEditor when DropletToggle.toggleState is true
  */
 public class DropletEditorProvider implements FileEditorProvider{
     /**
@@ -21,8 +20,8 @@ public class DropletEditorProvider implements FileEditorProvider{
      */
     @Override
     public boolean accept(@NotNull Project project, @NotNull VirtualFile file) {
-        if(DropletAppComp.relationMap.containsKey(file.getExtension())){
-            return DropletToggle.ToggleState;
+        if(DropletComponent.relationMap.containsKey(file.getExtension())){
+            return DropletToggle.toggleState;
         }
         return false;
     }
