@@ -55,6 +55,6 @@ public class DropletEditorProvider implements FileEditorProvider{
     @NotNull
     @Override
     public FileEditorPolicy getPolicy() {
-        return FileEditorPolicy.PLACE_AFTER_DEFAULT_EDITOR;
+        return FileEditorPolicy.PLACE_BEFORE_DEFAULT_EDITOR;
     }
 }

@@ -88,7 +88,6 @@ public class DropletComponent implements ApplicationComponent {
         Path tempPath = null;
         try {
             tempPath = Files.createTempDirectory("Droplet");
-            System.out.println(tempPath);
         } catch (IOException e) {
             e.printStackTrace();
         }
