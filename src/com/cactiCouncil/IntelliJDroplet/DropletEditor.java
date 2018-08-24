@@ -65,6 +65,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor
             data = data.replace(index + "", "\\" + String.format("%03o", (int) index));
 
         return data;
+
     }
 
     private PaletteManager paletteManager = PaletteManager.getPaletteManager();
@@ -138,6 +139,10 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor
 
             Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(target);
             WriteCommandAction.runWriteCommandAction(proj, r);
+        }
+        else
+        {
+            System.out.println("Unrecognized console message: [" + message + "]");
         }
     }
 
