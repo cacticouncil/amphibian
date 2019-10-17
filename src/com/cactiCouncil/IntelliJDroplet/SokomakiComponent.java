@@ -12,7 +12,7 @@ import java.util.HashMap;
  * Created by exlted on 07-Mar-17.
  * Sets up the plugin to be ready to be used later in the lifetime of IntelliJ
  */
-public class DropletComponent implements ApplicationComponent {
+public class SokomakiComponent implements ApplicationComponent {
 
     /**
      * Holds the pathname to be used by anything needing direct access to the Droplet website

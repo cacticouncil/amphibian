@@ -36,16 +36,7 @@ setValueSync = function(value)
 
 logToServer = function(message)
 {
-    http = new XMLHttpRequest();
-    url = 'https://dropletplugin.eastus.cloudapp.azure.com:4443/log_droplet?' + encodeURIComponent(message);
-    http.open("GET", url);
-    http.send();
-
-    http.onreadystatechange = function()
-    {
-        if (http.readyState === 4 && http.status !== 200)
-            console.log("LOGFAILED:" + message);
-    }
+    console.log("LOGGED:" + message);
 }
 
 logEvent = function(message)

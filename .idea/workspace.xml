@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abfe3a21-dff9-4fba-ade1-71e3ad0780a7" name="Default" comment="Has everything from testbed plugin implemented at this time. Basic browser now exists when enabled Browser initialization takes way too long, should only happen once when plugin is initialized?">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/SokomakiComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditorProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/SokomakiEditorProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletPluginState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletSettingsDialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletToggle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/SokomakiToggle.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,32 +31,6 @@
       </list>
     </option>
     <option name="SCHEME" value="Project" />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>(</find>
-      <find>consoleEvent</find>
-      <find>&quot;</find>
-      <find>Application</find>
-      <find>Application.Get</find>
-      <find>action</find>
-      <find>View</find>
-      <find>MaxPerm</find>
-      <find>BrowserView</find>
-      <find>view</find>
-      <find>&quot;Droplet&quot;</find>
-      <find>browserView</find>
-      <find>Droplet</find>
-      <find>extension</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>\\'</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>C:\Repositories\Projects\droplet_intellij</dir>
-      <dir>C:\Repositories\Projects\droplet_intellij\src\com\cactiCouncil\IntelliJDroplet</dir>
-      <dir>C:\Repositories\Projects\droplet_intellij\src</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,7 +57,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -167,7 +148,7 @@
       <workItem from="1527525540297" duration="779000" />
       <workItem from="1534284418424" duration="6178000" />
       <workItem from="1571327968031" duration="1254000" />
-      <workItem from="1571329285144" duration="2445000" />
+      <workItem from="1571329285144" duration="5624000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,5 @@
 <idea-plugin>
-  <id>com.cactiCouncil.DropletEditor.IntelliJ</id>
+  <id>com.cactiCouncil.SokomakiEditor.IntelliJ</id>
   <name>Droplet Editor</name>
   <version>2.0</version>
   <vendor email="support@cacticouncil.org" url="https://github.com/cacticouncil/droplet_intellij">Cacti Council</vendor>
@@ -22,14 +22,13 @@
 
     <application-components>
         <component>
-            <implementation-class>com.cactiCouncil.IntelliJDroplet.DropletComponent</implementation-class>
+            <implementation-class>com.cactiCouncil.IntelliJDroplet.SokomakiComponent</implementation-class>
         </component>
     </application-components>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-    <fileEditorProvider implementation="com.cactiCouncil.IntelliJDroplet.DropletEditorProvider"/>
-    <applicationService serviceImplementation="com.cactiCouncil.IntelliJDroplet.DropletPluginState"/>
+    <fileEditorProvider implementation="com.cactiCouncil.IntelliJDroplet.SokomakiEditorProvider"/>
   </extensions>
   <actions>
     <!-- Add your actions here -->

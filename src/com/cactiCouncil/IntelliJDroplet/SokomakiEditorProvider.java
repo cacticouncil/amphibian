@@ -8,29 +8,29 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by exlted on 01-Mar-17.
- * Provides the DropletEditor when DropletToggle.toggleState is true
+ * Provides the SokoMakiEditor when SokoMakiToggle.toggleState is true
  */
-public class DropletEditorProvider implements FileEditorProvider{
+public class SokomakiEditorProvider implements FileEditorProvider{
     /**
-     * Runs when a new tab is opened, returns true if BOTH Droplet is toggled on
+     * Runs when a new tab is opened, returns true if BOTH SokoMaki is toggled on
      * AND the VirtualFile to be opened is of the right file type
      * @param project
      * @param file
-     * @return Whether or not a DropletEditor tab should be added to the current tab
+     * @return Whether or not a SokoMakiEditor tab should be added to the current tab
      */
     @Override
     public boolean accept(@NotNull Project project, @NotNull VirtualFile file) {
-        if(DropletComponent.relationMap.containsKey(file.getExtension())){
-            return DropletToggle.toggleState;
+        if(SokomakiComponent.relationMap.containsKey(file.getExtension())){
+            return SokomakiToggle.toggleState;
         }
         return false;
     }
 
     /**
-     * Calls the DropletEditor constructor
+     * Calls the SokoMakiEditor constructor
      * @param project
      * @param file
-     * @return Newly created DropletEditor
+     * @return Newly created SokoMakiEditor
      */
     @NotNull
     @Override
@@ -45,11 +45,11 @@ public class DropletEditorProvider implements FileEditorProvider{
     @NotNull
     @Override
     public String getEditorTypeId() {
-        return "Droplet";
+        return "Sokomaki";
     }
 
     /**
-     * Called by IntelliJ to determine what to do with the DropletEditor tab
+     * Called by IntelliJ to determine what to do with the SokoMakiEditor tab
      * @return
      */
     @NotNull

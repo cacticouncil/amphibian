@@ -8,10 +8,10 @@ import com.intellij.openapi.vfs.VirtualFile;
  * Created by exlted on 01-Mar-17.
  * Controls the toggle button for the plugin
  */
-public class DropletToggle extends ToggleAction {
+public class SokomakiToggle extends ToggleAction {
 
     /**
-     * Stores whether or not Droplet is enabled
+     * Stores whether or not SokoMaki is enabled
      */
     static boolean toggleState = true;
 
@@ -33,7 +33,7 @@ public class DropletToggle extends ToggleAction {
     @Override
     public void setSelected(AnActionEvent e, boolean state) {
         toggleState = state;
-        //Refreshes all opened editor tabs to open or close Droplet Editors from those tabs
+        //Refreshes all opened editor tabs to open or close SokoMaki Editors from those tabs
         FileEditorManagerEx manager = FileEditorManagerEx.getInstanceEx(e.getProject());
         VirtualFile[] files = manager.getOpenFiles();
         manager.closeAllFiles();

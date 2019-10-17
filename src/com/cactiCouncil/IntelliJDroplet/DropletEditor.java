@@ -4,7 +4,6 @@ import com.intellij.codeHighlighting.BackgroundEditorHighlighter;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.fileEditor.*;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
 
@@ -12,7 +11,6 @@ import com.teamdev.jxbrowser.chromium.BrowserPreferences;
 import com.teamdev.jxbrowser.chromium.JSValue;
 import com.teamdev.jxbrowser.chromium.events.*;
 
-import org.apache.commons.lang.ObjectUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -22,14 +20,15 @@ import java.io.*;
 
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
+
 /**
  * Created by exlted on 01-Mar-17.
- * Controls the actual Droplet Editor
+ * Controls the actual Sokomaki Editor
  */
 public class DropletEditor extends UserDataHolderBase implements FileEditor
 {
     private String jarPalettePath = "palettes/";
-    //The browser and its view used by DropletEditor to show Droplet
+    //The browser and its view used by SokomakiEditor to show Droplet
 
     private Browser browser;
     private BrowserView browserView;
@@ -46,7 +45,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor
      */
     private String settings;
     /**
-     * The string pulled from the document connected with file, used to update the internal code within Droplet
+     * The string pulled from the document connected with file, used to update the internal code within Sokomaki
      */
     private String code;
     private String mode;
@@ -117,14 +116,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor
 
     private void handleConsoleEvent(String message)
     {
-//        System.out.println("Console: " + message);
-
-        if(message.startsWith("LOGFAILED"))
-        {
-            String logdata = message.split(":")[1];
-            DropletPluginState.getInstance().logList.add(logdata);
-        }
-        else if (message.startsWith("CODE_UPDATE"))
+        if (message.startsWith("CODE_UPDATE"))
         {
             String target;
             String[] result = message.split(":");
@@ -140,53 +132,20 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor
             Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(target);
             WriteCommandAction.runWriteCommandAction(proj, r);
         }
+        else if (message.startsWith("LOGGED"))
+        {
+            System.out.println("LOGGED: [" + message + "]");
+        }
         else
         {
             System.out.println("Unrecognized console message: [" + message + "]");
         }
     }
 
-    private void checkSettings()
-    {
-        DropletPluginState pluginState = DropletPluginState.getInstance();
-        boolean shouldShowDialog = ((pluginState.ufid == null || pluginState.gatorlink == null) && pluginState.canLog);
-
-        // Replay logs that failed to send if necessary / appropriate
-        if (pluginState.canLog)
-        {
-            while (!pluginState.logList.isEmpty())
-                browser.executeJavaScript("logToServer(\"" + escapeJs(pluginState.logList.pop()) + "\")");
-        }
-
-        while (shouldShowDialog)
-        {
-            DropletSettingsDialog dialog = new DropletSettingsDialog();
-            dialog.show();
-            if (dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE)
-            {
-                if ((pluginState.ufid == null || pluginState.gatorlink == null) && DropletPluginState.getInstance().canLog)
-                {
-                    int result = JOptionPane.showConfirmDialog(null, "It looks like you still haven't entered all of your information. Would you like to go back?", "Warning!", JOptionPane.YES_NO_OPTION);
-                    shouldShowDialog = (result == JOptionPane.YES_OPTION);
-                }
-                else
-                {
-                    shouldShowDialog = false;
-                    browser.executeJavaScript("logToServer(\"[REGISTRATION][" + escapeJs(pluginState.randomized) + "][" + escapeJs(pluginState.ufid) + "][" + escapeJs(pluginState.gatorlink) + "]\")");
-                }
-            }
-            else
-            {
-                int result = JOptionPane.showConfirmDialog(null, "If you don't elect an option, this dialog will appear again. Would you like to go back?", "Warning!", JOptionPane.YES_NO_OPTION);
-                shouldShowDialog = (result == JOptionPane.YES_OPTION);
-            }
-        }
-    }
-
     /**
-     * Called by DropletEditorProvider to create a new DropletEditor tab
-     * @param project The Project this DropletEditor is connected to
-     * @param file The VirtualFile this DropletEditor is connected to
+     * Called by SokomakiEditorProvider to create a new SokomakiEditor tab
+     * @param project The Project this SokomakiEditor is connected to
+     * @param file The VirtualFile this SokomakiEditor is connected to
      */
     DropletEditor(Project project, VirtualFile file)
     {
@@ -202,8 +161,8 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor
         System.out.println(browser.getRemoteDebuggingURL());
         browser.addConsoleListener(consoleEvent -> handleConsoleEvent(consoleEvent.getMessage()));
 
-        browser.loadURL("file://" + DropletComponent.pathname + "plugin.html");
-        mode = DropletComponent.relationMap.get(this.file.getExtension());
+        browser.loadURL("file://" + SokomakiComponent.pathname + "plugin.html");
+        mode = SokomakiComponent.relationMap.get(this.file.getExtension());
         settings = loadSettings(mode);
 
         browser.addLoadListener(new LoadListener()
@@ -223,7 +182,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor
                     catch (InterruptedException ignored) { }
                 }
 
-                browser.executeJavaScript("initEditor(\"" + settings + "\", \"" + escapeJs(DropletPluginState.getInstance().randomized) +"\")");
+                browser.executeJavaScript("initEditor(\"" + settings + "\", \"localuser\")");
                 set = true;
             }
         });
@@ -233,7 +192,6 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor
             try { Thread.sleep(50); }
             catch (InterruptedException ignored) { }
         }
-        checkSettings();
     }
 
     @NotNull
@@ -255,9 +213,9 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor
     public boolean isModified() { return true; }
 
     @Override
-    public boolean isValid() { return DropletToggle.toggleState; }
+    public boolean isValid() { return SokomakiToggle.toggleState; }
 
-    // Called upon the selection of the DropletEditor tab; updates the settings, language, and code
+    // Called upon the selection of the SokomakiEditor tab; updates the settings, language, and code
     @Override
     public void selectNotify()
     {
