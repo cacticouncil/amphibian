@@ -1,8 +1,6 @@
-# droplet_intellij
-This plugin will implement the Droplet editor into IntelliJ, another example implementation of the Droplet editor is in PencilCode (http://pencilcode.net/). This plugin seeks to provide an interface to develop in all languages supported by various JetBrains IDEs within the Droplet editor. 
+# Amphibian
+This plugin integrates the Droplet Editor into an IntelliJ IDEA Plugin. The Droplet Editor is also used in Pencil Code (http://pencilcode.net/) and some code.org exercises. Eventually, we hope to support all languages supported by Droplet and the various tools in the JetBrains IDE family. Prelimiary work to support Visual Studio is also completed. 
 
-Over time there will be more languages implemented into Droplet for usage in these JetBrains IDEs, primarily including Java. I plan on eventually supporting every language in base IntelliJ IDEA (Java + Scala + Groovy + Kotlin). Beyond that as language support is added for JetBrains IDEs primary languages this plugin will be "ported" to those. (Ruby, PHP, possibly databases?)
+Amphibian uses JxBrowser http://www.teamdev.com/jxbrowser, which is a proprietary software. The use of JxBrowser is governed by JxBrowser Product Licence Agreement http://www.teamdev.com/jxbrowser-licence-agreement. If you would like to use JxBrowser in your development, please contact TeamDev.
 
-droplet_intellij uses JxBrowser http://www.teamdev.com/jxbrowser, which is a proprietary software. The use of JxBrowser is governed by JxBrowser Product Licence Agreement http://www.teamdev.com/jxbrowser-licence-agreement. If you would like to use JxBrowser in your development, please contact TeamDev.
-
-
+In the future, Amphibian will migrate away from JxBrowser due to new licensing by TeamDev.
