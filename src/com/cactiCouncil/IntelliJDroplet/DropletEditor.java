@@ -11,6 +11,9 @@ import com.teamdev.jxbrowser.chromium.BrowserPreferences;
 import com.teamdev.jxbrowser.chromium.JSValue;
 import com.teamdev.jxbrowser.chromium.events.*;
 
+import org.cacticouncil.amphibian.AmphibianComponent;
+import org.cacticouncil.amphibian.AmphibianToggle;
+import org.cacticouncil.amphibian.PaletteManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -147,7 +150,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor
      * @param project The Project this SokomakiEditor is connected to
      * @param file The VirtualFile this SokomakiEditor is connected to
      */
-    DropletEditor(Project project, VirtualFile file)
+    public DropletEditor(Project project, VirtualFile file)
     {
         BrowserPreferences.setChromiumSwitches("--remote-debugging-port=9222", "--disable-web-security", "--allow-file-access-from-files");
         browser = new Browser();
@@ -161,8 +164,8 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor
         System.out.println(browser.getRemoteDebuggingURL());
         browser.addConsoleListener(consoleEvent -> handleConsoleEvent(consoleEvent.getMessage()));
 
-        browser.loadURL("file://" + SokomakiComponent.pathname + "plugin.html");
-        mode = SokomakiComponent.relationMap.get(this.file.getExtension());
+        browser.loadURL("file://" + AmphibianComponent.getPathname() + "plugin.html");
+        mode = AmphibianComponent.getRelationMap().get(this.file.getExtension());
         settings = loadSettings(mode);
 
         browser.addLoadListener(new LoadListener()
@@ -213,7 +216,7 @@ public class DropletEditor extends UserDataHolderBase implements FileEditor
     public boolean isModified() { return true; }
 
     @Override
-    public boolean isValid() { return SokomakiToggle.toggleState; }
+    public boolean isValid() { return AmphibianToggle.getToggleState(); }
 
     // Called upon the selection of the SokomakiEditor tab; updates the settings, language, and code
     @Override

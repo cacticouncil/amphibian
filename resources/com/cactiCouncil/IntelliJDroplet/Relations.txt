@@ -1,8 +1,0 @@
-.js|javascript
-.coffee|coffeescript
-.py|python
-.py3|python
-.c|c_c++ This is a commented out line, it'll still be parsed, but will never be used
-.h|c_c++
-.cpp|c_c++
-java|java

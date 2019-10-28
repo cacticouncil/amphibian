@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/droplet_intelliJ.iml" filepath="$PROJECT_DIR$/droplet_intelliJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amphibian.iml" filepath="$PROJECT_DIR$/amphibian.iml" />
     </modules>
   </component>
 </project>

@@ -1,8 +1,8 @@
 <idea-plugin>
-  <id>com.cactiCouncil.SokomakiEditor.IntelliJ</id>
+  <id>org.cacticouncil.amphibian</id>
   <name>Droplet Editor</name>
   <version>2.0</version>
-  <vendor email="support@cacticouncil.org" url="https://github.com/cacticouncil/droplet_intellij">Cacti Council</vendor>
+  <vendor email="support@cacticouncil.org" url="https://github.com/cacticouncil/amphibian">Cacti Council</vendor>
 
   <description><![CDATA[
       Blocks-based editor for source code in standard languages
@@ -22,13 +22,13 @@
 
     <application-components>
         <component>
-            <implementation-class>com.cactiCouncil.IntelliJDroplet.SokomakiComponent</implementation-class>
+            <implementation-class>org.cacticouncil.amphibian.AmphibianComponent</implementation-class>
         </component>
     </application-components>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-    <fileEditorProvider implementation="com.cactiCouncil.IntelliJDroplet.SokomakiEditorProvider"/>
+    <fileEditorProvider implementation="org.cacticouncil.amphibian.AmphibianEditorProvider"/>
   </extensions>
   <actions>
     <!-- Add your actions here -->

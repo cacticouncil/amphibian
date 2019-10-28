@@ -1,0 +1,70 @@
+#site-header
+{
+}
+
+#wrapper
+{
+}
+
+#container
+{
+  height: 100%;
+}
+
+#droplet-editor-wrapper
+{
+  position: absolute;
+  top: 25;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100%;
+}
+
+#droplet-editor
+{
+}
+
+ /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    transform: scale(1.1);
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 1rem 1.5rem;
+    width: 24rem; /* Could be more or less, depending on screen size */
+    border-radius: 0.5rem;
+    z-index: 1000001;
+}
+
+/* The Close Button */
+/*.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+} */
