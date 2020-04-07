@@ -7,18 +7,19 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/resources" type="java-resource" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="IntelliJ IDEA IU-193.6911.18" jdkType="IDEA JDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/JxBrowser/lib" />
+          <root url="file://$MODULE_DIR$/jcef" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/JxBrowser/lib" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/jcef" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" exported="" name="jcef" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="win64" level="project" />
   </component>
 </module>

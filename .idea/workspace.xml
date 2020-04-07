@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abfe3a21-dff9-4fba-ade1-71e3ad0780a7" name="Default" comment="Has everything from testbed plugin implemented at this time. Basic browser now exists when enabled Browser initialization takes way too long, should only happen once when plugin is initialized?">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/com/cactiCouncil/IntelliJDroplet/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/SokomakiComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletEditorProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/SokomakiEditorProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletPluginState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletSettingsDialog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/DropletToggle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cactiCouncil/IntelliJDroplet/SokomakiToggle.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,43 +38,48 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="BdaLnsrz" />
+  </component>
   <component name="ProjectId" id="1SL1E5ibF5qaclDrhKztFOYytnf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="droplet_intellij" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../amphibian-jcef-exp" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Repositories\Projects\amphibian-jcef\resources\org\cacticouncil\amphibian" />
+      <recent name="C:\Repositories\Projects\amphibian-jcef\java-cef-build-bin" />
+      <recent name="C:\Repositories\Projects\droplet_intellij\JxBrowser\lib" />
+      <recent name="C:\Repositories\Projects\droplet_intellij\JxBrowser\old-lib" />
+      <recent name="C:\Repositories\Projects\droplet_intellij\resources\com\cactiCouncil\IntelliJDroplet" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.cacticouncil.amphibian" />
       <recent name="com.cactiCouncil.IntelliJDroplet" />
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Repositories\Projects\droplet_intellij\JxBrowser\lib" />
-      <recent name="C:\Repositories\Projects\droplet_intellij\resources\icons" />
-      <recent name="E:\FSP\droplet_intelliJ\resources\com\cactiCouncil\IntelliJDroplet\lang" />
-      <recent name="E:\FSP\droplet_intelliJ\resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Repositories\Projects\amphibian-jcef\src\com\intellij\application\options" />
+      <recent name="C:\Repositories\Projects\amphibian-jcef\src\com\intellij\ui\jcef" />
+      <recent name="C:\Repositories\Projects\droplet_intellij\resources\com\cactiCouncil\IntelliJDroplet" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet">
@@ -112,9 +107,9 @@
     </configuration>
     <configuration name="Plugin" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="amphibian" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea -Djava.library.path=C:\Repositories\Projects\amphibian-jcef\jcef\lib\win64" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <alternative-path path="IntelliJ IDEA IU-192.6817.14" alternative-path-enabled="true" />
+      <alternative-path path="$PROJECT_DIR$/../../../Program Files/JetBrains/IntelliJ IDEA 2019.3.4" alternative-path-enabled="true" />
       <predefined_log_file enabled="true" id="idea.log" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,28 +144,135 @@
       <workItem from="1534284418424" duration="6178000" />
       <workItem from="1571327968031" duration="1254000" />
       <workItem from="1571329285144" duration="5624000" />
+      <workItem from="1572218658167" duration="2197000" />
+      <workItem from="1575324034664" duration="594000" />
+      <workItem from="1576876783126" duration="30000" />
+      <workItem from="1579542277646" duration="4018000" />
+      <workItem from="1582379227220" duration="671000" />
+      <workItem from="1586188643981" duration="270000" />
+      <workItem from="1586189343262" duration="3265000" />
+      <workItem from="1586195016836" duration="21000" />
+      <workItem from="1586196969407" duration="569000" />
+      <workItem from="1586197904055" duration="247000" />
+      <workItem from="1586198176471" duration="514000" />
+      <workItem from="1586198846214" duration="52000" />
+      <workItem from="1586200953528" duration="108000" />
+      <workItem from="1586201088015" duration="2201000" />
+      <workItem from="1586208215006" duration="3714000" />
+      <workItem from="1586212059645" duration="1851000" />
+      <workItem from="1586213995082" duration="35000" />
+      <workItem from="1586215271073" duration="17316000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Has everything from testbed plugin implemented at this time. Basic browser now exists when enabled" />
     <MESSAGE value="Has everything from testbed plugin implemented at this time. Basic browser now exists when enabled Browser initialization takes way too long, should only happen once when plugin is initialized?" />
     <option name="LAST_COMMIT_MESSAGE" value="Has everything from testbed plugin implemented at this time. Basic browser now exists when enabled Browser initialization takes way too long, should only happen once when plugin is initialized?" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1423" y="478" width="842" height="676" key="#Project_Structure" timestamp="1586216686326">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state x="1423" y="478" width="842" height="676" key="#Project_Structure/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586216686326" />
+    <state x="1111" y="184" key="#VisualVM_Launcher" timestamp="1586212433718">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state x="1111" y="184" key="#VisualVM_Launcher/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586212433718" />
+    <state x="1398" y="558" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586218770678">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state x="1398" y="558" key="#com.intellij.execution.impl.EditConfigurationsDialog/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586218770678" />
+    <state x="1477" y="709" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1586216787431">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state x="1477" y="709" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586216787431" />
+    <state x="1723" y="644" key="FileChooserDialogImpl" timestamp="1586216956751">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state x="1723" y="644" key="FileChooserDialogImpl/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586216956751" />
+    <state width="1111" height="306" key="GridCell.Tab.0.bottom" timestamp="1586279925813">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state width="905" height="306" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586220624373" />
+    <state width="1111" height="306" key="GridCell.Tab.0.bottom/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586279925813" />
+    <state width="1111" height="306" key="GridCell.Tab.0.center" timestamp="1586279925813">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state width="905" height="306" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586220624372" />
+    <state width="1111" height="306" key="GridCell.Tab.0.center/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586279925813" />
+    <state width="1111" height="306" key="GridCell.Tab.0.left" timestamp="1586279925813">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state width="905" height="306" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586220624372" />
+    <state width="1111" height="306" key="GridCell.Tab.0.left/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586279925813" />
+    <state width="1111" height="306" key="GridCell.Tab.0.right" timestamp="1586279925813">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state width="905" height="306" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586220624373" />
+    <state width="1111" height="306" key="GridCell.Tab.0.right/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586279925813" />
+    <state width="1111" height="306" key="GridCell.Tab.1.bottom" timestamp="1586279925814">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state width="905" height="306" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586220624374" />
+    <state width="1111" height="306" key="GridCell.Tab.1.bottom/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586279925814" />
+    <state width="1111" height="306" key="GridCell.Tab.1.center" timestamp="1586279925813">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state width="905" height="306" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586220624374" />
+    <state width="1111" height="306" key="GridCell.Tab.1.center/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586279925813" />
+    <state width="1111" height="306" key="GridCell.Tab.1.left" timestamp="1586279925813">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state width="905" height="306" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586220624373" />
+    <state width="1111" height="306" key="GridCell.Tab.1.left/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586279925813" />
+    <state width="1111" height="306" key="GridCell.Tab.1.right" timestamp="1586279925814">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state width="905" height="306" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586220624374" />
+    <state width="1111" height="306" key="GridCell.Tab.1.right/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586279925814" />
+    <state width="715" height="347" key="GridCell.Tab.2.bottom" timestamp="1586277432110">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state width="715" height="347" key="GridCell.Tab.2.bottom/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586277432110" />
+    <state width="715" height="347" key="GridCell.Tab.2.center" timestamp="1586277432110">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state width="715" height="347" key="GridCell.Tab.2.center/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586277432110" />
+    <state width="715" height="347" key="GridCell.Tab.2.left" timestamp="1586277432110">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state width="715" height="347" key="GridCell.Tab.2.left/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586277432110" />
+    <state width="715" height="347" key="GridCell.Tab.2.right" timestamp="1586277432110">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state width="715" height="347" key="GridCell.Tab.2.right/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586277432110" />
+    <state x="339" y="161" key="SettingsEditor" timestamp="1586217026243">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state x="339" y="161" key="SettingsEditor/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586217026243" />
+    <state x="659" y="29" width="809" height="792" key="find.popup" timestamp="1586280227887">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state x="659" y="29" width="809" height="792" key="find.popup/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586280227887" />
+    <state x="1533" y="707" width="672" height="678" key="search.everywhere.popup" timestamp="1586210076424">
+      <screen x="0" y="0" width="2560" height="1399" />
+    </state>
+    <state x="1533" y="707" width="672" height="678" key="search.everywhere.popup/3840.0.1920.1049/0.0.2560.1399@0.0.2560.1399" timestamp="1586210076424" />
   </component>
 </project>

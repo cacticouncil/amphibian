@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="win64">
+    <CLASSES />
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/jcef/lib/win64" />
+    </NATIVE>
+    <SOURCES />
+  </library>
+</component>

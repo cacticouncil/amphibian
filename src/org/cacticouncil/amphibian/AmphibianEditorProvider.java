@@ -1,5 +1,4 @@
 package org.cacticouncil.amphibian;
-import com.cactiCouncil.IntelliJDroplet.DropletEditor;
 import com.intellij.openapi.fileEditor.FileEditorPolicy;
 import com.intellij.openapi.fileEditor.FileEditorProvider;
 import com.intellij.openapi.fileEditor.FileEditor;
@@ -36,7 +35,7 @@ public class AmphibianEditorProvider implements FileEditorProvider{
     @NotNull
     @Override
     public FileEditor createEditor(@NotNull Project project, @NotNull VirtualFile file) {
-        return new DropletEditor(project, file);
+        return new AmphibianEditor(project, file);
     }
 
     /**
@@ -46,7 +45,7 @@ public class AmphibianEditorProvider implements FileEditorProvider{
     @NotNull
     @Override
     public String getEditorTypeId() {
-        return "Sokomaki";
+        return "Amphibian";
     }
 
     /**

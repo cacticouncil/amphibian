@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="jcef">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/jcef" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/jcef" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/jcef" recursive="false" />
+  </library>
+</component>
