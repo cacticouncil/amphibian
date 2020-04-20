@@ -6,33 +6,46 @@
         },
     palette: [
       {
-        name: 'Variables',
-        color: 'orange',
+        name: 'General',
+        color: 'blue',
         blocks: [
-          { block: 'x = 0'},
+          { block: 'x = 1'},
+          { block: 'array = new (\'thing1\', \'thing2\')'},
+          { block: 'array = [\'thing1\', \'thing2\']'}
         ]
       },
 
       {
-        name: 'Operators',
-        color: 'yellow',
+        name: 'Classes',
+        color: 'purple',
         blocks: [
-          { block: 'a + b' },
-          { block: 'a - b' },
-          { block: 'a * b' },
-          { block: 'a / b' },
-          { block: 'a % b' },
-          { block: 'a++' },
-          { block: 'a--' },
+         { block: 'class ClassName\n\tconstructor: (arg)->\n\@arg = arg'},
+         { block: 'classInstant = new ClassName()'},
+         { block: 'class ClassName extends ParentClass'}
+        ]
+      },
 
-          { block: 'a = b'},
-          { block: 'a += b'},
-          { block: 'a -= b'},
-          { block: 'a *= b'},
-          { block: 'a /= b'},
-          { block: 'a %= b'},
+      {
+        name: 'Controls',
+        color: 'orange',
+        blocks: [
+          { block: 'if a == b\n\ta += 1'}
+        ]
+      },
 
+      {
+        name: 'Loops',
+        color: 'deeporange',
+        blocks: [
+          { block: 'while a == b\n\ta += 1'},
+          { block: 'for i in [0...count]\n\ta += b'}
+        ]
+      },
 
+      {
+        name: 'Logic',
+        color: 'cyan',
+        blocks: [
           { block: 'a == b' },
           { block: 'a != b' },
           { block: 'a > b' },
@@ -60,34 +73,41 @@
       },
 
       {
-        name: 'Controls',
-        color: 'green',
+        name: 'Arithmetic',
+        color: 'teal',
         blocks: [
-          { block: 'if a == b\n\ta += 1'},
+          { block: 'a + b' },
+          { block: 'a - b' },
+          { block: 'a * b' },
+          { block: 'a / b' },
+          { block: 'a % b' },
+          { block: 'a++' },
+          { block: 'a--' },
 
-          { block: 'while a == b\n\ta += 1'},
-          { block: 'for i in [0...count]\n\ta += b'},
+          { block: 'a = b'},
+          { block: 'a += b'},
+          { block: 'a -= b'},
+          { block: 'a *= b'},
+          { block: 'a /= b'},
+          { block: 'a %= b'}
         ]
       },
 
       {
         name: 'Functions',
-        color: 'blue',
+        color: 'green',
         blocks: [
           { block: 'FunctionName = (args) -> a = \'potato\''},
-          { block: 'FunctionName(args)'},
-
-
+          { block: 'FunctionName(args)'}
         ]
       },
 
       {
-        name: 'Classes',
-        color: 'purple',
-        blocks: [
-         { block: 'class ClassName\n\tconstructor: (arg)->\n\@arg = arg'},
-         { block: 'classInstant = new ClassName()'},
-         { block: 'class ClassName extends ParentClass'},
+        name: 'Misc',
+        color: 'deepgreen',
+        blocks:
+        [
+          { block: '# this is a comment' }
         ]
       }
     ]

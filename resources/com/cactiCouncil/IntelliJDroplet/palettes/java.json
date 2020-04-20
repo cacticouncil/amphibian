@@ -27,8 +27,23 @@
           'context': 'blockStatement'
         },
         {
+          'id': 'declare_assign',
+          'block': 'int[] array = {2, 5, 6, 9};',
+          'context': 'blockStatement'
+        },
+        {
           'id': 'declaration',
           'block': 'int x;',
+          'context': 'blockStatement'
+        },
+        {
+          'id': 'declaration',
+          'block': 'int[] array = new int[3];',
+          'context': 'blockStatement'
+        },
+        {
+          'id': 'declaration',
+          'block': 'int[][] doublearray = new int[3][4];',
           'context': 'blockStatement'
         },
         {
@@ -37,9 +52,14 @@
           'context': 'blockStatement'
         },
         {
+          'id': 'assignment',
+          'block': 'array[3] = 5;',
+          'context': 'blockStatement'
+        },
+        {
           'id': 'comment',
           'block': '//Comment\n',
-        },
+        }
       ]
     },
     {
@@ -103,7 +123,7 @@
           'id': 'switch',
           'block': 'switch (x)\n{\n    case 0:\n    break;\n    default:\n    break;\n}',
           'context': 'statement'
-        },
+        }
       ]
     },
     {
