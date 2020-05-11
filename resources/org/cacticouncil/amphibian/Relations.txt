@@ -6,4 +6,4 @@ py3|python
 .h|c_c++
 .cpp|c_c++
 java|java
-html|json
+.html|json

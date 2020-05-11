@@ -17,7 +17,8 @@
           { block: 'var things = {var1: \'thing1\', var2: \'thing2\'};'},
           { block: 'x = 1;'},
           { block: 'things[0]'},
-          { block: 'things[0][0]'}
+          { block: 'things[0][0]'},
+          { block: '// this is a comment'}
         ]
       },
 
@@ -34,7 +35,7 @@
       },
       
       {
-        name: 'Controls',
+        name: 'Selection',
         color: 'orange',
         blocks:
         [
@@ -123,6 +124,7 @@
         [
           { block: 'function FunctionName(args) {\n\t\n}'},
           { block: 'FunctionName(args)'},
+          { block: 'FunctionName = function(args1, args2) {\n\t\n}'},
           { block: 'return value'}
         ]
       },
