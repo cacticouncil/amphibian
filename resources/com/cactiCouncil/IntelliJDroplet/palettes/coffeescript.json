@@ -19,7 +19,9 @@
           { block: 'stringVar = \'text\'' },
           { block: 'stringVar = \"#{ 22 / 7 } is a decent approximation of π\"' },
           { block: 'blockString = \"\"\"<strong>\n\tcup of coffeescript\n</strong>\"\"\"' },
-          { block: '#Comment' }
+          { block: '# this is a comment' },
+          { block: 'import \'coffeescript\'' }
+
         ]
       },
 
@@ -115,11 +117,26 @@
       },
 
       {
-        name: 'Misc',
+        name: 'Math Library',
         color: 'deepgreen',
         blocks:
         [
-          { block: '# this is a comment' }
+          { block: '# this is a comment' },
+          { block: 'variable = Math.pow base, power' },
+          { block: 'variable = Math.sqrt 9' },
+          { block: 'variable = Math.log 10' },
+          { block: 'variable = Math.sqrt 9' },
+          { block: 'variable = Math.floor 9.6' },
+          { block: 'variable = Math.ceil 9.4' },
+          { block: 'variable = Math.max 9 10 -2 20' },
+          { block: 'variable = Math.min 9 10 -2 11' },
+          { block: 'variable = Math.abs -9' },
+          { block: 'variable = Math.sqrt 20.7' },
+          { block: 'variable = Math.random()' },
+          { block: 'variable = Math.sin 90' },
+          { block: 'variable = Math.cos 90' },
+          { block: 'variable = Math.tan(2*Math.PI/180)' }
+
         ]
       }
     ]
