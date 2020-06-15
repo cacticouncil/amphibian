@@ -11,7 +11,15 @@
         blocks: [
           { block: 'x = 1'},
           { block: 'array = new (\'thing1\', \'thing2\')'},
-          { block: 'array = [\'thing1\', \'thing2\']'}
+          { block: 'array = [\'thing1\', \'thing2\']'},
+          { block: 'array = [\n\t1, 2, 3\n\t4, 5, 6\n\t7, 8, 9\n]' },
+          { block: 'object = {attribute1: \"value1\", attribute2: \"value2\"}' },
+          { block: 'object = \n\tlevel1attribute1: \n\t\tlevel2attribute1: \"value1\"\n\t\tlevel2attribute2: \"value2\"\n\t\tlevel1attribute2: \"value\"' },
+          { block: 'stringVar = \"text\"' },
+          { block: 'stringVar = \'text\'' },
+          { block: 'stringVar = \"#{ 22 / 7 } is a decent approximation of π\"' },
+          { block: 'blockString = \"\"\"<strong>\n\tcup of coffeescript\n</strong>\"\"\"' },
+          { block: '#Comment' }
         ]
       },
 
@@ -29,7 +37,11 @@
         name: 'Controls',
         color: 'orange',
         blocks: [
-          { block: 'if a == b\n\ta += 1'}
+          { block: 'if a == b\n\ta += 1'},
+          { block: 'if a and b\n\tfunc1()\n\tfunc2()\nelse\n\tfunc3()' },
+          { block: 'varA = varB if condition' },
+          { block: 'varA = if varB then varC else varD' },
+          { block: 'switch variable\n\twhen "caseName" then statement\n\twhen "caseName2" then statement2\n\twhen "caseName3", "caseName4"\n\t\tif variable is variable2\n\t\t\tdoSomething\n\twhen "caseName4" then statement4\n\telse doSomethingELse\n' }
         ]
       },
 
