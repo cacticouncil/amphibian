@@ -78,7 +78,7 @@ initEditor = function(settings, userstring)
     modal_content = document.getElementsByClassName("modal-content")[0];
     editor = createEditor(eval(settings));
     window.userid = userid = userstring;
-    editor.setEditorState(false);
+    editor.setEditorState(true);
     logEvent("[init]");
 }
 

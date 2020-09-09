@@ -28,7 +28,7 @@ import com.intellij.ui.jcef.*;
  * Created by exlted on 01-Mar-17.
  * Controls the actual Amphibian Editor
  */
-public class AmphibianEditor extends UserDataHolderBase implements FileEditor
+public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 {
     private String jarPalettePath = "palettes/";
     //The browser used by AmphibianEditor to show Droplet
@@ -66,8 +66,14 @@ public class AmphibianEditor extends UserDataHolderBase implements FileEditor
 
         JBCefApp.getInstance();
         JBCefClient client = JBCefApp.getInstance().createClient();
-        browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html");
-    // FIXME
+        System.out.println("Path: \n" + AmphibianComponent.getPathname());
+
+        browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html","initEditor(\"" + settings + "\", \"localuser\")");
+        System.out.println(settings);
+        //browser = new JBCefBrowser(client, "C:/Users/soham/OneDrive/Desktop/Blanchard/amphibianJCEF/amphibian/resources/org/cacticouncil/amphibian/plugin.html");
+
+
+        // FIXME
     /*  BrowserPreferences.setChromiumSwitches("--remote-debugging-port=9222", "--disable-web-security", "--allow-file-access-from-files");
         prefs.setLocalStorageEnabled(true);
         prefs.setApplicationCacheEnabled(true);
@@ -160,12 +166,12 @@ public class AmphibianEditor extends UserDataHolderBase implements FileEditor
     {
         code = FileDocumentManager.getInstance().getDocument(file).getText();
        //FIXME
-//        if(!browser.isLoading())
-//        {
-//            browser.executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")");
-//            set = true;
-//            isBlocks = true;
-//        }
+        if(!browser.isLoading())
+        {
+            browser.executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")");
+            set = true;
+            isBlocks = true;
+        }
     }
 
      // Called by IntelliJ when tab loses selection
@@ -209,7 +215,7 @@ public class AmphibianEditor extends UserDataHolderBase implements FileEditor
     public void dispose()
     {
        // FIXME
-       //  browser.executeJavaScriptAndReturnValue("shutdownEditor()");
+         browser.executeJavaScript("shutdownEditor()");
         browser.dispose();
     }
 
