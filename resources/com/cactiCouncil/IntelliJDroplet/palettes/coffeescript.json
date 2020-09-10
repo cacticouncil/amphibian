@@ -6,33 +6,60 @@
         },
     palette: [
       {
-        name: 'Variables',
-        color: 'orange',
+        name: 'General',
+        color: 'blue',
         blocks: [
-          { block: 'x = 0'},
+          { block: 'x = 1'},
+          { block: 'array = new (\'thing1\', \'thing2\')'},
+          { block: 'array = [\'thing1\', \'thing2\']'},
+          { block: 'array = [\n\t1, 2, 3\n\t4, 5, 6\n\t7, 8, 9\n]' },
+          { block: 'object = {attribute1: \"value1\", attribute2: \"value2\"}' },
+          { block: 'object = \n\tlevel1attribute1: \n\t\tlevel2attribute1: \"value1\"\n\t\tlevel2attribute2: \"value2\"\n\t\tlevel1attribute2: \"value\"' },
+          { block: 'stringVar = \"text\"' },
+          { block: 'stringVar = \'text\'' },
+          { block: 'stringVar = \"#{ 22 / 7 } is a decent approximation of π\"' },
+          { block: 'blockString = \"\"\"<strong>\n\tcup of coffeescript\n</strong>\"\"\"' },
+          { block: '# this is a comment' },
+          { block: 'import \'coffeescript\'' }
+
         ]
       },
 
       {
-        name: 'Operators',
-        color: 'yellow',
+        name: 'Classes',
+        color: 'purple',
         blocks: [
-          { block: 'a + b' },
-          { block: 'a - b' },
-          { block: 'a * b' },
-          { block: 'a / b' },
-          { block: 'a % b' },
-          { block: 'a++' },
-          { block: 'a--' },
+         { block: 'class ClassName\n\tconstructor: (arg)->\n\@arg = arg'},
+         { block: 'classInstant = new ClassName()'},
+         { block: 'class ClassName extends ParentClass'}
+        ]
+      },
 
-          { block: 'a = b'},
-          { block: 'a += b'},
-          { block: 'a -= b'},
-          { block: 'a *= b'},
-          { block: 'a /= b'},
-          { block: 'a %= b'},
+      {
+        name: 'Controls',
+        color: 'orange',
+        blocks: [
+          { block: 'if a == b\n\ta += 1'},
+          { block: 'if a and b\n\tfunc1()\n\tfunc2()\nelse\n\tfunc3()' },
+          { block: 'varA = varB if condition' },
+          { block: 'varA = if varB then varC else varD' },
+          { block: 'switch variable\n\twhen "caseName" then statement\n\twhen "caseName2" then statement2\n\twhen "caseName3", "caseName4"\n\t\tif variable is variable2\n\t\t\tdoSomething\n\twhen "caseName4" then statement4\n\telse doSomethingELse\n' }
+        ]
+      },
 
+      {
+        name: 'Loops',
+        color: 'deeporange',
+        blocks: [
+          { block: 'while a == b\n\ta += 1'},
+          { block: 'for i in [0...count]\n\ta += b'}
+        ]
+      },
 
+      {
+        name: 'Logic',
+        color: 'cyan',
+        blocks: [
           { block: 'a == b' },
           { block: 'a != b' },
           { block: 'a > b' },
@@ -60,34 +87,56 @@
       },
 
       {
-        name: 'Controls',
-        color: 'green',
+        name: 'Arithmetic',
+        color: 'teal',
         blocks: [
-          { block: 'if a == b\n\ta += 1'},
+          { block: 'a + b' },
+          { block: 'a - b' },
+          { block: 'a * b' },
+          { block: 'a / b' },
+          { block: 'a % b' },
+          { block: 'a++' },
+          { block: 'a--' },
 
-          { block: 'while a == b\n\ta += 1'},
-          { block: 'for i in [0...count]\n\ta += b'},
+          { block: 'a = b'},
+          { block: 'a += b'},
+          { block: 'a -= b'},
+          { block: 'a *= b'},
+          { block: 'a /= b'},
+          { block: 'a %= b'}
         ]
       },
 
       {
         name: 'Functions',
-        color: 'blue',
+        color: 'green',
         blocks: [
           { block: 'FunctionName = (args) -> a = \'potato\''},
-          { block: 'FunctionName(args)'},
-
-
+          { block: 'FunctionName(args)'}
         ]
       },
 
       {
-        name: 'Classes',
-        color: 'purple',
-        blocks: [
-         { block: 'class ClassName\n\tconstructor: (arg)->\n\@arg = arg'},
-         { block: 'classInstant = new ClassName()'},
-         { block: 'class ClassName extends ParentClass'},
+        name: 'Math Library',
+        color: 'deepgreen',
+        blocks:
+        [
+          { block: '# this is a comment' },
+          { block: 'variable = Math.pow base, power' },
+          { block: 'variable = Math.sqrt 9' },
+          { block: 'variable = Math.log 10' },
+          { block: 'variable = Math.sqrt 9' },
+          { block: 'variable = Math.floor 9.6' },
+          { block: 'variable = Math.ceil 9.4' },
+          { block: 'variable = Math.max 9 10 -2 20' },
+          { block: 'variable = Math.min 9 10 -2 11' },
+          { block: 'variable = Math.abs -9' },
+          { block: 'variable = Math.sqrt 20.7' },
+          { block: 'variable = Math.random()' },
+          { block: 'variable = Math.sin 90' },
+          { block: 'variable = Math.cos 90' },
+          { block: 'variable = Math.tan(2*Math.PI/180)' }
+
         ]
       }
     ]

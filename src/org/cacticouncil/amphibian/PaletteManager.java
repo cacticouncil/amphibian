@@ -15,6 +15,7 @@ public class PaletteManager
     private String basePaletteList = "CoffeeScript|coffeescript\\n" +
                                  "JavaScript|javascript\\n" +
                                  "Python|python\\n" +
+                                 "Html|html\\n" +
                                  "Java|java";
 
     private String paletteList = basePaletteList;

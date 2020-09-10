@@ -61,7 +61,7 @@ public class AmphibianComponent implements ApplicationComponent {
 
     /**
      * Initializes the plugin by copying out the website from resources
-     * And by building the relationMap
+     * And by building the relationMapz
      */
     @Override
     public void initComponent() {
@@ -80,7 +80,7 @@ public class AmphibianComponent implements ApplicationComponent {
                     "            name: 'Group Name',\n" +
                     "            color: 'orange', //Group Color\n" +
                     "            blocks: [\n" +
-                    "                { block: '# Insert Code Here' },\n" +
+                    "                { block: 'Insert Code Here' },\n" +
                     "            ]\n" +
                     "        },\n" +
                     "        {\n" +

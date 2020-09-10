@@ -1,0 +1,23 @@
+{
+  mode: 'html',
+  palette: [
+    {
+      name: 'Metadata',
+      color: 'lightblue',
+      blocks: [
+        {
+          block: '<!DOCTYPE html>',
+          title: 'Defines document type'
+        },
+        {
+          block: '<html></html>',
+          title: 'Root of an HTML document'
+        },
+        {
+          block: '<head></head>',
+          title: 'Represents a collection of metadata'
+        }
+      ]
+    }
+  ]
+  }
