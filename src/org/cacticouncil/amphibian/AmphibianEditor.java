@@ -117,14 +117,22 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         {
             String target;
             String[] result = message.split(":");
+            System.out.println("Inside CODE UPDATE");
+            for(int i = 0; i < result.length; i++) {
+                System.out.println(result[i]);
+            }
 
             if (result == null || message.indexOf(':') == -1)
                 return;
 
             if (result.length <= 1)
                 target = "";
-            else
+            else{
                 target = result[1];
+                System.out.println("Printing target");
+                System.out.println(target);
+            }
+
 
             Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(target);
             WriteCommandAction.runWriteCommandAction(proj, r);
@@ -164,8 +172,10 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public void selectNotify()
     {
+        System.out.println("I am being called!");
         code = FileDocumentManager.getInstance().getDocument(file).getText();
        //FIXME
+        System.out.println(code);
         if(!browser.isLoading())
         {
             browser.executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")");
@@ -189,7 +199,11 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             String finalCode = code;
             Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(finalCode);
             WriteCommandAction.runWriteCommandAction(proj, r);*/
+
+            //handleConsoleEvent("CODE_UPDATE");
+            browser.executeJavaScript("swapOutEditor()");
         }
+        set = true;
         isBlocks = false;
     }
 
@@ -215,7 +229,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     public void dispose()
     {
        // FIXME
-         browser.executeJavaScript("shutdownEditor()");
+        browser.executeJavaScript("shutdownEditor()");
         browser.dispose();
     }
 

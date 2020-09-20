@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="abfe3a21-dff9-4fba-ade1-71e3ad0780a7" name="Default" comment="Has everything from testbed plugin implemented at this time. Basic browser now exists when enabled Browser initialization takes way too long, should only happen once when plugin is initialized?">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/amphibian.iml" beforeDir="false" afterPath="$PROJECT_DIR$/amphibian.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/org/cacticouncil/amphibian/lib/droplet-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/org/cacticouncil/amphibian/lib/droplet-full.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/org/cacticouncil/amphibian/lib/droplet.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/org/cacticouncil/amphibian/lib/droplet.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/org/cacticouncil/amphibian/lib/worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/org/cacticouncil/amphibian/lib/worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/org/cacticouncil/amphibian/plugin.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/org/cacticouncil/amphibian/plugin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/org/cacticouncil/amphibian/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/org/cacticouncil/amphibian/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefBrowser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/cacticouncil/amphibian/AmphibianEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/cacticouncil/amphibian/AmphibianEditor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,9 +38,9 @@
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
-    <option name="CUSTOM_FILTER" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
+    <option name="CUSTOM_FILTER" value="" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="BdaLnsrz" />
@@ -185,6 +179,7 @@
       <workItem from="1592229997090" duration="172000" />
       <workItem from="1593126778238" duration="4441000" />
       <workItem from="1596403039047" duration="11163000" />
+      <workItem from="1599658520177" duration="18886000" />
     </task>
     <servers />
   </component>
@@ -222,49 +217,53 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="1034" y="335" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592230168754" />
-    <state width="1493" height="94" key="GridCell.Tab.0.bottom" timestamp="1598172343925">
+    <state width="1493" height="2" key="GridCell.Tab.0.bottom" timestamp="1600191320648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="94" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598172343925" />
-    <state width="1493" height="94" key="GridCell.Tab.0.center" timestamp="1598172343925">
+    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
+    <state width="1493" height="2" key="GridCell.Tab.0.center" timestamp="1600191320648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="94" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598172343925" />
-    <state width="1493" height="94" key="GridCell.Tab.0.left" timestamp="1598172343925">
+    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
+    <state width="1493" height="2" key="GridCell.Tab.0.left" timestamp="1600191320648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="94" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598172343925" />
-    <state width="1493" height="94" key="GridCell.Tab.0.right" timestamp="1598172343925">
+    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
+    <state width="1493" height="2" key="GridCell.Tab.0.right" timestamp="1600191320648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="94" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598172343925" />
-    <state width="1493" height="94" key="GridCell.Tab.1.bottom" timestamp="1598172343926">
+    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
+    <state width="1493" height="2" key="GridCell.Tab.1.bottom" timestamp="1600191320648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="94" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598172343926" />
-    <state width="1493" height="94" key="GridCell.Tab.1.center" timestamp="1598172343926">
+    <state width="1493" height="2" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
+    <state width="1493" height="2" key="GridCell.Tab.1.center" timestamp="1600191320648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="94" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1598172343926" />
-    <state width="1493" height="94" key="GridCell.Tab.1.left" timestamp="1598172343926">
+    <state width="1493" height="2" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
+    <state width="1493" height="2" key="GridCell.Tab.1.left" timestamp="1600191320648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="94" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1598172343926" />
-    <state width="1493" height="94" key="GridCell.Tab.1.right" timestamp="1598172343926">
+    <state width="1493" height="2" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
+    <state width="1493" height="2" key="GridCell.Tab.1.right" timestamp="1600191320648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="94" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1598172343926" />
+    <state width="1493" height="2" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
     <state x="203" y="0" key="SettingsEditor" timestamp="1593126826374">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="203" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1593126826374" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1596403047761">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1599658522760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1596403047761" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1599658522760" />
     <state x="448" y="10" width="639" height="804" key="find.popup" timestamp="1596410455037">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="448" y="10" width="639" height="804" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1596410455037" />
+    <state x="425" y="66" width="672" height="676" key="search.everywhere.popup" timestamp="1599972160104">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="66" width="672" height="676" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1599972160104" />
   </component>
 </project>
