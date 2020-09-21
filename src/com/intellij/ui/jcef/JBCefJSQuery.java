@@ -27,7 +27,7 @@ import java.util.function.Function;
 @ApiStatus.Experimental
 public class JBCefJSQuery implements JBCefDisposable {
   @NotNull private final String myJSCallID;
-  @NotNull private final CefMessageRouter myMsgRouter;
+  @NotNull public final CefMessageRouter myMsgRouter;
   @NotNull private final CefClient myCefClient;
   @NotNull private final DisposeHelper myDisposeHelper = new DisposeHelper();
 
@@ -90,6 +90,7 @@ public class JBCefJSQuery implements JBCefDisposable {
                              boolean persistent,
                              CefQueryCallback callback)
       {
+        System.out.println("xyz");
         Response response = handler.apply(request);
         if (callback != null && response != null) {
           if (response.isSuccess() && response.hasResponse()) {

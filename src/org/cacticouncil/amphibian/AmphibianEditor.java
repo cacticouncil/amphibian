@@ -9,6 +9,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import org.cacticouncil.amphibian.AmphibianComponent;
 import org.cacticouncil.amphibian.AmphibianToggle;
 import org.cacticouncil.amphibian.PaletteManager;
+import org.cef.browser.CefMessageRouter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -52,6 +53,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     private String mode;
     private boolean isBlocks = false;
 
+
     /**
      * Called by AmphibianEditorProvider to create a new AmphibianEditor tab
      * @param project The Project this AmphibianEditor is connected to
@@ -66,9 +68,28 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 
         JBCefApp.getInstance();
         JBCefClient client = JBCefApp.getInstance().createClient();
+
+        CefMessageRouter msgRouter = CefMessageRouter.create();
+        msgRouter.addHandler(new TestHandler(file,project), true);
+        client.getCefClient().addMessageRouter(msgRouter);
+
         System.out.println("Path: \n" + AmphibianComponent.getPathname());
 
         browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html","initEditor(\"" + settings + "\", \"localuser\")");
+
+
+/*        // Create a JS query instance
+        myJSQueryOpenInBrowser =
+                JBCefJSQuery.create(browser);
+
+    // Add a query handler
+        myJSQueryOpenInBrowser.addHandler((link) -> {
+            //MarkdownAccessor.getSafeOpenerAccessor().openLink(link);
+            return null; // can respond back to JS with JBCefJSQuery.Response
+        });
+
+        browser.getJBCefClient().getCefClient().addMessageRouter(myJSQueryOpenInBrowser.myMsgRouter);*/
+
         System.out.println(settings);
         //browser = new JBCefBrowser(client, "C:/Users/soham/OneDrive/Desktop/Blanchard/amphibianJCEF/amphibian/resources/org/cacticouncil/amphibian/plugin.html");
 
@@ -172,10 +193,9 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public void selectNotify()
     {
-        System.out.println("I am being called!");
         code = FileDocumentManager.getInstance().getDocument(file).getText();
        //FIXME
-        System.out.println(code);
+        //System.out.println(code);
         if(!browser.isLoading())
         {
             browser.executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")");
@@ -188,6 +208,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public void deselectNotify()
     {
+
         if(set)
         {
         // FIXME
@@ -196,11 +217,16 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             if(!result.isNull())
                 code = result.getStringValue();
 
+
             String finalCode = code;
             Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(finalCode);
             WriteCommandAction.runWriteCommandAction(proj, r);*/
 
             //handleConsoleEvent("CODE_UPDATE");
+
+            //TESTING CODE//
+            // Inject the query callback into JS
+            //browser.executeJavaScript("cefQuery('Hello World')");
             browser.executeJavaScript("swapOutEditor()");
         }
         set = true;

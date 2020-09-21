@@ -97,6 +97,12 @@ swapOutEditor = function()
     logEvent("[swap_to_text]");
     returnValue = getValueSync();
 
+    window.cefQuery({
+        request: returnValue,
+
+        //ON SUCCESS AND FAIL
+    });
+
     updateCode(returnValue);
 
     setValueSync(""); // Gross hack; I need to get the editor to reset... we have to set value to empty to do that.

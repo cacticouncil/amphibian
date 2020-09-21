@@ -6,6 +6,7 @@ import com.intellij.openapi.util.Disposer;
 import com.intellij.ui.JBColor;
 import org.cef.browser.CefBrowser;
 import org.cef.browser.CefFrame;
+import org.cef.browser.CefMessageRouter;
 import org.cef.callback.CefContextMenuParams;
 import org.cef.callback.CefMenuModel;
 import org.cef.handler.*;
@@ -15,6 +16,7 @@ import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import tests.detailed.handler.MessageRouterHandler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,6 +54,7 @@ public class JBCefBrowser implements JBCefDisposable {
   private JDialog myDevtoolsFrame = null;
   protected CefContextMenuHandler myDefaultContextMenuHandler;
   private final ReentrantLock myCookieManagerLock = new ReentrantLock();
+  private CefMessageRouter msgRouter;
 
   private static class LoadDeferrer {
     @Nullable protected final String myHtml;
@@ -144,6 +147,7 @@ public class JBCefBrowser implements JBCefDisposable {
         @Override
         public void onLoadEnd(CefBrowser cefBrowser, CefFrame cefFrame, int i) {
           myCefBrowser.executeJavaScript(OnLoadJavaScript, null, 0 );
+
         }
 
         @Override
