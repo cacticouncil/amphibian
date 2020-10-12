@@ -19,7 +19,5 @@
         <jarDirectory url="file://$MODULE_DIR$/jcef" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="jcef" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="win64" level="project" />
   </component>
 </module>
