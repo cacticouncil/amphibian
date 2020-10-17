@@ -11,21 +11,25 @@ import org.cacticouncil.amphibian.AmphibianComponent;
 import org.cacticouncil.amphibian.AmphibianToggle;
 import org.cacticouncil.amphibian.PaletteManager;
 //import org.cef.browser.CefMessageRouter;
+import org.cef.browser.CefBrowser;
+import org.cef.browser.CefFrame;
+import org.cef.browser.CefMessageRouter;
+import org.cef.handler.CefLoadHandler;
+import org.cef.network.CefRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-/*import org.cef.CefApp;
+import org.cef.CefApp;
 import org.cef.browser.CefBrowser;
 import org.cef.CefClient;
-import org.cef.CefSettings;*/
+import org.cef.CefSettings;
+
 
 import javax.swing.*;
 import java.beans.PropertyChangeListener;
 import java.io.*;
 
-import com.intellij.ui.jcef.JBCefBrowser;
-import com.intellij.ui.jcef.JBCefApp;
-import com.intellij.ui.jcef.JBCefClient;
+import com.intellij.ui.jcef.*;
 
 
 /**
@@ -37,7 +41,6 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     private String jarPalettePath = "palettes/";
     //The browser used by AmphibianEditor to show Droplet
     private JBCefBrowser browser = null;
-
     // Resources connected with this Editor tab
     private VirtualFile file;
     private Project proj;
@@ -71,40 +74,38 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 
         JBCefApp.getInstance();
         JBCefClient client = JBCefApp.getInstance().createClient();
-        client.addLoadHandler()
-        /*myCefClient.addLoadHandler(myLoadHandler = new CefLoadHandler() {
-        @Override
-        public void onLoadingStateChange(CefBrowser cefBrowser, boolean b, boolean b1, boolean b2) {
+        CefLoadHandler myLoadHandler;
+        client.addLoadHandler(myLoadHandler = new CefLoadHandler() {
 
-        }
+            @Override
+            public void onLoadingStateChange(CefBrowser cefBrowser, boolean b, boolean b1, boolean b2) {
 
-        @Override
-        public void onLoadStart(CefBrowser cefBrowser, CefFrame cefFrame, CefRequest.TransitionType transitionType) {
+            }
 
-        }
+            @Override
+            public void onLoadStart(CefBrowser cefBrowser, CefFrame cefFrame, CefRequest.TransitionType transitionType) {
 
-        @Override
-        public void onLoadEnd(CefBrowser cefBrowser, CefFrame cefFrame, int i) {
-          myCefBrowser.executeJavaScript(OnLoadJavaScript, null, 0 );
+            }
 
-        }
+            @Override
+            public void onLoadEnd(CefBrowser cefBrowser, CefFrame cefFrame, int i) {
 
-        @Override
-        public void onLoadError(CefBrowser cefBrowser, CefFrame cefFrame, ErrorCode errorCode, String s, String s1) {
+            }
 
-        }
-      }, myCefBrowser);*/
+            @Override
+            public void onLoadError(CefBrowser cefBrowser, CefFrame cefFrame, ErrorCode errorCode, String s, String s1) {
 
-        /*CefMessageRouter msgRouter = CefMessageRouter.create();
-        msgRouter.addHandler(new TestHandler(file,project), true);
-        client.getCefClient().addMessageRouter(msgRouter);*/
+            }
+        }, new JBCefBrowser().getCefBrowser());
+
+
+        CefMessageRouter msgRouter = CefMessageRouter.create();
+       // msgRouter.addHandler(new TestHandler(file,project), true);
+        client.getCefClient().addMessageRouter(msgRouter);
 
         System.out.println("Path: \n" + AmphibianComponent.getPathname());
 
         browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html");
-
-        while()
-
         //browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html","initEditor(\"" + settings + "\", \"localuser\")");
 
 
@@ -226,9 +227,10 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         code = FileDocumentManager.getInstance().getDocument(file).getText();
        //FIXME
         //System.out.println(code);
-        if(!browser.isLoading())
+        if(!browser.getCefBrowser().isLoading())
+
         {
-            browser.executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")");
+            browser.getCefBrowser().executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")", null, 0);
             set = true;
             isBlocks = true;
         }
@@ -257,7 +259,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             //TESTING CODE//
             // Inject the query callback into JS
             //browser.executeJavaScript("cefQuery('Hello World')");
-            browser.executeJavaScript("swapOutEditor()");
+            browser.getCefBrowser().executeJavaScript("swapOutEditor()", null, 0);
         }
         set = true;
         isBlocks = false;
@@ -285,7 +287,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     public void dispose()
     {
        // FIXME
-        browser.executeJavaScript("shutdownEditor()");
+        browser.getCefBrowser().executeJavaScript("shutdownEditor()", null, 0);
         browser.dispose();
     }
 

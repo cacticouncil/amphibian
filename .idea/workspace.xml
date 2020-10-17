@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="abfe3a21-dff9-4fba-ade1-71e3ad0780a7" name="Default" comment="Has everything from testbed plugin implemented at this time. Basic browser now exists when enabled Browser initialization takes way too long, should only happen once when plugin is initialized?">
-      <change afterPath="$PROJECT_DIR$/src/com/intellij/ui/jcef/DisposeHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefBrowser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefCookieManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefDisposable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefFileSchemeHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefJSQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefStartup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/intellij/ui/jcef/TestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/cacticouncil/amphibian/AmphibianComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/cacticouncil/amphibian/AmphibianEditor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/cacticouncil/amphibian/AmphibianEditorProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/cacticouncil/amphibian/AmphibianToggle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/cacticouncil/amphibian/PaletteManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/cacticouncil/amphibian/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/amphibian.iml" beforeDir="false" afterPath="$PROJECT_DIR$/amphibian.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/intellij/ui/jcef/DisposeHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefBrowser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefCookieManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefDisposable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefFileSchemeHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefJSQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/intellij/ui/jcef/JBCefStartup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/intellij/ui/jcef/TestHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/cacticouncil/amphibian/AmphibianEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/cacticouncil/amphibian/AmphibianEditor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,10 +83,10 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -144,9 +144,9 @@
     </configuration>
     <configuration name="Plugin" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="amphibian" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea -Djava.library.path=C:\repos\amphibian-jcef\amphibian\jcef\lib\win64" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -ea" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <alternative-path path="$APPLICATION_HOME_DIR$" alternative-path-enabled="true" />
+      <alternative-path path="IntelliJ IDEA IU-202.7319.50" alternative-path-enabled="true" />
       <predefined_log_file enabled="true" id="idea.log" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -162,6 +162,7 @@
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -206,11 +207,14 @@
       <workItem from="1593126778238" duration="4441000" />
       <workItem from="1596403039047" duration="11163000" />
       <workItem from="1599658520177" duration="18886000" />
+      <workItem from="1602463467862" duration="408000" />
+      <workItem from="1602463922460" duration="1603000" />
+      <workItem from="1602966862977" duration="3174000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -230,71 +234,71 @@
     <option name="LAST_COMMIT_MESSAGE" value="Has everything from testbed plugin implemented at this time. Basic browser now exists when enabled Browser initialization takes way too long, should only happen once when plugin is initialized?" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="143" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602462788883">
+    <state x="143" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602967439416">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="143" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1602462788883" />
+    <state x="143" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1602967439416" />
     <state x="2479" y="167" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657530806" />
-    <state x="973" y="124" key="#com.intellij.ide.util.MemberChooser" timestamp="1596407337855">
+    <state x="973" y="124" key="#com.intellij.ide.util.MemberChooser" timestamp="1602967137201">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="973" y="124" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1596407337855" />
+    <state x="973" y="124" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1602967137201" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602462801059">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602462801059" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1600676322874">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
-    <state width="938" height="281" key="GridCell.Tab.0.bottom/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580828" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1600676322874">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
-    <state width="938" height="281" key="GridCell.Tab.0.center/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580828" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1600676322874">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
-    <state width="938" height="281" key="GridCell.Tab.0.left/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580828" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1600676322874">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
-    <state width="938" height="281" key="GridCell.Tab.0.right/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580828" />
-    <state width="1877" height="281" key="GridCell.Tab.1.bottom" timestamp="1600676322875">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1493" height="2" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
-    <state width="1877" height="281" key="GridCell.Tab.1.bottom/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322875" />
-    <state width="938" height="281" key="GridCell.Tab.1.bottom/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580829" />
-    <state width="1877" height="281" key="GridCell.Tab.1.center" timestamp="1600676322874">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1493" height="2" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
-    <state width="1877" height="281" key="GridCell.Tab.1.center/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
-    <state width="938" height="281" key="GridCell.Tab.1.center/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580829" />
-    <state width="1877" height="281" key="GridCell.Tab.1.left" timestamp="1600676322874">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1493" height="2" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
-    <state width="1877" height="281" key="GridCell.Tab.1.left/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
-    <state width="938" height="281" key="GridCell.Tab.1.left/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580829" />
-    <state width="1877" height="281" key="GridCell.Tab.1.right" timestamp="1600676322874">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1493" height="2" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1600191320648" />
-    <state width="1877" height="281" key="GridCell.Tab.1.right/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
-    <state width="938" height="281" key="GridCell.Tab.1.right/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580829" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1602462857945">
+    <state width="1493" height="155" key="GridCell.Tab.0.bottom" timestamp="1602973238520">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602462857945" />
+    <state width="1493" height="155" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602973238520" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
+    <state width="938" height="281" key="GridCell.Tab.0.bottom/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580828" />
+    <state width="1493" height="155" key="GridCell.Tab.0.center" timestamp="1602973238520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="155" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602973238520" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
+    <state width="938" height="281" key="GridCell.Tab.0.center/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580828" />
+    <state width="1493" height="155" key="GridCell.Tab.0.left" timestamp="1602973238519">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="155" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602973238519" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
+    <state width="938" height="281" key="GridCell.Tab.0.left/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580828" />
+    <state width="1493" height="155" key="GridCell.Tab.0.right" timestamp="1602973238520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="155" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602973238520" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
+    <state width="938" height="281" key="GridCell.Tab.0.right/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580828" />
+    <state width="1493" height="155" key="GridCell.Tab.1.bottom" timestamp="1602973238521">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="155" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602973238521" />
+    <state width="1877" height="281" key="GridCell.Tab.1.bottom/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322875" />
+    <state width="938" height="281" key="GridCell.Tab.1.bottom/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580829" />
+    <state width="1493" height="155" key="GridCell.Tab.1.center" timestamp="1602973238520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="155" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1602973238520" />
+    <state width="1877" height="281" key="GridCell.Tab.1.center/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
+    <state width="938" height="281" key="GridCell.Tab.1.center/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580829" />
+    <state width="1493" height="155" key="GridCell.Tab.1.left" timestamp="1602973238520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="155" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1602973238520" />
+    <state width="1877" height="281" key="GridCell.Tab.1.left/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
+    <state width="938" height="281" key="GridCell.Tab.1.left/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580829" />
+    <state width="1493" height="155" key="GridCell.Tab.1.right" timestamp="1602973238521">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="155" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1602973238521" />
+    <state width="1877" height="281" key="GridCell.Tab.1.right/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1600676322874" />
+    <state width="938" height="281" key="GridCell.Tab.1.right/1920.-3.1920.1040/0.0.1920.1040/3840.0.1536.824@1920.-3.1920.1040" timestamp="1600657580829" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1602464134447">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602464134447" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1599658522760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
