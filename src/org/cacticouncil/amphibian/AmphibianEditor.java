@@ -75,6 +75,18 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         JBCefApp.getInstance();
         JBCefClient client = JBCefApp.getInstance().createClient();
         CefLoadHandler myLoadHandler;
+
+
+
+        CefMessageRouter msgRouter = CefMessageRouter.create();
+       // msgRouter.addHandler(new TestHandler(file,project), true);
+        client.getCefClient().addMessageRouter(msgRouter);
+
+        System.out.println("Path: \n" + AmphibianComponent.getPathname());
+
+        browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html");
+        //browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html","initEditor(\"" + settings + "\", \"localuser\")");
+
         client.addLoadHandler(myLoadHandler = new CefLoadHandler() {
 
             @Override
@@ -89,25 +101,14 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 
             @Override
             public void onLoadEnd(CefBrowser cefBrowser, CefFrame cefFrame, int i) {
-
+                cefBrowser.executeJavaScript("initEditor(\"" + settings + "\", \"localuser\")","",1);
             }
 
             @Override
             public void onLoadError(CefBrowser cefBrowser, CefFrame cefFrame, ErrorCode errorCode, String s, String s1) {
 
             }
-        }, new JBCefBrowser().getCefBrowser());
-
-
-        CefMessageRouter msgRouter = CefMessageRouter.create();
-       // msgRouter.addHandler(new TestHandler(file,project), true);
-        client.getCefClient().addMessageRouter(msgRouter);
-
-        System.out.println("Path: \n" + AmphibianComponent.getPathname());
-
-        browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html");
-        //browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html","initEditor(\"" + settings + "\", \"localuser\")");
-
+        }, browser.getCefBrowser());
 
 /*        // Create a JS query instance
         myJSQueryOpenInBrowser =
