@@ -2,6 +2,7 @@ package org.cacticouncil.amphibian;
 
 import com.intellij.codeHighlighting.BackgroundEditorHighlighter;
 import com.intellij.openapi.command.WriteCommandAction;
+import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.fileEditor.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.UserDataHolderBase;
@@ -14,7 +15,9 @@ import org.cacticouncil.amphibian.PaletteManager;
 import org.cef.browser.CefBrowser;
 import org.cef.browser.CefFrame;
 import org.cef.browser.CefMessageRouter;
+import org.cef.callback.CefQueryCallback;
 import org.cef.handler.CefLoadHandler;
+import org.cef.handler.CefMessageRouterHandler;
 import org.cef.network.CefRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -42,8 +45,8 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     //The browser used by AmphibianEditor to show Droplet
     private JBCefBrowser browser = null;
     // Resources connected with this Editor tab
-    private VirtualFile file;
-    private Project proj;
+    private static VirtualFile file;
+    private static Project proj;
     /**
      * If true, allows deselectNotify() to update document text
      */
@@ -59,6 +62,8 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     private String mode;
     private boolean isBlocks = false;
 
+    static FileDocumentManager fManager = FileDocumentManager.getInstance();
+
 
     /**
      * Called by AmphibianEditorProvider to create a new AmphibianEditor tab
@@ -69,6 +74,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     {
         this.proj = project;
         this.file = file;
+        Document vFile = fManager.getDocument(file);
         mode = AmphibianComponent.getRelationMap().get(this.file.getExtension());
         settings = loadSettings(mode);
 
@@ -78,14 +84,50 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 
 
 
-        CefMessageRouter msgRouter = CefMessageRouter.create();
-       // msgRouter.addHandler(new TestHandler(file,project), true);
-        client.getCefClient().addMessageRouter(msgRouter);
-
-        System.out.println("Path: \n" + AmphibianComponent.getPathname());
-
         browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html");
-        //browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html","initEditor(\"" + settings + "\", \"localuser\")");
+        while (browser.getCefBrowser().isLoading())
+        {
+            try { Thread.sleep(50); }
+            catch (InterruptedException ignored) { }
+        }
+
+
+        CefMessageRouter msgRouter = CefMessageRouter.create();
+        msgRouter.addHandler(new CefMessageRouterHandler() {
+
+            //Deselct Notify JSQUERY BACK HERE
+           @Override
+           public boolean onQuery(CefBrowser cefBrowser, CefFrame cefFrame, long l, String s, boolean b, CefQueryCallback cefQueryCallback) {
+               code = vFile.getText();
+               //UpdateFile(s);
+               if(s!=null)
+               {
+                   code = s;
+               }
+               Runnable r = () -> vFile.setText(code);
+               WriteCommandAction.runWriteCommandAction(proj, r);
+
+               //Write a handler to change the file code
+               return true;
+           }
+
+           @Override
+           public void onQueryCanceled(CefBrowser cefBrowser, CefFrame cefFrame, long l) {
+
+           }
+
+           @Override
+           public void setNativeRef(String s, long l) {
+
+           }
+
+           @Override
+           public long getNativeRef(String s) {
+               return 0;
+           }
+       }, true);
+
+        client.getCefClient().addMessageRouter(msgRouter);
 
         client.addLoadHandler(myLoadHandler = new CefLoadHandler() {
 
@@ -101,7 +143,11 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 
             @Override
             public void onLoadEnd(CefBrowser cefBrowser, CefFrame cefFrame, int i) {
-                cefBrowser.executeJavaScript("initEditor(\"" + settings + "\", \"localuser\")","",1);
+                cefBrowser.executeJavaScript("initEditor(\"" + settings + "\", \"localuser\")",null,1);
+                code = vFile.getText();
+                cefBrowser.executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")", null, 0);
+                set = true;
+                isBlocks = true;
             }
 
             @Override
@@ -110,20 +156,6 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             }
         }, browser.getCefBrowser());
 
-/*        // Create a JS query instance
-        myJSQueryOpenInBrowser =
-                JBCefJSQuery.create(browser);
-
-    // Add a query handler
-        myJSQueryOpenInBrowser.addHandler((link) -> {
-            //MarkdownAccessor.getSafeOpenerAccessor().openLink(link);
-            return null; // can respond back to JS with JBCefJSQuery.Response
-        });
-
-        browser.getJBCefClient().getCefClient().addMessageRouter(myJSQueryOpenInBrowser.myMsgRouter);*/
-
-        System.out.println(settings);
-        //browser = new JBCefBrowser(client, "C:/Users/soham/OneDrive/Desktop/Blanchard/amphibianJCEF/amphibian/resources/org/cacticouncil/amphibian/plugin.html");
 
 
         // FIXME
@@ -131,33 +163,29 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         prefs.setLocalStorageEnabled(true);
         prefs.setApplicationCacheEnabled(true);
         browser.setPreferences(prefs);
-        browserView = new BrowserView(browser);
-        System.out.println(browser.getRemoteDebuggingURL());
-        browser.addConsoleListener(consoleEvent -> handleConsoleEvent(consoleEvent.getMessage()));
-        browser.addLoadListener(new LoadListener()
-        {
-            public void onStartLoadingFrame(StartLoadingEvent startLoadingEvent) { }
-            public void onProvisionalLoadingFrame(ProvisionalLoadingEvent provisionalLoadingEvent) { }
-            public void onFinishLoadingFrame(FinishLoadingEvent finishLoadingEvent) { }
-            public void onFailLoadingFrame(FailLoadingEvent failLoadingEvent) { }
-            public void onDocumentLoadedInMainFrame(LoadEvent loadEvent) { }
-            @Override
-            public void onDocumentLoadedInFrame(FrameLoadEvent frameLoadEvent)
+        --browserView = new BrowserView(browser);
+        --System.out.println(browser.getRemoteDebuggingURL());
+       -- browser.addConsoleListener(consoleEvent -> handleConsoleEvent(consoleEvent.getMessage()));
+        --browser.addLoadListener(new LoadListener()
+        --{
+        --    public void onStartLoadingFrame(StartLoadingEvent startLoadingEvent) { }
+         --   public void onProvisionalLoadingFrame(ProvisionalLoadingEvent provisionalLoadingEvent) { }
+        --    public void onFinishLoadingFrame(FinishLoadingEvent finishLoadingEvent) { }
+         --   public void onFailLoadingFrame(FailLoadingEvent failLoadingEvent) { }
+         --   public void onDocumentLoadedInMainFrame(LoadEvent loadEvent) { }
+          --  @Override
+           -- public void onDocumentLoadedInFrame(FrameLoadEvent frameLoadEvent)
             {
-                while (browser.isLoading())
+            --    while (browser.isLoading())
                 {
-                    try { Thread.sleep(50); }
-                    catch (InterruptedException ignored) { }
+            --        try { Thread.sleep(50); }
+             --       catch (InterruptedException ignored) { }
                 }
-                browser.executeJavaScript("initEditor(\"" + settings + "\", \"localuser\")");
-                set = true;
-            }
-        });
-        while (browser.isLoading())
-        {
-            try { Thread.sleep(50); }
-            catch (InterruptedException ignored) { }
-        }*/
+             --   browser.executeJavaScript("initEditor(\"" + settings + "\", \"localuser\")");
+             --   set = true;
+           -- }
+       -- });
+      -- */
     }
 
     @NotNull
@@ -187,7 +215,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             }
 
 
-            Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(target);
+            Runnable r = () -> fManager.getDocument(file).setText(target);
             WriteCommandAction.runWriteCommandAction(proj, r);
         }
         else if (message.startsWith("LOGGED"))
@@ -225,7 +253,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public void selectNotify()
     {
-        code = FileDocumentManager.getInstance().getDocument(file).getText();
+        code = fManager.getInstance().getDocument(file).getText();
        //FIXME
         //System.out.println(code);
         if(!browser.getCefBrowser().isLoading())
