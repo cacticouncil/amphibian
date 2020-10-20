@@ -98,7 +98,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             //Deselct Notify JSQUERY BACK HERE
            @Override
            public boolean onQuery(CefBrowser cefBrowser, CefFrame cefFrame, long l, String s, boolean b, CefQueryCallback cefQueryCallback) {
-               code = vFile.getText();
+               code = fManager.getDocument(file).getText();
                //UpdateFile(s);
                if(s!=null)
                {
@@ -125,7 +125,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
            public long getNativeRef(String s) {
                return 0;
            }
-       }, true);
+       },true);
 
         client.getCefClient().addMessageRouter(msgRouter);
 
@@ -253,7 +253,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public void selectNotify()
     {
-        code = fManager.getInstance().getDocument(file).getText();
+        code = FileDocumentManager.getInstance().getDocument(file).getText();
        //FIXME
         //System.out.println(code);
         if(!browser.getCefBrowser().isLoading())
@@ -289,9 +289,10 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             // Inject the query callback into JS
             //browser.executeJavaScript("cefQuery('Hello World')");
             browser.getCefBrowser().executeJavaScript("swapOutEditor()", null, 0);
+            set = true;
+            isBlocks = false;
         }
-        set = true;
-        isBlocks = false;
+
     }
 
     @Override
