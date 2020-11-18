@@ -1,23 +1,19 @@
 <idea-plugin>
   <id>org.cacticouncil.amphibian</id>
-  <name>Droplet Editor</name>
-  <version>2.0</version>
+  <name>Amphibian Editor</name>
+  <version>1.0</version>
   <vendor email="support@cacticouncil.org" url="https://github.com/cacticouncil/amphibian">Cacti Council</vendor>
 
   <description><![CDATA[
-      Blocks-based editor for source code in standard languages
+      Dual-modality editor for source code in standard languages
     ]]></description>
 
   <change-notes><![CDATA[
-      0.9j-beta - Beta, testing version allows for usage with Java
+      v1.0-rc - Release candidate for v1.0 release
     ]]>
   </change-notes>
 
-  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version since-build="182.0"/>
-
-  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-       on how to target different products -->
+  <idea-version since-build="202.0"/>
   <depends>com.intellij.modules.lang</depends>
 
     <application-components>
@@ -27,11 +23,10 @@
     </application-components>
 
   <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
     <fileEditorProvider implementation="org.cacticouncil.amphibian.AmphibianEditorProvider"/>
   </extensions>
+
   <actions>
     <!-- Add your actions here -->
   </actions>
-
 </idea-plugin>
