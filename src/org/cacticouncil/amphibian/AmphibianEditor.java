@@ -105,8 +105,26 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
                {
                    code = s;
                }
-               Runnable r = () -> vFile.setText(code);
-               WriteCommandAction.runWriteCommandAction(proj, r);
+               /*Runnable r = () -> vFile.setText(code);
+               WriteCommandAction.runWriteCommandAction(proj, r);*/
+
+               try{
+                   String path = file.getPath();
+                   //path = path.replaceAll("/","\\");
+                   System.out.println(path);
+                   PrintWriter prw = new PrintWriter(path);
+                   prw.println(code);
+                   prw.close();
+                   file.refresh(true,false);
+                  /*
+                   PrintWriter prw = new PrintWriter("C:\\Users\\ashim\\source\\repos\\amphibian-jcef\\Soham.java");
+                   prw.println("These text will replace all your file content");
+                   prw.close();*/
+               }
+               catch (Exception e)
+               {
+                   System.out.println("Writing to file error!  "+e.getMessage());
+               }
 
                //Write a handler to change the file code
                return true;
@@ -258,7 +276,6 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         //vFile = FileDocumentManager.getInstance().getFile(FileEditorManager);
         //file = FileDocumentManager.getInstance().getFile(vFile);
         code = FileDocumentManager.getInstance().getDocument(file).getText();
-        System.out.println(vFile);
         /*vFile = FileEditorManager.getInstance(proj).getSelectedTextEditor().getDocument();
         this.file = FileDocumentManager.getInstance().getFile(vFile);
         code = FileDocumentManager.getInstance().getDocument(file).getText();*/
