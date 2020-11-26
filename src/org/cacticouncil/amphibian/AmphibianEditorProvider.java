@@ -35,6 +35,7 @@ public class AmphibianEditorProvider implements FileEditorProvider{
     @NotNull
     @Override
     public FileEditor createEditor(@NotNull Project project, @NotNull VirtualFile file) {
+        //System.out.println(file);
         return new AmphibianEditor(project, file);
     }
 

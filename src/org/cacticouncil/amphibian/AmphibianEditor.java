@@ -8,6 +8,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
 
+import com.intellij.psi.impl.file.impl.FileManager;
 import org.cacticouncil.amphibian.AmphibianComponent;
 import org.cacticouncil.amphibian.AmphibianToggle;
 import org.cacticouncil.amphibian.PaletteManager;
@@ -45,8 +46,9 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     //The browser used by AmphibianEditor to show Droplet
     private JBCefBrowser browser = null;
     // Resources connected with this Editor tab
-    private static VirtualFile file;
-    private static Project proj;
+    private  static Project proj;
+    private VirtualFile file;
+    private Document vFile;
     /**
      * If true, allows deselectNotify() to update document text
      */
@@ -60,6 +62,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
      */
     private String code;
     private String mode;
+    private String currentFile;
     private boolean isBlocks = false;
 
     static FileDocumentManager fManager = FileDocumentManager.getInstance();
@@ -74,7 +77,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     {
         this.proj = project;
         this.file = file;
-        Document vFile = fManager.getDocument(file);
+        this.vFile = FileDocumentManager.getInstance().getDocument(file);
         mode = AmphibianComponent.getRelationMap().get(this.file.getExtension());
         settings = loadSettings(mode);
 
@@ -98,8 +101,6 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             //Deselct Notify JSQUERY BACK HERE
            @Override
            public boolean onQuery(CefBrowser cefBrowser, CefFrame cefFrame, long l, String s, boolean b, CefQueryCallback cefQueryCallback) {
-               code = fManager.getDocument(file).getText();
-               //UpdateFile(s);
                if(s!=null)
                {
                    code = s;
@@ -188,6 +189,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
       -- */
     }
 
+
     @NotNull
     @Override
     public FileEditorState getState(@NotNull FileEditorStateLevel level) { return FileEditorState.INSTANCE; }
@@ -253,7 +255,13 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public void selectNotify()
     {
+        //vFile = FileDocumentManager.getInstance().getFile(FileEditorManager);
+        //file = FileDocumentManager.getInstance().getFile(vFile);
         code = FileDocumentManager.getInstance().getDocument(file).getText();
+        System.out.println(vFile);
+        /*vFile = FileEditorManager.getInstance(proj).getSelectedTextEditor().getDocument();
+        this.file = FileDocumentManager.getInstance().getFile(vFile);
+        code = FileDocumentManager.getInstance().getDocument(file).getText();*/
        //FIXME
         //System.out.println(code);
         if(!browser.getCefBrowser().isLoading())
@@ -278,7 +286,6 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             if(!result.isNull())
                 code = result.getStringValue();
 
-
             String finalCode = code;
             Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(finalCode);
             WriteCommandAction.runWriteCommandAction(proj, r);*/
@@ -288,6 +295,9 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             //TESTING CODE//
             // Inject the query callback into JS
             //browser.executeJavaScript("cefQuery('Hello World')");
+            //vFile = FileEditorManager.getInstance(proj).getSelectedTextEditor().getDocument();
+            //file = FileDocumentManager.getInstance().getFile(vFile);
+            code = FileDocumentManager.getInstance().getDocument(file).getText();
             browser.getCefBrowser().executeJavaScript("swapOutEditor()", null, 0);
             set = true;
             isBlocks = false;
