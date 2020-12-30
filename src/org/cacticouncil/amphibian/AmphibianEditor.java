@@ -1,5 +1,16 @@
+/*
+  Created by exlted on 01-Mar-17.
+  Controls the actual Amphibian Editor
+ */
+
 package org.cacticouncil.amphibian;
 
+// Java Language Imports
+import java.beans.PropertyChangeListener;
+import javax.swing.*;
+import java.io.*;
+
+// JetBrains / IntelliJ SDK Imports
 import com.intellij.codeHighlighting.BackgroundEditorHighlighter;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Document;
@@ -7,66 +18,33 @@ import com.intellij.openapi.fileEditor.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
+import org.jetbrains.annotations.*;
 
-import com.intellij.psi.impl.file.impl.FileManager;
-import org.cacticouncil.amphibian.AmphibianComponent;
-import org.cacticouncil.amphibian.AmphibianToggle;
-import org.cacticouncil.amphibian.PaletteManager;
-//import org.cef.browser.CefMessageRouter;
-import org.cef.browser.CefBrowser;
-import org.cef.browser.CefFrame;
-import org.cef.browser.CefMessageRouter;
+// CEF Imports (via JetBrains SDK)
+import org.cef.browser.*;
 import org.cef.callback.CefQueryCallback;
 import org.cef.handler.CefLoadHandler;
 import org.cef.handler.CefMessageRouterHandler;
 import org.cef.network.CefRequest;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import org.cef.CefApp;
-import org.cef.browser.CefBrowser;
-import org.cef.CefClient;
-import org.cef.CefSettings;
-
-
-import javax.swing.*;
-import java.beans.PropertyChangeListener;
-import java.io.*;
-
 import com.intellij.ui.jcef.*;
 
-
-/**
- * Created by exlted on 01-Mar-17.
- * Controls the actual Amphibian Editor
- */
 public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 {
-    private String jarPalettePath = "palettes/";
+    private static final String jarPalettePath = "palettes/";
+
     //The browser used by AmphibianEditor to show Droplet
-    private JBCefBrowser browser = null;
+    private final JBCefBrowser browser;
     // Resources connected with this Editor tab
-    private  static Project proj;
-    private VirtualFile file;
-    private Document vFile;
-    /**
-     * If true, allows deselectNotify() to update document text
-     */
-    private boolean set = false;
-    /**
-     * Stores the settings for later usage, set ONLY during constructor
-     */
-    private String settings;
-    /**
-     * The string pulled from the document connected with file, used to update the internal code within Amphibian
-     */
-    private String code;
-    private String mode;
-    private String currentFile;
+    private static Project proj; // TODO: Should this be static???
+    private final VirtualFile file;
+    private final Document vFile;
+    private boolean set = false; // If true, allows deselectNotify() to update document text
+    private final String settings; // Stores settings for later use; set ONLY in constructor
+    private String code; // String pulled from document/file; used to update code representation
     private boolean isBlocks = false;
+    private final boolean isDebugMode;
 
     static FileDocumentManager fManager = FileDocumentManager.getInstance();
-
 
     /**
      * Called by AmphibianEditorProvider to create a new AmphibianEditor tab
@@ -78,14 +56,14 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         this.proj = project;
         this.file = file;
         this.vFile = FileDocumentManager.getInstance().getDocument(file);
-        mode = AmphibianComponent.getRelationMap().get(this.file.getExtension());
+        String mode = AmphibianComponent.getRelationMap().get(this.file.getExtension());
         settings = loadSettings(mode);
 
         JBCefApp.getInstance();
         JBCefClient client = JBCefApp.getInstance().createClient();
         CefLoadHandler myLoadHandler;
-
-
+        isDebugMode = java.lang.management.ManagementFactory.getRuntimeMXBean().
+                                           getInputArguments().toString().contains("jdwp");
 
         browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html");
         while (browser.getCefBrowser().isLoading())
@@ -93,7 +71,6 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             try { Thread.sleep(50); }
             catch (InterruptedException ignored) { }
         }
-
 
         CefMessageRouter msgRouter = CefMessageRouter.create();
         msgRouter.addHandler(new CefMessageRouterHandler() {
@@ -105,7 +82,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
                {
                    code = s;
                }
-               Runnable r = () -> vFile.setText(code);
+               Runnable r = () -> { synchronized(vFile) { vFile.setText(code); } };
                WriteCommandAction.runWriteCommandAction(proj, r);
 
                //Write a handler to change the file code
@@ -130,8 +107,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 
         client.getCefClient().addMessageRouter(msgRouter);
 
-        client.addLoadHandler(myLoadHandler = new CefLoadHandler() {
-
+        myLoadHandler = new CefLoadHandler() {
             @Override
             public void onLoadingStateChange(CefBrowser cefBrowser, boolean b, boolean b1, boolean b2) {
 
@@ -149,46 +125,17 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
                 cefBrowser.executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")", null, 0);
                 set = true;
                 isBlocks = true;
+                if (isDebugMode)
+                    browser.openDevtools();
             }
 
             @Override
             public void onLoadError(CefBrowser cefBrowser, CefFrame cefFrame, ErrorCode errorCode, String s, String s1) {
 
             }
-        }, browser.getCefBrowser());
-
-
-
-        // FIXME
-    /*  BrowserPreferences.setChromiumSwitches("--remote-debugging-port=9222", "--disable-web-security", "--allow-file-access-from-files");
-        prefs.setLocalStorageEnabled(true);
-        prefs.setApplicationCacheEnabled(true);
-        browser.setPreferences(prefs);
-        --browserView = new BrowserView(browser);
-        --System.out.println(browser.getRemoteDebuggingURL());
-       -- browser.addConsoleListener(consoleEvent -> handleConsoleEvent(consoleEvent.getMessage()));
-        --browser.addLoadListener(new LoadListener()
-        --{
-        --    public void onStartLoadingFrame(StartLoadingEvent startLoadingEvent) { }
-         --   public void onProvisionalLoadingFrame(ProvisionalLoadingEvent provisionalLoadingEvent) { }
-        --    public void onFinishLoadingFrame(FinishLoadingEvent finishLoadingEvent) { }
-         --   public void onFailLoadingFrame(FailLoadingEvent failLoadingEvent) { }
-         --   public void onDocumentLoadedInMainFrame(LoadEvent loadEvent) { }
-          --  @Override
-           -- public void onDocumentLoadedInFrame(FrameLoadEvent frameLoadEvent)
-            {
-            --    while (browser.isLoading())
-                {
-            --        try { Thread.sleep(50); }
-             --       catch (InterruptedException ignored) { }
-                }
-             --   browser.executeJavaScript("initEditor(\"" + settings + "\", \"localuser\")");
-             --   set = true;
-           -- }
-       -- });
-      -- */
+        };
+        client.addLoadHandler(myLoadHandler, browser.getCefBrowser());
     }
-
 
     @NotNull
     @Override
@@ -255,15 +202,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public void selectNotify()
     {
-        //vFile = FileDocumentManager.getInstance().getFile(FileEditorManager);
-        //file = FileDocumentManager.getInstance().getFile(vFile);
         code = FileDocumentManager.getInstance().getDocument(file).getText();
-        System.out.println(vFile);
-        /*vFile = FileEditorManager.getInstance(proj).getSelectedTextEditor().getDocument();
-        this.file = FileDocumentManager.getInstance().getFile(vFile);
-        code = FileDocumentManager.getInstance().getDocument(file).getText();*/
-       //FIXME
-        //System.out.println(code);
         if(!browser.getCefBrowser().isLoading())
 
         {
@@ -273,47 +212,24 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         }
     }
 
-     // Called by IntelliJ when tab loses selection
+    // Called by IntelliJ when tab loses selection
     @Override
     public void deselectNotify()
     {
-
-        if(set)
+        if (set)
         {
-        // FIXME
-        /*  JSValue result = browser.executeJavaScriptAndReturnValue("swapOutEditor()");
-            String code = FileDocumentManager.getInstance().getDocument(file).getText();
-            if(!result.isNull())
-                code = result.getStringValue();
-
-            String finalCode = code;
-            Runnable r = () -> FileDocumentManager.getInstance().getDocument(file).setText(finalCode);
-            WriteCommandAction.runWriteCommandAction(proj, r);*/
-
-            //handleConsoleEvent("CODE_UPDATE");
-
-            //TESTING CODE//
-            // Inject the query callback into JS
-            //browser.executeJavaScript("cefQuery('Hello World')");
-            //vFile = FileEditorManager.getInstance(proj).getSelectedTextEditor().getDocument();
-            //file = FileDocumentManager.getInstance().getFile(vFile);
             code = FileDocumentManager.getInstance().getDocument(file).getText();
             browser.getCefBrowser().executeJavaScript("swapOutEditor()", null, 0);
             set = true;
             isBlocks = false;
         }
-
     }
 
     @Override
-    public void addPropertyChangeListener(@NotNull PropertyChangeListener listener)  {
-
-    }
+    public void addPropertyChangeListener(@NotNull PropertyChangeListener listener)  { }
 
     @Override
-    public void removePropertyChangeListener(@NotNull PropertyChangeListener listener)  {
-
-    }
+    public void removePropertyChangeListener(@NotNull PropertyChangeListener listener)  { }
 
     @Nullable
     @Override
@@ -326,7 +242,6 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public void dispose()
     {
-       // FIXME
         browser.getCefBrowser().executeJavaScript("shutdownEditor()", null, 0);
         browser.dispose();
     }
