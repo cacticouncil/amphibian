@@ -1,0 +1,130 @@
+THIS IS LIMITED TO DOCUMENTATION OF THE FEATURES OF OPENAPI USED WITHIN THIS PROJECT
+
+FileEditorProvider (com.intellij.openapi.fileEditor.FileEditorProvider ONLY)
+	Should be implemented not extended
+	Used to implement a new FileEditor into the intelliJ IDE
+	Does NOT requre a constructor
+	MUST be registered within plugin.xml within <extensions> block, all values are strings
+		<fileEditorProvider implementation=Class name or package chain to class>
+
+	boolean accept(Project, VirtualFile)
+		called by intellij
+		returns true if the fileEditor provided by this FileEditorProvider is used for the VirtualFile or the Project passed in
+		
+	FileEditor createEditor(Project, VirtualFile)
+		called by intellij if accept returns true
+		returns the FileEditor to by used for this VirtualFile
+		
+	String getEditorTypeId()
+		called at ???
+		returns a String that is the ID of the editor type that this provider provides
+		
+	FileEditorPolicy getPolicy()
+		called at ???
+		returns a FileEditorPolicy from the static, predefined FileEditorPolicys
+		Defines in what order accept is checked in comparison to the default editor
+		
+FileEditor (com.intellij.openapi.fileEditor.FileEditor)
+	Should be implemented not extended
+	Used to create a new FileEditor to be provided by a custom FileEditorProvider
+	Requires a constructor (Suggest requiring costructor taking in a Project and a VirtualFile as there is no other way to get direct access to what the editor is a part of)
+	Can not write directly back to Document (http://www.jetbrains.org/intellij/sdk/docs/tutorials/editor_basics/working_with_text.html)
+	
+	void addPropertyChangeListener(PropertyChangeListener)
+		called by your code (possibly by intellij?)
+		adds a listener to the PropertyChanged event (event handled by intellij?)
+		
+	void removePropertyChangeListener(PropertyChangeListener)
+		called by your code (possibly by intellij?)
+		removes a listener from the PropertyChanged event, no knowledge of how this should be handled at this time
+		
+	BackgroundEditorHighlighter getBackgroundHighlighter()
+		called by intellij?
+		returns a BackgroundEditorHighlighter defined by your code to be used within the Editor
+		BackgroundEditorHighlighters are not used within this plugin (if I understand what they are correctly)
+		
+	FileEditorLocation getCurrentLocation()
+		called by ???
+		returns something for some use (I have no idea, have no looked into this at all atm)
+		
+	boolean isModified()
+		called by intelliJ
+		boolean returned either tells IntelliJ that a file needs to be saved or that a file can be saved, no knowledge of which is true
+	
+	boolean isValid()
+		called by intelliJ
+		boolean returned tells IntelliJ if the editor itself is valid (If false, IntelliJ throws a hissy fit but doesn't seem to affect the way the plugin works)
+		
+	void selectNotify()
+		called by IntelliJ
+		Runs when the editor gains focus
+		
+	void deslectNotify()
+		called by IntelliJ
+		Runs when the editor loses focus
+		
+	JComponent getComponent()
+		called by IntelliJ?
+		returns the component(s) that make up this editor?
+		
+	JComponent getPreferredFocusedComponent()
+		called by IntelliJ?
+		returns the component(s) that should get initial focus? (no knowledge)
+		
+	String getName()
+		called by IntelliJ?
+		returns a string that identifies this Editor
+		
+	void setState(FileEditorState)
+		called by IntelliJ?
+		updates the state of the FileEditor
+		
+	void dispose()
+		called by IntelliJ
+		disposes this FileEditor
+		
+ToggleAction (com.intellij.openapi.actionSystem.ToggleAction)
+	Might be other overridable functions, I do not currently know of or change these.
+	To use, must be registered in Plugin.xml within <actions> block, all values are strings
+		<action id=action ID class=class name of action text=Text on button>
+			<add-to-group group=id=ID of group to add to anchor=Where in group to add>
+		</action>
+	There might be more in this that I haven't used, suggested to use Action Wizard if creating actions as it automatically fills in plugin.xml with needful data. 
+	
+	boolean isSelected(AnActionEvent)
+		called by IntelliJ 
+		return the current state of this action (I think you have to provide your own boolean, I couldn't find one... I didn't look, I use a static boolean so it is accessible by my FileEditorProvider)
+		
+	void setSelected(AnActionEvent, boolean)
+		called by IntelliJ when action is run
+		Used to set the boolean that gets returned by isSelected (at a minimum)
+		
+Document
+	To get access to the Document within the editor, take in a VirtualFile and call
+		FileDocumentManager.getInstance().getDocument(VirtualFile)
+		
+	String getText()
+		Call to get access to the text (in string format) of the document
+		
+	void setText(String)
+		DO NOT CALL DIRECTLY instead call within a Runnable (ex: Runnable r = () -> Document.setText())
+		When using a Runable for this use WriteCommandAction.runWriteCommandAction(Project, Runnable)
+		
+	No other used functions at this time
+	
+ApplicationComponent (com.intellij.openapi.componenets.ApplicationComponent)
+	MUST BE IMPLEMENTED
+	Must be registered within plugin.xml within BOTH  <application-componenets> and  <component> tags
+	Tag looks like this <implementation-class>[Package reference to class]</implementation-class>
+
+	initComponent()
+		Called by IntelliJ during initialization (Not necessarily the first code called in the plugin though)
+		Runs code for Component/Plugin initialization
+		
+	disposeComponent()
+		Called by IntelliJ during shutdown of plugin
+		Runs code to cleanup Component/Plugin
+		
+	String getComponentName()
+		Called by IntelliJ at ???
+		String returned is name of component this initializes, I don't know if this affects anything
