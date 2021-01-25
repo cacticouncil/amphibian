@@ -2,16 +2,14 @@
   <id>org.cacticouncil.amphibian</id>
   <name>Amphibian Editor</name>
   <version>1.0</version>
-  <vendor email="support@cacticouncil.org" url="https://github.com/cacticouncil/amphibian">Cacti Council</vendor>
+  <vendor email="support@cacticouncil.org" url="https://cacticouncil.org">Cacti Council</vendor>
 
-  <description>Amphibian is a dual-modality editor for source code that currently supports the Java language. Amphibian
-    is designed for new programmers and adds a tab that allows the user to display a blocks-based representation of the
-    current source code via Droplet in the vein of Pencil Code and Scratch. Like these environments, the user can
-    build programs in the blocks mode by dragging and dropping puzzle-piece-style blocks. At any time, the user can
-    return to test mode.
-
-    Amphibian adds two tabs to the bottom of supported source files, "Blocks" and "Text". These tabs allow the user to
-    switch between the representations of the source.
+  <description><![CDATA[Amphibian is a dual-modality editor for source code that currently supports the Java language.
+    Amphibian is designed for new programmers and adds a tab that allows the user to display a blocks-based
+    representation of the current source code via Droplet in the vein of Pencil Code and Scratch. Like these
+    environments, the user can build programs in the blocks mode by dragging and dropping puzzle-piece-style blocks. At
+    any time, the user can return to test mode.
+    (<a href="https://cise.ufl.edu/~jblanch/cs1/plugin-demo.mp4">See Amphibian in Action)</a>]]>
   </description>
 
   <change-notes>v1.0RC - Release candidate for v1.0 release</change-notes>
