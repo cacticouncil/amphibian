@@ -135,6 +135,8 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             }
         };
         client.addLoadHandler(myLoadHandler, browser.getCefBrowser());
+        client.addContextMenuHandler(new AmphibianContextMenuHandler(), browser.getCefBrowser());
+        client.addDownloadHandler(new AmphibianDownloadHandler(this.proj), browser.getCefBrowser());
     }
 
     @NotNull
