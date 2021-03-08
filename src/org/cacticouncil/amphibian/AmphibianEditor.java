@@ -18,6 +18,7 @@ import com.intellij.openapi.fileEditor.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
+import org.cef.handler.CefDisplayHandler;
 import org.jetbrains.annotations.*;
 
 // CEF Imports (via JetBrains SDK)
@@ -27,6 +28,8 @@ import org.cef.handler.CefLoadHandler;
 import org.cef.handler.CefMessageRouterHandler;
 import org.cef.network.CefRequest;
 import com.intellij.ui.jcef.*;
+
+import org.cacticouncil.amphibian.AmphibianDisplayHandler;
 
 public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 {
@@ -45,6 +48,9 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     private final boolean isDebugMode;
 
     static FileDocumentManager fManager = FileDocumentManager.getInstance();
+
+    //Used to capture contents of JCEF console
+    private final AmphibianDisplayHandler displayHandler;
 
     /**
      * Called by AmphibianEditorProvider to create a new AmphibianEditor tab
@@ -135,6 +141,9 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             }
         };
         client.addLoadHandler(myLoadHandler, browser.getCefBrowser());
+
+        displayHandler = new AmphibianDisplayHandler();
+        client.addDisplayHandler(displayHandler, browser.getCefBrowser());
     }
 
     @NotNull
@@ -198,6 +207,22 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public boolean isValid() { return AmphibianToggle.getToggleState(); }
 
+    private void waitForConsoleLoad(){
+        long beforeLoadTime = System.nanoTime();
+        System.out.println("started waiting for plugin.js...");
+        while (true)
+        {
+            boolean isLoaded = displayHandler.isLoading();
+            if(isLoaded){
+                break;
+            }
+            try { Thread.sleep(50); }
+            catch (InterruptedException ignored) { }
+        }
+        long afterLoadTime = System.nanoTime();
+        float loadMS = (float) (afterLoadTime - beforeLoadTime) /  (1000*1000) ;
+        System.out.printf("finished waiting for plugin.js after %f ms\n",loadMS);
+    }
     // Called upon the selection of the AmphibianEditor tab; updates the settings, language, and code
     @Override
     public void selectNotify()
@@ -206,9 +231,9 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         if(!browser.getCefBrowser().isLoading())
 
         {
+            displayHandler.startLoading(); // begin checking JCEF console messages to see if loading has completed
             browser.getCefBrowser().executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")", null, 0);
-            set = true;
-            isBlocks = true;
+            waitForConsoleLoad();
         }
     }
 
@@ -219,7 +244,9 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         if (set)
         {
             code = FileDocumentManager.getInstance().getDocument(file).getText();
+            displayHandler.startLoading(); // begin checking JCEF console messages to see if loading has completed
             browser.getCefBrowser().executeJavaScript("swapOutEditor()", null, 0);
+            waitForConsoleLoad();
             set = true;
             isBlocks = false;
         }

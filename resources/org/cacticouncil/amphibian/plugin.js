@@ -88,7 +88,7 @@ swapInEditor = function(code)
     editor.setEditorState(true);
     setValueSync(code);
     logEvent("[swap_to_blocks]");
-    console.log("IN SWAP IN EDITOR");
+    console.log("SWAPPED IN EDITOR");
 }
 
 swapOutEditor = function()
@@ -104,6 +104,7 @@ swapOutEditor = function()
     });
     //updateCode(returnValue);
     setValueSync(""); // Gross hack; I need to get the editor to reset... we have to set value to empty to do that.
+    console.log("SWAPPED OUT EDITOR");
     return returnValue;
 }
 
