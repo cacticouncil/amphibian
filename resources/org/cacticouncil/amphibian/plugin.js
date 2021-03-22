@@ -19,32 +19,32 @@ function releaseDataLock()
 }
 
 
-getValueSync = function()
+function getValueSync()
 {
     getDataLock();
-    result = editor.getValue();
+    var result = editor.getValue();
     releaseDataLock();
     return result;
 }
 
-setValueSync = function(value)
+function setValueSync(value)
 {
     getDataLock();
     editor.setValue(value);
     releaseDataLock();
 }
 
-logToServer = function(message)
+function logToServer(message)
 {
     console.log("LOGGED:" + message);
 }
 
-logEvent = function(message)
+function logEvent(message)
 {
   logToServer(message + "[" + userid + "][" + Date.now() +"][" + getValueSync() + "]");
 }
 
-showModalDialog = function(message)
+function showModalDialog(message)
 {
     modal_content.textContent = message;
     modal.style.display = "block";
@@ -52,12 +52,12 @@ showModalDialog = function(message)
 //    window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
 }
 
-updateCode = function(code)
+function updateCode(code)
 {
   console.log("CODE_UPDATE:" + getValueSync());
 }
 
-createEditor = function(options)
+function createEditor(options)
 {
   window.options = options;
   editor = new droplet.Editor(document.getElementById('droplet-editor'), options);
@@ -72,7 +72,7 @@ createEditor = function(options)
   return window.editor = editor;
 }
 
-initEditor = function(settings, userstring)
+function initEditor(settings, userstring)
 {
     modal = document.getElementById('dialog');
     modal_content = document.getElementsByClassName("modal-content")[0];
@@ -82,7 +82,7 @@ initEditor = function(settings, userstring)
     logEvent("[init]");
 }
 
-swapInEditor = function(code)
+function swapInEditor(code)
 {
     modal.style.display = "none";
     editor.setEditorState(true);
@@ -93,11 +93,11 @@ swapInEditor = function(code)
     console.log(editor.session.tree);
 }
 
-swapOutEditor = function()
+function swapOutEditor()
 {
     editor.setEditorState(false);
     //logEvent("[swap_to_text]");
-    returnValue = getValueSync();
+    var returnValue = getValueSync();
 
     window.cefQuery({
         request: returnValue,
@@ -109,31 +109,60 @@ swapOutEditor = function()
     return returnValue;
 }
 
-shutdownEditor = function()
+function shutdownEditor()
 {
     logEvent("[shutdown]");
 }
 
-downloadSVG = function(node, filename)
-{
+function getViewBox(svg) {
+    // Get the children elements
+    var svgChildren = svg.children;
+    var min = Number.MAX_SAFE_INTEGER;
+    var max = -1;
+
+    for (var i = 0; i < svgChildren.length; i++)
+    {
+        if (svgChildren[i].nodeName === "text")
+        {
+            // If it is a text element, get the y attribute to determine height
+            var y = svgChildren[i].getAttribute("y");
+            if (y < min)
+            {
+                // Set the min value
+                min = y;
+            }
+
+            if (y > max)
+            {
+                // Set the max value
+                max = y;
+            }
+        }
+    }
+
+    // Return the min and max heights to make viewbox from
+    return [min, max];
+}
+
+function downloadSVG(node, filename, min, max) {
     // Create a new SVG element with the correct attributes and namespaces
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
     svg.style.fontFamily = "Courier New, monospace";
     svg.style.fontSize = "15px";
 
-    // Get the main canvas to get the height and width to scale the SVG to
+    // Get the main canvas to get the width to scale the SVG to
     var canvas = document.getElementsByClassName("droplet-main-canvas")[0];
-    var height = canvas.style.height;
-    var width = canvas.style.width;
+    var canvasWidth = canvas.style.width;
 
-    // Remove the px that comes with style height and width to put into viewBox parameters
-    var heightStr = height.substring(0, height.length - 2);
-    var widthStr = width.substring(0, width.length - 2);
-    svg.setAttribute("viewBox", "0 0 " + widthStr + " " + heightStr);
+    // Remove the px that comes with style width to put into viewBox parameters
+    var widthStr = canvasWidth.substring(0, canvasWidth.length - 2);
 
     // Add the node to the svg containing the block content
     svg.appendChild(node);
+
+    // Set the viewbox to the appropriate parameters, give the min-y and height a buffer to not crop edges of the block too short
+    svg.setAttribute("viewBox", "0 " + (min - 25) + " " + widthStr + " " + (max - min + 50));
 
     var serializer = new XMLSerializer();
 
@@ -141,7 +170,7 @@ downloadSVG = function(node, filename)
     var source = serializer.serializeToString(svg);
 
     // Create a blob and then a blob URL to download the resulting image through a data URL
-    var blob = new Blob([source], {type:"image/svg+xml;charset=utf-8"});
+    var blob = new Blob([source], {type: "image/svg+xml;charset=utf-8"});
     var blobURL = URL.createObjectURL(blob);
 
     // Create a temporary HTML element to download the SVG
@@ -161,7 +190,7 @@ downloadSVG = function(node, filename)
     document.body.removeChild(download);
 }
 
-downloadImageSVG = function (x, y)
+function downloadImageSVG(x, y)
 {
     // Get the element from the point
     var localElement = document.elementFromPoint(x, y);
@@ -175,13 +204,14 @@ downloadImageSVG = function (x, y)
 
     if (grandparentClone.nodeName === "g")
     {
+        var vals = getViewBox(grandparentClone);
         // If we are in an svg group, download as an svg image
-        downloadSVG(grandparentClone, 'image' + imageCount + '.svg');
+        downloadSVG(grandparentClone, 'image' + imageCount + '.svg', vals[0], vals[1]);
         imageCount++;
     }
 }
 
-downloadAnimationSVG = function (x, y)
+function downloadAnimationSVG(x, y)
 {
     // Get the element from the point
     var localElement = document.elementFromPoint(x, y);
@@ -190,6 +220,8 @@ downloadAnimationSVG = function (x, y)
 
     // Clone the grandparent to avoid modifications
     var grandparentClone = grandparent.cloneNode(true);
+
+    var vals = getViewBox(grandparentClone);
 
     // Get a list of all the child nodes
     var gpChildren = grandparentClone.childNodes;
@@ -203,7 +235,7 @@ downloadAnimationSVG = function (x, y)
             var clone = gpChildren[i].cloneNode(true);
 
             // Download as an svg
-            downloadSVG(clone, 'animation' + animationCount + '.svg');
+            downloadSVG(clone, 'animation' + animationCount + '.svg', vals[0], vals[1]);
             animationCount++;
 
             // Remove the child from the cloned node so that when the grandparent is downloaded, the child is not downloaded with it
@@ -212,6 +244,6 @@ downloadAnimationSVG = function (x, y)
     }
 
     // Download the grandparent as an individual block svg
-    downloadSVG(grandparentClone, 'animation' + animationCount + '.svg');
+    downloadSVG(grandparentClone, 'animation' + animationCount + '.svg', vals[0], vals[1]);
     animationCount++;
 }
