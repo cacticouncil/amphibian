@@ -1,18 +1,40 @@
 package org.cacticouncil.amphibian;
 
+import com.intellij.openapi.command.WriteCommandAction;
+import com.intellij.openapi.editor.Document;
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.vfs.ReadonlyStatusHandler;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.PsiDocumentManager;
 import groovy.util.logging.Log;
 import org.cef.CefSettings;
 import org.cef.browser.CefBrowser;
 import org.cef.browser.CefFrame;
+
+import java.util.concurrent.Callable;
+
 public class AmphibianDisplayHandler implements org.cef.handler.CefDisplayHandler {
 
     private boolean loadingState;
+    private String direction;
+    private final Document doc;
+    private final VirtualFile vFile;
+    private final CefBrowser cefBrowser;
+    private static Project proj;
 
-    public AmphibianDisplayHandler(){
+    //THE NAMES vFILE AND doc ARE SWITCHED IN AMPHIBIANEDITOR
+    public AmphibianDisplayHandler(Document doc, CefBrowser cefBrowser, Project proj_, VirtualFile vFile){
+        this.vFile = vFile;
+        this.doc = doc;
+        this.cefBrowser = cefBrowser;
+        proj = proj_;
         loadingState = false;
     }
 
-    public void startLoading(){loadingState = true;}
+    public void startLoading(String direction){
+        this.direction = direction;
+        loadingState = true;
+    }
     public boolean isLoading(){return loadingState;}
 
     /**
@@ -26,11 +48,27 @@ public class AmphibianDisplayHandler implements org.cef.handler.CefDisplayHandle
      */
     public boolean onConsoleMessage(CefBrowser browser, CefSettings.LogSeverity level,
                                     String message, String source, int line){
-        //System.out.printf("Message: %s\nSource: %s\nLine: %d\nLevel: %s\n", message, source, line, level);
+        System.out.printf("Message: %s\nSource: %s\nLine: %d\nLevel: %s\n", message, source, line, level);
 
-        if(loadingState && (message.equals("SWAPPED IN EDITOR") || message.equals("SWAPPED OUT EDITOR")))
+        //Handles waiting for return from JS, unclear whether this actually waits long enough due to threading concerns
+        if(loadingState && message.equals("SWAPPED "+ direction + " EDITOR") )
         {
             loadingState = false;
+        }
+
+        //See also onQuery from AmphibianEditor, this is its replacement
+        //We pass the code in a console message now (since it's getting logged there anyway)
+        if(message.startsWith("[swap_to_code]")){
+            String code = message.substring(14);
+            System.out.println("CODE RECEIVED - using alternate path");
+
+            Runnable r = () -> { synchronized(vFile) { vFile.setText(code); } };
+            //System.out.println("Runnable assigned");
+            
+            // TODO This line causes a crash when switching modes rapidly, caused by an intelliJ crash. fix me please :)
+            WriteCommandAction.runWriteCommandAction(proj, null, null, r);//PsiDocumentManager.getInstance(proj).getPsiFile(vFile));
+            System.out.println("new code written");
+
         }
         return false;
     }

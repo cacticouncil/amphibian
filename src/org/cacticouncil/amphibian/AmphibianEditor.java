@@ -9,6 +9,7 @@ package org.cacticouncil.amphibian;
 import java.beans.PropertyChangeListener;
 import javax.swing.*;
 import java.io.*;
+import java.util.concurrent.Callable;
 
 // JetBrains / IntelliJ SDK Imports
 import com.intellij.codeHighlighting.BackgroundEditorHighlighter;
@@ -81,17 +82,23 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         CefMessageRouter msgRouter = CefMessageRouter.create();
         msgRouter.addHandler(new CefMessageRouterHandler() {
 
-            //Deselct Notify JSQUERY BACK HERE
+            //Endpoint for cefQuery calls from plugin.js to pass code back from blocks to text
+            //Deprecated due to cefQuery returning failure for any query, even if this function returns successfully
+            //Instead use AmphibianDisplayHandler's onConsoleMessage func
            @Override
            public boolean onQuery(CefBrowser cefBrowser, CefFrame cefFrame, long l, String s, boolean b, CefQueryCallback cefQueryCallback) {
+               System.out.println("Entered onquery - doing NOTHING");
+               /*
                if(s!=null)
                {
                    code = s;
                }
                Runnable r = () -> { synchronized(vFile) { vFile.setText(code); } };
+               System.out.println("Runnable created");
                WriteCommandAction.runWriteCommandAction(proj, r);
+               System.out.println("Write handler to change file code completed");
 
-               //Write a handler to change the file code
+                */
                return true;
            }
 
@@ -142,7 +149,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         };
         client.addLoadHandler(myLoadHandler, browser.getCefBrowser());
 
-        displayHandler = new AmphibianDisplayHandler();
+        displayHandler = new AmphibianDisplayHandler(vFile, browser.getCefBrowser(), proj, file);
         client.addDisplayHandler(displayHandler, browser.getCefBrowser());
     }
 
@@ -212,7 +219,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         System.out.println("started waiting for plugin.js...");
         while (true)
         {
-            boolean isLoaded = displayHandler.isLoading();
+            boolean isLoaded = true; //!displayHandler.isLoading();
             if(isLoaded){
                 break;
             }
@@ -227,29 +234,36 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public void selectNotify()
     {
+        System.out.println("selectNotify start");
         code = FileDocumentManager.getInstance().getDocument(file).getText();
         if(!browser.getCefBrowser().isLoading())
 
         {
-            displayHandler.startLoading(); // begin checking JCEF console messages to see if loading has completed
+            System.out.println("selectNotify, browser is not loading");
+            displayHandler.startLoading("IN"); // begin checking JCEF console messages to see if loading has completed
             browser.getCefBrowser().executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")", null, 0);
             waitForConsoleLoad();
         }
+        System.out.println("selectNotify end");
     }
 
     // Called by IntelliJ when tab loses selection
     @Override
     public void deselectNotify()
     {
+        System.out.println("deselectNotify start");
         if (set)
         {
+            System.out.println("deselectNotify if statement true :)");
             code = FileDocumentManager.getInstance().getDocument(file).getText();
-            displayHandler.startLoading(); // begin checking JCEF console messages to see if loading has completed
+            displayHandler.startLoading("OUT"); // begin checking JCEF console messages to see if loading has completed
             browser.getCefBrowser().executeJavaScript("swapOutEditor()", null, 0);
             waitForConsoleLoad();
+            System.out.println("deselectNotify complete");
             set = true;
             isBlocks = false;
         }
+        System.out.println("deselectNotify really complete");
     }
 
     @Override
