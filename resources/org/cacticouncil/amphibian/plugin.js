@@ -118,7 +118,7 @@ function getViewBox(svg) {
     // Get the children elements
     var svgChildren = svg.children;
     var min = Number.MAX_SAFE_INTEGER;
-    var max = -1;
+    var max = 0;
 
     for (var i = 0; i < svgChildren.length; i++)
     {

@@ -10,7 +10,7 @@ import org.cef.handler.CefDownloadHandler;
 
 public class AmphibianDownloadHandler implements CefDownloadHandler
 {
-    private Project project;
+    private final Project project;
 
     public AmphibianDownloadHandler(Project p)
     {
