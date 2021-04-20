@@ -62,7 +62,7 @@ public class AmphibianDisplayHandler implements org.cef.handler.CefDisplayHandle
             String code = message.substring(14);
             System.out.println("CODE RECEIVED - using alternate path");
 
-            Runnable r = () -> { synchronized(vFile) { vFile.setText(code); } };
+            Runnable r = () -> { synchronized(doc) { doc.setText(code); } };
             //System.out.println("Runnable assigned");
             
             // TODO This line causes a crash when switching modes rapidly, caused by an intelliJ crash. fix me please :)
