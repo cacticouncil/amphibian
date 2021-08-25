@@ -1,4 +1,4 @@
-var editor, options, userid, modal, modal_content, datalock = false, active = false;
+var editor, options, userid, modal, modal_content, datalock = false,  active = false;
 
 sleep = function(ms)
 {
@@ -88,7 +88,7 @@ swapInEditor = function(code)
     editor.setEditorState(true);
     setValueSync(code);
     logEvent("[swap_to_blocks]");
-    console.log("IN SWAP IN EDITOR");
+    console.log("SWAPPED IN EDITOR");
 }
 
 swapOutEditor = function()
@@ -96,14 +96,30 @@ swapOutEditor = function()
     editor.setEditorState(false);
     //logEvent("[swap_to_text]");
     returnValue = getValueSync();
+    console.log( "[swap_to_code]"+returnValue)
 
-    window.cefQuery({
+    //this technique is deprecated, pass code by console message instead
+    /*window.cefQuery({
         request: returnValue,
 
+        //this call will probably fail with
+        //          Unexpected call to CefQueryCallback_N::finalize()
         //ON SUCCESS AND FAIL
-    });
+        onSuccess: function(response) {
+            console.log("SUCCESS");
+            console.log("SWAPPED OUT EDITOR");
+        },
+        onFailure: function(error_code, error_message) {
+            console.log("FAILURE");
+            console.log(error_code);
+            console.log(error_message);
+            console.log("SWAPPED OUT EDITOR");
+        }
+    });*/
+
     //updateCode(returnValue);
     setValueSync(""); // Gross hack; I need to get the editor to reset... we have to set value to empty to do that.
+    //console.log("SWAPPED OUT EDITOR");
     return returnValue;
 }
 
