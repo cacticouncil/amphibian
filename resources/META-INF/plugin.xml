@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>org.cacticouncil.amphibian</id>
   <name>Amphibian Editor</name>
-  <version>1.0</version>
+  <version>1.01</version>
   <vendor email="support@cacticouncil.org" url="https://cacticouncil.org">Cacti Council</vendor>
 
   <description><![CDATA[Amphibian is a dual-modality editor for source code that currently supports the Java language.
@@ -12,7 +12,7 @@
     (<a href="https://cise.ufl.edu/~jblanch/cs1/plugin-demo.mp4">See Amphibian in Action)</a>]]>
   </description>
 
-  <change-notes>v1.0RC - Release candidate for v1.0 release</change-notes>
+  <change-notes>1.01 - Fixed crash on rapid flipping</change-notes>
 
   <idea-version since-build="203.0"/>
   <depends>com.intellij.modules.lang</depends>
