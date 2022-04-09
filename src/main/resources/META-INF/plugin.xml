@@ -1,33 +1,31 @@
 <idea-plugin>
-  <id>org.cacticouncil.amphibian</id>
-  <name>Amphibian Editor</name>
-  <version>1.01</version>
-  <vendor email="support@cacticouncil.org" url="https://cacticouncil.org">Cacti Council</vendor>
+    <id>org.cacticouncil.amphibian</id>
+    <name>Amphibian Editor</name>
+    <vendor email="support@cacticouncil.org" url="https://cacticouncil.org">Cacti Council</vendor>
 
-  <description><![CDATA[Amphibian is a dual-modality editor for source code that currently supports the Java language.
+    <description><![CDATA[Amphibian is a dual-modality editor for source code that currently supports the Java language.
     Amphibian is designed for new programmers and adds a tab that allows the user to display a blocks-based
     representation of the current source code via Droplet in the vein of Pencil Code and Scratch. Like these
     environments, the user can build programs in the blocks mode by dragging and dropping puzzle-piece-style blocks. At
     any time, the user can return to test mode.
-    (<a href="https://cise.ufl.edu/~jblanch/cs1/plugin-demo.mp4">See Amphibian in Action)</a>]]>
-  </description>
+    (<a href="https://cise.ufl.edu/~jblanch/cs1/plugin-demo.mp4">See Amphibian in Action)</a>]]></description>
 
-  <change-notes>1.01 - Fixed crash on rapid flipping</change-notes>
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
 
-  <idea-version since-build="203.0"/>
-  <depends>com.intellij.modules.lang</depends>
-
+    <!-- TO BE DELETED -->
     <application-components>
         <component>
             <implementation-class>org.cacticouncil.amphibian.AmphibianComponent</implementation-class>
         </component>
     </application-components>
 
-  <extensions defaultExtensionNs="com.intellij">
-    <fileEditorProvider implementation="org.cacticouncil.amphibian.AmphibianEditorProvider"/>
-  </extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <fileEditorProvider implementation="org.cacticouncil.amphibian.AmphibianEditorProvider"/>
+    </extensions>
 
-  <actions>
-    <!-- Add your actions here -->
-  </actions>
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
 </idea-plugin>
