@@ -128,11 +128,12 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 
             @Override
             public void onLoadStart(CefBrowser cefBrowser, CefFrame cefFrame, CefRequest.TransitionType transitionType) {
-
+                System.out.println("onLoadStart entered");
             }
 
             @Override
             public void onLoadEnd(CefBrowser cefBrowser, CefFrame cefFrame, int i) {
+                System.out.println("onLoadEnd entered");
                 cefBrowser.executeJavaScript("initEditor(\"" + settings + "\", \"localuser\")",null,1);
                 code = vFile.getText();
                 cefBrowser.executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")", null, 0);
@@ -140,17 +141,19 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
                 isBlocks = true;
                 if (isDebugMode)
                     browser.openDevtools();
+                System.out.println("onLoadEnd completed");
             }
 
             @Override
             public void onLoadError(CefBrowser cefBrowser, CefFrame cefFrame, ErrorCode errorCode, String s, String s1) {
-
+                System.out.println("LOAD ERROR [" + errorCode.getCode() + "]: " + s);
             }
         };
         client.addLoadHandler(myLoadHandler, browser.getCefBrowser());
 
         displayHandler = new AmphibianDisplayHandler(vFile, browser.getCefBrowser(), proj, file);
         client.addDisplayHandler(displayHandler, browser.getCefBrowser());
+        System.out.println("Finished init");
     }
 
     @NotNull
@@ -285,6 +288,12 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     {
         browser.getCefBrowser().executeJavaScript("shutdownEditor()", null, 0);
         browser.dispose();
+    }
+
+    @Override
+    public VirtualFile getFile()
+    {
+        return this.getUserData(FILE_KEY);
     }
 
     private static String escapeJs(String data)

@@ -4,6 +4,6 @@
 *.dat filter=lfs diff=lfs merge=lfs -text
 *.exe filter=lfs diff=lfs merge=lfs -text
 *.bin filter=lfs diff=lfs merge=lfs -text
-resources/org/cacticouncil/amphibian/lib/droplet.js filter=lfs diff=lfs merge=lfs -text
-resources/org/cacticouncil/amphibian/lib/droplet.css filter=lfs diff=lfs merge=lfs -text
-resources/org/cacticouncil/amphibian/vendor/ filter=lfs diff=lfs merge=lfs -text
+src/main/resources/org/cacticouncil/amphibian/lib/droplet.js filter=lfs diff=lfs merge=lfs -text
+src/main/resources/org/cacticouncil/amphibian/lib/droplet.css filter=lfs diff=lfs merge=lfs -text
+srv/main/resources/org/cacticouncil/amphibian/vendor/ filter=lfs diff=lfs merge=lfs -text

@@ -1,6 +1,6 @@
 package org.cacticouncil.amphibian;
-import com.intellij.ide.fileTemplates.FileTemplate;
-import com.intellij.ide.fileTemplates.FileTemplateManager;
+//import com.intellij.ide.fileTemplates.FileTemplate;
+//import com.intellij.ide.fileTemplates.FileTemplateManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import org.jetbrains.annotations.NotNull;
 
@@ -65,8 +65,17 @@ public class AmphibianComponent implements ApplicationComponent {
      */
     @Override
     public void initComponent() {
-        FileTemplate template = FileTemplateManager.getDefaultInstance().getTemplate("Droplet Palette");
-        if(template == null){
+//        FileTemplate template = null;
+/*        try
+        {
+            template = FileTemplateManager.getDefaultInstance().getTemplate("Droplet Palette");
+        }
+        catch(Exception e)
+        {
+            template = null;
+        }*/
+
+/*        if(template == null){
             template = FileTemplateManager.getDefaultInstance().addTemplate("Droplet Palette", "coffee");
             template.setText("//DELETE ALL COMMENTS BEFORE ATTEMPTING TO USE GENERATED PALETTES\n" +
                     "({\n" +
@@ -93,7 +102,7 @@ public class AmphibianComponent implements ApplicationComponent {
                     "        }\n" +
                     "    ]\n" +
                     "  })");
-        }
+        }*/
 
         Path tempPath = null;
         try {

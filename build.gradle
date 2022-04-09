@@ -1,0 +1,27 @@
+plugins {
+    id 'org.jetbrains.intellij' version '1.5.2'
+    id 'java'
+}
+
+group 'org.cacticouncil'
+version '1.9b'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    version = '2021.2.1'
+}
+patchPluginXml {
+    changeNotes = """1.9b - First Gradle build"""
+}
+test {
+    useJUnitPlatform()
+}

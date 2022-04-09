@@ -66,9 +66,9 @@ public class AmphibianDisplayHandler implements org.cef.handler.CefDisplayHandle
             //System.out.println("Runnable assigned");
             
             // TODO This line causes a crash when switching modes rapidly, caused by an intelliJ crash. fix me please :)
+            System.out.println("beforeWrite");
             WriteCommandAction.runWriteCommandAction(proj, r);
             System.out.println("new code written");
-
         }
         return false;
     }

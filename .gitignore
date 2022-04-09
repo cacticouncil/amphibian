@@ -1,4 +1,2 @@
-*.class
-/out
-.idea/workspace.xml
-jcef/tests/
+build/
+.gradle/
