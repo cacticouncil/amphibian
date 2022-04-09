@@ -14,16 +14,22 @@
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
 
-    <!-- TO BE DELETED -->
-    <application-components>
+    <!--application-components>
         <component>
             <implementation-class>org.cacticouncil.amphibian.AmphibianComponent</implementation-class>
         </component>
-    </application-components>
+    </application-components-->
 
     <extensions defaultExtensionNs="com.intellij">
         <fileEditorProvider implementation="org.cacticouncil.amphibian.AmphibianEditorProvider"/>
+        <applicationService serviceImplementation="org.cacticouncil.amphibian.AmphibianService"/>
     </extensions>
+
+    <applicationListeners>
+        <listener
+                class="org.cacticouncil.amphibian.AmphibianStartupListener"
+                topic="com.intellij.ide.AppLifecycleListener"/>
+    </applicationListeners>
 
     <actions>
         <!-- Add your actions here -->

@@ -20,7 +20,7 @@ public class AmphibianEditorProvider implements FileEditorProvider{
      */
     @Override
     public boolean accept(@NotNull Project project, @NotNull VirtualFile file) {
-        if(AmphibianComponent.relationMap.containsKey(file.getExtension())){
+        if(AmphibianService.relationMap.containsKey(file.getExtension())){
             return AmphibianToggle.toggleState;
         }
         return false;

@@ -9,7 +9,6 @@ package org.cacticouncil.amphibian;
 import java.beans.PropertyChangeListener;
 import javax.swing.*;
 import java.io.*;
-import java.util.concurrent.Callable;
 
 // JetBrains / IntelliJ SDK Imports
 import com.intellij.codeHighlighting.BackgroundEditorHighlighter;
@@ -19,7 +18,6 @@ import com.intellij.openapi.fileEditor.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.UserDataHolderBase;
 import com.intellij.openapi.vfs.VirtualFile;
-import org.cef.handler.CefDisplayHandler;
 import org.jetbrains.annotations.*;
 
 // CEF Imports (via JetBrains SDK)
@@ -63,7 +61,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         this.proj = project;
         this.file = file;
         this.vFile = FileDocumentManager.getInstance().getDocument(file);
-        String mode = AmphibianComponent.getRelationMap().get(this.file.getExtension());
+        String mode = AmphibianService.getRelationMap().get(this.file.getExtension());
         settings = loadSettings(mode);
 
         JBCefApp.getInstance();
@@ -72,7 +70,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         isDebugMode = java.lang.management.ManagementFactory.getRuntimeMXBean().
                                            getInputArguments().toString().contains("jdwp");
 
-        browser = new JBCefBrowser(client, "file://" + AmphibianComponent.getPathname() + "plugin.html");
+        browser = new JBCefBrowser(client, "file://" + AmphibianService.getPathname() + "plugin.html");
         while (browser.getCefBrowser().isLoading())
         {
             try { Thread.sleep(50); }
@@ -196,10 +194,12 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         }
     }
 
+    //TODO components are a problem?
     @NotNull
     @Override
     public JComponent getComponent() { return browser.getComponent(); }//null; }//myComponent; }
 
+    //TODO components are a problem?
     @Nullable
     @Override
     public JComponent getPreferredFocusedComponent() { return null; }//browserView; }
