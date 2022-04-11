@@ -115,12 +115,11 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 
             @Override
             public void onLoadStart(CefBrowser cefBrowser, CefFrame cefFrame, CefRequest.TransitionType transitionType) {
-                System.out.println("onLoadStart entered");
+
             }
 
             @Override
             public void onLoadEnd(CefBrowser cefBrowser, CefFrame cefFrame, int i) {
-                System.out.println("onLoadEnd entered");
                 cefBrowser.executeJavaScript("initEditor(\"" + settings + "\", \"localuser\")",null,1);
                 code = vFile.getText();
                 cefBrowser.executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")", null, 0);
@@ -128,12 +127,11 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
                 isBlocks = true;
                 if (isDebugMode)
                     browser.openDevtools();
-                System.out.println("onLoadEnd completed");
             }
 
             @Override
             public void onLoadError(CefBrowser cefBrowser, CefFrame cefFrame, ErrorCode errorCode, String s, String s1) {
-                System.out.println("LOAD ERROR [" + errorCode.getCode() + "]: " + s);
+
             }
         };
         client.addLoadHandler(myLoadHandler, browser.getCefBrowser());
@@ -206,34 +204,27 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public void selectNotify()
     {
-        System.out.println("selectNotify start");
         code = FileDocumentManager.getInstance().getDocument(file).getText();
         if(!browser.getCefBrowser().isLoading())
 
         {
-            System.out.println("selectNotify, browser is not loading");
             browser.getCefBrowser().executeJavaScript("swapInEditor(\"" + (code == null ? "" : escapeJs(code)) +"\")", null, 0);
             set = true;
             isBlocks = true;
         }
-        System.out.println("selectNotify end");
     }
 
     // Called by IntelliJ when tab loses selection
     @Override
     public void deselectNotify()
     {
-        System.out.println("deselectNotify start");
         if (set)
         {
-            System.out.println("deselectNotify if statement true :)");
             code = FileDocumentManager.getInstance().getDocument(file).getText();
             browser.getCefBrowser().executeJavaScript("swapOutEditor()", null, 0);
-            System.out.println("deselectNotify complete");
             set = true;
             isBlocks = false;
         }
-        System.out.println("deselectNotify really complete");
     }
 
     @Override
