@@ -75,37 +75,35 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         CefMessageRouter msgRouter = CefMessageRouter.create();
         msgRouter.addHandler(new CefMessageRouterHandler() {
 
-           //Deselct Notify JSQUERY BACK HERE
-           @Override
-           public boolean onQuery(CefBrowser cefBrowser, CefFrame cefFrame, long l, String s, boolean b, CefQueryCallback cefQueryCallback) {
-               if(s!=null)
-               {
-                   code = s;
-               }
-               Runnable r = () -> { synchronized(vFile) { vFile.setText(code); } };
-               System.out.println("Runnable created");
-               WriteCommandAction.runWriteCommandAction(proj, r);
-               System.out.println("Write handler to change file code completed");
+            //Deselct Notify JSQUERY BACK HERE
+            @Override
+            public boolean onQuery(CefBrowser cefBrowser, CefFrame cefFrame, long l, String s, boolean b, CefQueryCallback cefQueryCallback) {
+                if(s!=null)
+                {
+                    code = s;
+                }
+                Runnable r = () -> { synchronized(vFile) { vFile.setText(code); } };
+                WriteCommandAction.runWriteCommandAction(proj, r);
 
-               //Write a handler to change the file code
-               return true;
-           }
+                //Write a handler to change the file code
+                return true;
+            }
 
-           @Override
-           public void onQueryCanceled(CefBrowser cefBrowser, CefFrame cefFrame, long l) {
+            @Override
+            public void onQueryCanceled(CefBrowser cefBrowser, CefFrame cefFrame, long l) {
 
-           }
+            }
 
-           @Override
-           public void setNativeRef(String s, long l) {
+            @Override
+            public void setNativeRef(String s, long l) {
 
-           }
+            }
 
-           @Override
-           public long getNativeRef(String s) {
-               return 0;
-           }
-       },true);
+            @Override
+            public long getNativeRef(String s) {
+                return 0;
+            }
+        },true);
 
         client.getCefClient().addMessageRouter(msgRouter);
 
