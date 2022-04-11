@@ -96,7 +96,6 @@ swapOutEditor = function()
     editor.setEditorState(false);
     //logEvent("[swap_to_text]");
     returnValue = getValueSync();
-    console.log( "[swap_to_code]"+returnValue)
 
     window.cefQuery({
         request: returnValue,
