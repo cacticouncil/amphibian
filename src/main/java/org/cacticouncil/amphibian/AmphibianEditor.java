@@ -75,13 +75,9 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         CefMessageRouter msgRouter = CefMessageRouter.create();
         msgRouter.addHandler(new CefMessageRouterHandler() {
 
-            //Endpoint for cefQuery calls from plugin.js to pass code back from blocks to text
-            //Deprecated due to cefQuery returning failure for any query, even if this function returns successfully
-            //Instead use AmphibianDisplayHandler's onConsoleMessage func
+           //Deselct Notify JSQUERY BACK HERE
            @Override
            public boolean onQuery(CefBrowser cefBrowser, CefFrame cefFrame, long l, String s, boolean b, CefQueryCallback cefQueryCallback) {
-               System.out.println("Entered onquery - doing NOTHING");
-               /*
                if(s!=null)
                {
                    code = s;
@@ -91,7 +87,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
                WriteCommandAction.runWriteCommandAction(proj, r);
                System.out.println("Write handler to change file code completed");
 
-                */
+               //Write a handler to change the file code
                return true;
            }
 

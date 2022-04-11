@@ -98,28 +98,13 @@ swapOutEditor = function()
     returnValue = getValueSync();
     console.log( "[swap_to_code]"+returnValue)
 
-    //this technique is deprecated, pass code by console message instead
-    /*window.cefQuery({
+    window.cefQuery({
         request: returnValue,
 
-        //this call will probably fail with
-        //          Unexpected call to CefQueryCallback_N::finalize()
         //ON SUCCESS AND FAIL
-        onSuccess: function(response) {
-            console.log("SUCCESS");
-            console.log("SWAPPED OUT EDITOR");
-        },
-        onFailure: function(error_code, error_message) {
-            console.log("FAILURE");
-            console.log(error_code);
-            console.log(error_message);
-            console.log("SWAPPED OUT EDITOR");
-        }
-    });*/
-
+    });
     //updateCode(returnValue);
     setValueSync(""); // Gross hack; I need to get the editor to reset... we have to set value to empty to do that.
-    //console.log("SWAPPED OUT EDITOR");
     return returnValue;
 }
 
