@@ -23,6 +23,7 @@ public class AmphibianEditorProvider implements FileEditorProvider{
         if(AmphibianService.relationMap.containsKey(file.getExtension())){
             return AmphibianToggle.toggleState;
         }
+        System.out.println("accept function called");
         return false;
     }
 
@@ -35,7 +36,7 @@ public class AmphibianEditorProvider implements FileEditorProvider{
     @NotNull
     @Override
     public FileEditor createEditor(@NotNull Project project, @NotNull VirtualFile file) {
-        //System.out.println(file);
+        System.out.println("amphibianEditor created");
         return new AmphibianEditor(project, file);
     }
 

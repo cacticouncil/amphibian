@@ -94,7 +94,7 @@ swapInEditor = function(code)
 swapOutEditor = function()
 {
     editor.setEditorState(false);
-    //logEvent("[swap_to_text]");
+    logEvent("[swap_to_text]");
     returnValue = getValueSync();
 
     window.cefQuery({

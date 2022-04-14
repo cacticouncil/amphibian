@@ -53,6 +53,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
      */
     public AmphibianEditor(Project project, VirtualFile file)
     {
+        System.out.println("new instance of AmphibianEditor created");
         this.proj = project;
         this.file = file;
         this.vFile = FileDocumentManager.getInstance().getDocument(file);
@@ -78,13 +79,13 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             //Deselct Notify JSQUERY BACK HERE
             @Override
             public boolean onQuery(CefBrowser cefBrowser, CefFrame cefFrame, long l, String s, boolean b, CefQueryCallback cefQueryCallback) {
-                if(s!=null)
+                if(s!=null && !s.equals(code))
                 {
                     code = s;
+                    Runnable r = () -> { synchronized(vFile) { vFile.setText(code);} };
+                    WriteCommandAction.runWriteCommandAction(proj, r);
                 }
-                Runnable r = () -> { synchronized(vFile) { vFile.setText(code); } };
-                WriteCommandAction.runWriteCommandAction(proj, r);
-
+                //vFile.setText(code);
                 //Write a handler to change the file code
                 return true;
             }

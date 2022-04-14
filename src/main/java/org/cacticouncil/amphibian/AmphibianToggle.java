@@ -36,6 +36,7 @@ public class AmphibianToggle extends ToggleAction {
      */
     @Override
     public void setSelected(AnActionEvent e, boolean state) {
+        //System.out.println("setSelected in AmphibianToggle has been called");
         toggleState = state;
         //Refreshes all opened editor tabs to open or close SokoMaki Editors from those tabs
         FileEditorManagerEx manager = FileEditorManagerEx.getInstanceEx(e.getProject());
