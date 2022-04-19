@@ -24,7 +24,6 @@ public class PaletteManager
     private static PaletteManager paletteManager = null;
 
     private PaletteManager(){
-        System.out.println("new paletteManager instance created");
     }
 
     private void traverse(File dir){

@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abfe3a21-dff9-4fba-ade1-71e3ad0780a7" name="Default" comment="Has everything from testbed plugin implemented at this time. Basic browser now exists when enabled Browser initialization takes way too long, should only happen once when plugin is initialized?">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cacticouncil/amphibian/AmphibianEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cacticouncil/amphibian/AmphibianEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cacticouncil/amphibian/AmphibianEditorProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cacticouncil/amphibian/AmphibianEditorProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cacticouncil/amphibian/AmphibianService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cacticouncil/amphibian/AmphibianService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cacticouncil/amphibian/AmphibianStartupListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cacticouncil/amphibian/AmphibianStartupListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/cacticouncil/amphibian/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/cacticouncil/amphibian/plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cacticouncil/amphibian/AmphibianToggle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cacticouncil/amphibian/AmphibianToggle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cacticouncil/amphibian/PaletteManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cacticouncil/amphibian/PaletteManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

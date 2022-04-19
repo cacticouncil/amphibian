@@ -220,6 +220,9 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public boolean isModified() { return true; }
 
+    /**
+     * NOTE: AmphibianToggle.toggleState is currently always true
+     */
     @Override
     public boolean isValid() { return AmphibianToggle.getToggleState(); }
 
@@ -302,7 +305,11 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 
     }
 
-    private PaletteManager paletteManager = PaletteManager.getPaletteManager();
+    /**
+     * line below (and paletteManager call in line 322) commented
+     * out because this class currently doesn't do anything.
+     */
+    //private PaletteManager paletteManager = PaletteManager.getPaletteManager();
 
     private String loadSettings(String modeName)
     {
@@ -315,7 +322,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             modeName = modeName.replaceFirst("USR", "");
             try
             {
-                in = new FileInputStream(paletteManager.paletteDirectory + modeName);
+                in = new FileInputStream(/*paletteManager.paletteDirectory +*/ modeName);
                 reader = new BufferedReader(new InputStreamReader(in));
             }
             catch (FileNotFoundException e)

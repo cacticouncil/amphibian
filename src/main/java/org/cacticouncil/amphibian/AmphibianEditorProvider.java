@@ -15,14 +15,21 @@ public class AmphibianEditorProvider implements FileEditorProvider {
     /**
      * Runs when a new tab is opened, returns true if BOTH AmphibianToggle.toggleState = true
      * AND the VirtualFile to be opened is of the right file type (right now, just .java)
+     * NOTE: currently, toggleState is ALWAYS true, because we're not using a toggle,
+     * we're using tabs. Unclear if this is a deprecated feature as of 04/22.
      * @param project: the IntelliJ project that's open
      * @param file: the file currently displayed by the editor
      * @return boolean: Whether or not an AmphibianEditor tab should be added to the current tab
      */
     @Override
     public boolean accept(@NotNull Project project, @NotNull VirtualFile file) {
+
         if(AmphibianService.relationMap.containsKey(file.getExtension())){
-            return AmphibianToggle.toggleState;
+            return true;
+            /**
+             * line below commented (for now) because the toggleState variable is always true
+             */
+            //return AmphibianToggle.toggleState;
         }
         return false;
     }
