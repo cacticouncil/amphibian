@@ -1,6 +1,7 @@
-/*
-  Created by exlted on 01-Mar-17.
-  Controls the actual Amphibian Editor
+/**
+ * Created by exlted on 01-Mar-17.
+ * Updated by acomiskey Apr-22
+ * Controls the actual Amphibian Editor
  */
 
 package org.cacticouncil.amphibian;
@@ -21,6 +22,11 @@ import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.*;
 
 // CEF Imports (via JetBrains SDK)
+/** CEF = Chromium Embedded Framework
+ *  The Droplet editor tab is a Chromium tab running
+ *  the regular Droplet code as if it were a web browser
+ *  nested inside of IntelliJ
+ */
 import org.cef.browser.*;
 import org.cef.callback.CefQueryCallback;
 import org.cef.handler.CefLoadHandler;
@@ -34,6 +40,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 
     //The browser used by AmphibianEditor to show Droplet
     private final JBCefBrowser browser;
+
     // Resources connected with this Editor tab
     private static Project proj; // TODO: Should this be static???
     private final VirtualFile file;
@@ -53,14 +60,14 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
      */
     public AmphibianEditor(Project project, VirtualFile file)
     {
-        System.out.println("new instance of AmphibianEditor created");
         this.proj = project;
         this.file = file;
         this.vFile = FileDocumentManager.getInstance().getDocument(file);
+
+        //tells the blocks tab what kind of file it has open
         String mode = AmphibianService.getRelationMap().get(this.file.getExtension());
         settings = loadSettings(mode);
 
-        JBCefApp.getInstance();
         JBCefClient client = JBCefApp.getInstance().createClient();
         CefLoadHandler myLoadHandler;
         isDebugMode = java.lang.management.ManagementFactory.getRuntimeMXBean().
@@ -73,10 +80,18 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
             catch (InterruptedException ignored) { }
         }
 
+        // handler that accepts queries from plugin.js functions
+        // and makes them available to the AmphibianEditor class
         CefMessageRouter msgRouter = CefMessageRouter.create();
         msgRouter.addHandler(new CefMessageRouterHandler() {
 
-            //Deselct Notify JSQUERY BACK HERE
+            /**
+             * onQuery responds to the cefQuery in plugin.js's
+             * swapOutEditor() function, which returns the code
+             * as seen in the blocks tab. We only update the code
+             * in the actual file if changes have been made since
+             * we were last in the code tab.
+             */
             @Override
             public boolean onQuery(CefBrowser cefBrowser, CefFrame cefFrame, long l, String s, boolean b, CefQueryCallback cefQueryCallback) {
                 if(s!=null && !s.equals(code))
@@ -85,7 +100,6 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
                     Runnable r = () -> { synchronized(vFile) { vFile.setText(code);} };
                     WriteCommandAction.runWriteCommandAction(proj, r);
                 }
-                //vFile.setText(code);
                 //Write a handler to change the file code
                 return true;
             }
@@ -108,6 +122,7 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 
         client.getCefClient().addMessageRouter(msgRouter);
 
+        // handler that boots up plugin.js structures
         myLoadHandler = new CefLoadHandler() {
             @Override
             public void onLoadingStateChange(CefBrowser cefBrowser, boolean b, boolean b1, boolean b2) {
@@ -119,6 +134,10 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
 
             }
 
+            /**
+             * onLoadEnd initializes the plugin.js editor
+             * when Amphibian is first loaded.
+             */
             @Override
             public void onLoadEnd(CefBrowser cefBrowser, CefFrame cefFrame, int i) {
                 cefBrowser.executeJavaScript("initEditor(\"" + settings + "\", \"localuser\")",null,1);
@@ -142,6 +161,11 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public FileEditorState getState(@NotNull FileEditorStateLevel level) { return FileEditorState.INSTANCE; }
 
+    /**
+     * this logging system is supposed to accept
+     * console.log() messages from plugin.js and operate
+     * on them, but it doesn't work.
+     */
     private void handleConsoleEvent(String message)
     {
         if (message.startsWith("CODE_UPDATE"))
@@ -178,15 +202,13 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
         }
     }
 
-    //TODO components are a problem?
     @NotNull
     @Override
-    public JComponent getComponent() { return browser.getComponent(); }//null; }//myComponent; }
+    public JComponent getComponent() { return browser.getComponent(); }
 
-    //TODO components are a problem?
     @Nullable
     @Override
-    public JComponent getPreferredFocusedComponent() { return null; }//browserView; }
+    public JComponent getPreferredFocusedComponent() { return null; }
 
     @NotNull
     @Override
@@ -201,7 +223,13 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public boolean isValid() { return AmphibianToggle.getToggleState(); }
 
-    // Called upon the selection of the AmphibianEditor tab; updates the settings, language, and code
+    /**
+     * selectNotify sends the code in the code tab
+     * into the blocks tab. Currently, we send the
+     * code every time we switch, because the blocks
+     * tab resets itself to empty every time it goes
+     * out of focus.
+     */
     @Override
     public void selectNotify()
     {
@@ -221,7 +249,12 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     {
         if (set)
         {
-            code = FileDocumentManager.getInstance().getDocument(file).getText();
+            /**
+             * below line is commented out because it is unclear
+             * if it has any real effect on the plugin. code variable
+             * is also updated in onQuery, maybe this is deprecated?
+             */
+            //code = FileDocumentManager.getInstance().getDocument(file).getText();
             browser.getCefBrowser().executeJavaScript("swapOutEditor()", null, 0);
             set = true;
             isBlocks = false;
@@ -242,7 +275,6 @@ public class  AmphibianEditor extends UserDataHolderBase implements FileEditor
     @Override
     public FileEditorLocation getCurrentLocation() { return null; }
 
-    //overridden because default getFile() is now deprecated???
     @NotNull
     @Override
     public VirtualFile getFile() { return file; }

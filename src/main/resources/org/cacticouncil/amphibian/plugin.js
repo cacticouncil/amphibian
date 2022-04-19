@@ -34,6 +34,9 @@ setValueSync = function(value)
     releaseDataLock();
 }
 
+//these logs don't show up anywhere
+//for the end user, because the log operator
+//in AmphibianEditor doesn't work
 logToServer = function(message)
 {
     console.log("LOGGED:" + message);
@@ -48,10 +51,12 @@ showModalDialog = function(message)
 {
     modal_content.textContent = message;
     modal.style.display = "block";
-//    span.onclick = function() { modal.style.display = "none"; }
-//    window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
 }
 
+//this function doesn't do anything.
+//it is supposed to pass the blocks code through
+//the console into the AmphibianEditor, but instead
+//we use a Query
 updateCode = function(code)
 {
   console.log("CODE_UPDATE:" + getValueSync());
@@ -67,7 +72,6 @@ createEditor = function(options)
   editor.on('block-click', function() { logEvent("[block-click]"); });
   editor.on('selectpalette', function(e) { logEvent("[selectpalette][" + e + "]"); });
   editor.on('parseerror', function(e) { showModalDialog("You have a syntax error! Return to text mode to find it."); });
-//  editor.on('parseerror', function(e) { logEvent("[parseerror][" + e + "]"); });
 
   return window.editor = editor;
 }
@@ -99,10 +103,8 @@ swapOutEditor = function()
 
     window.cefQuery({
         request: returnValue,
-
-        //ON SUCCESS AND FAIL
     });
-    //updateCode(returnValue);
+
     setValueSync(""); // Gross hack; I need to get the editor to reset... we have to set value to empty to do that.
     return returnValue;
 }

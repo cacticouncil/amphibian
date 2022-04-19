@@ -1,3 +1,9 @@
+/**
+ * Created by acomiskey 04-22
+ * Stores persistent data that used to be held
+ * in AmphibianComponent.java
+ */
+
 package org.cacticouncil.amphibian;
 
 import java.util.HashMap;
@@ -5,11 +11,14 @@ import java.util.HashMap;
 public class AmphibianService
 {
     /**
-     * Holds the pathname to be used by anything needing direct access to the Droplet website
+     * Holds the pathname to be used by anything needing
+     * direct access to the Droplet website
      */
     static String pathname;
     /**
-     * Holds the relation map to be used for Droplet to both determine if a file should open a Droplet editor and what palette should be used for what file
+     * Holds the relation map to be used for Droplet to both
+     * determine if a file should open a Droplet editor and
+     * what palette should be used for what file
      */
     static HashMap<String, String> relationMap = new HashMap<>();
 

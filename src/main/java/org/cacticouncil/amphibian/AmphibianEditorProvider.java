@@ -8,35 +8,34 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by exlted on 01-Mar-17.
- * Provides the SokoMakiEditor when SokoMakiToggle.toggleState is true
+ * Updated by acomiskey Apr-22
+ * Provides the AmphibianEditor when AmphibianToggle.toggleState is true
  */
-public class AmphibianEditorProvider implements FileEditorProvider{
+public class AmphibianEditorProvider implements FileEditorProvider {
     /**
-     * Runs when a new tab is opened, returns true if BOTH SokoMaki is toggled on
-     * AND the VirtualFile to be opened is of the right file type
-     * @param project
-     * @param file
-     * @return Whether or not a SokoMakiEditor tab should be added to the current tab
+     * Runs when a new tab is opened, returns true if BOTH AmphibianToggle.toggleState = true
+     * AND the VirtualFile to be opened is of the right file type (right now, just .java)
+     * @param project: the IntelliJ project that's open
+     * @param file: the file currently displayed by the editor
+     * @return boolean: Whether or not an AmphibianEditor tab should be added to the current tab
      */
     @Override
     public boolean accept(@NotNull Project project, @NotNull VirtualFile file) {
         if(AmphibianService.relationMap.containsKey(file.getExtension())){
             return AmphibianToggle.toggleState;
         }
-        System.out.println("accept function called");
         return false;
     }
 
     /**
-     * Calls the SokoMakiEditor constructor
-     * @param project
-     * @param file
-     * @return Newly created SokoMakiEditor
+     * Calls the AmphbianEditor constructor
+     * @param project: the IntelliJ project that's open
+     * @param file: the file currently displayed by the editor
+     * @return FileEditor: Newly created AmphibianEditor
      */
     @NotNull
     @Override
     public FileEditor createEditor(@NotNull Project project, @NotNull VirtualFile file) {
-        System.out.println("amphibianEditor created");
         return new AmphibianEditor(project, file);
     }
 
@@ -51,7 +50,7 @@ public class AmphibianEditorProvider implements FileEditorProvider{
     }
 
     /**
-     * Called by IntelliJ to determine what to do with the SokoMakiEditor tab
+     * Called by IntelliJ to determine what to do with the AmphibianEditor tab
      * @return
      */
     @NotNull

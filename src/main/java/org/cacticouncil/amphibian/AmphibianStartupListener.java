@@ -1,4 +1,12 @@
+/**
+ * Created by acomiskey 04-22
+ * Listens for a project to be opened, copies
+ * resources files into temp directory, and
+ * instantiates the AmphibianService class
+ */
+
 package org.cacticouncil.amphibian;
+
 import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.ide.fileTemplates.FileTemplateManager;
 import com.intellij.openapi.application.ApplicationManager;
@@ -18,7 +26,7 @@ import com.intellij.ide.AppLifecycleListener;
 public class AmphibianStartupListener implements AppLifecycleListener
 {
     /**
-     * Copies a resource out of com.cactiCouncil.IntelliJDroplet package (might be able to change?) to external location
+     * Copies a resource out of com.cactiCouncil.IntelliJDroplet package to external location
      * @param copyFrom The name of the resource to be copied out, including the file extension
      * @param copyTo The fully defined file path to copy the file out to
      * @param delete Determines whether the file gets deleted on exit or not
@@ -45,7 +53,9 @@ public class AmphibianStartupListener implements AppLifecycleListener
 
     /**
      * Initializes the plugin by copying out the website from resources
-     * And by building the relationMap
+     * And by building the relationMap. The website is copied out from
+     * resources because resource files are stores in a .jar, and
+     * the Chromium Embedded Framework needs the files to be external.
      */
     @Override
     public void appStarted()
@@ -55,7 +65,6 @@ public class AmphibianStartupListener implements AppLifecycleListener
                 ApplicationManager.getApplication().getService(AmphibianService.class);
 
         // perform startup tasks
-        // all this code is from the old amphibiancomponent class
         FileTemplate template = FileTemplateManager.getDefaultInstance().getTemplate("Droplet Palette");
         if(template == null){
             template = FileTemplateManager.getDefaultInstance().addTemplate("Droplet Palette", "coffee");
@@ -86,16 +95,18 @@ public class AmphibianStartupListener implements AppLifecycleListener
                     "  })");
         }
 
+        //creates a directory for resource files
         Path tempPath = null;
         try {
             tempPath = Files.createTempDirectory("Droplet");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //pathname = tempPath.toString() + System.getProperty("file.separator"); CHANGED TO:
+
         amphibianService.setPathname(tempPath.toString() + System.getProperty("file.separator"));
         tempPath.toFile().deleteOnExit();
 
+        //copies the files named in Manifest.txt into the directory
         InputStream in = this.getClass().getResourceAsStream("Manifest.txt");
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
         try {
@@ -110,7 +121,7 @@ public class AmphibianStartupListener implements AppLifecycleListener
             e.printStackTrace();
         }
 
-
+        //creates relations from Relations.txt
         in = this.getClass().getResourceAsStream("Relations.txt");
         reader = new BufferedReader(new InputStreamReader(in));
         try {
